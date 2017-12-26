@@ -1,5 +1,6 @@
 /* also-mobile基础样式重置 */
-	body{
+	body, html{
+		height: 100%;
 		background: #efeff4;
 		font-size: 16px;
 	}
@@ -34,6 +35,13 @@
 	.weui-navbar__item.weui-bar__item_on:after{
 		display: block;
 	}
+	.weui-btn_primary{
+		background: #36b9bf;
+	}
+	.weui-btn_primary:not(.weui-btn_disabled):active{
+		background: #36b9bf;
+	}
+
 /* alsoTopBar 微信浏览器下不显示 */
 	.also-header-wrap{
 		height: 46px;
@@ -44,7 +52,7 @@
 		padding: 3px 0;
 		box-sizing: border-box;
 		background-color: #36b9bf;
-		z-index: 99;
+		z-index: 999;
 	}
 	.also-header .also-header-title {
 		line-height: 40px;
@@ -109,7 +117,7 @@
 		border: 1px solid #fff;
 		border-width: 1px 0 0 1px;
 		-webkit-transform: rotate(315deg);
-						transform: rotate(315deg);
+		transform: rotate(315deg);
 		top: 8px;
 		left: 7px;
 	}
@@ -127,11 +135,11 @@
 	}
 	.also-header-fade-in-right-enter-active {
 		-webkit-animation: fadeinR .5s;
-						animation: fadeinR .5s;
+		animation: fadeinR .5s;
 	}
 	.also-header-fade-in-left-enter-active {
 		-webkit-animation: fadeinL .5s;
-						animation: fadeinL .5s;
+		animation: fadeinL .5s;
 	}
 /* 日历 */
 	.laydate-theme-rb{
@@ -215,6 +223,23 @@
 		background-color: #aaa;
 	}
 /* also-style */
+	.also-btn-wrap{
+		padding: 15px;
+	}
+	.also-btn-flex{
+		display: -webkit-box;
+		display: flex;
+	}
+	.also-a-l{
+		text-align: left;
+	}
+	.also-a-r{
+		text-align: right;
+	}
+	.also-btn-text{
+		flex: 1;
+		color: #36b9bf;
+	}
 	.also-p-title{
 		font-weight: bold;
 		margin-right: 10px;
@@ -223,44 +248,44 @@
 		height: 50px;
 	}
 	.also-actionBar{
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 99;
-    left: constant(safe-area-inset-left);
-    right: constant(safe-area-inset-right);
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		z-index: 999;
+		left: constant(safe-area-inset-left);
+		right: constant(safe-area-inset-right);
 	}
 	.also-actionBar-wrap{
-    --origin-safe-area-inset-bottom: 0px;
-    width: 100%;
-    height: 50px;
-    background-color: #f7f7fa;
-    line-height: 50px;
-    display: -webkit-box;
-    display: flex;
-    text-align: center;
-    --safe-area-inset-bottom: var(--windvane-safe-area-inset-bottom, var(--origin-safe-area-inset-bottom));
-    padding-bottom: var(--safe-area-inset-bottom);
+		--origin-safe-area-inset-bottom: 0px;
+		width: 100%;
+		height: 50px;
+		background-color: #f7f7fa;
+		line-height: 50px;
+		display: -webkit-box;
+		display: flex;
+		text-align: center;
+		--safe-area-inset-bottom: var(--windvane-safe-area-inset-bottom, var(--origin-safe-area-inset-bottom));
+		padding-bottom: var(--safe-area-inset-bottom);
 	}
 	.preserved, .advanced{
 		display: block;
-    flex: 1;
-    height: 50px;
-  	-webkit-box-sizing: border-box;
+		flex: 1;
+		height: 50px;
+		-webkit-box-sizing: border-box;
 		-moz-box-sizing: border-box;
 		box-sizing: border-box;
 	}
 	.preserved{
-    min-width: 40%;
-    color: #fff;
-    background-color: #36b9bf;
+		min-width: 40%;
+		color: #fff;
+		background-color: #36b9bf;
 	}
 	.advanced{
 		text-align: left;
 		padding-left: 15px;
-    min-width: 60%;
-    color: #333333;
+		min-width: 60%;
+		color: #333333;
 	}
 	.advanced strong{
 		height: 25px;
@@ -272,4 +297,109 @@
 		font-size: 12px;
 		display: block;
 	}
-/*  */
+/* also-login */
+	.login-bg{
+		height: 100%;
+		background-size: 100% auto;
+		background-color: #fff;
+		background-repeat: no-repeat;
+		background-position: bottom center;
+		background-image: url(../img/login_pic_bg.png);
+	}
+	.also-login-wrap{
+
+	}
+	.also-logo{
+		text-align: center;
+		margin: 60px auto;
+		width: 40%;
+	}
+	.also-logo img{
+		width: 100%;
+		max-width: 200px;
+	}
+	.also-setp{
+		margin: 0 auto;
+		width: 70%;
+		display: -webkit-box;
+		display: flex;
+	}
+	.also-setp-item{
+		padding: 50px 0;
+		position: relative;
+		flex: 1;
+	}
+	.also-setp-item::before, .also-setp-item::after{
+		position: absolute;
+		content:"";
+		top: 59px;
+		width: 45%;
+		height: 1px;
+		background: #36b9bf;
+		z-index: 98;
+	}
+	.also-setp-stop::before, .also-setp-stop::after{
+		background: #ccc;
+	}
+	.also-setp-item::before{
+		left: 0;
+	}
+	.also-setp-item::after{
+		right: 0;
+	}
+	.also-setp-item:first-child::before{
+		background: #fff;
+		z-index: -1;
+	}
+	.also-setp-item:last-child::after{
+		background: #fff;
+		z-index: -1;
+	}
+	.also-setp-item p{
+		text-align: center;
+		font-size: 14px;
+		margin-top: 30px;
+		color: #36b9bf;
+	}
+	.also-setp-item span{
+		position: absolute;
+		top: 45px;
+		left: 50%;
+		margin-left: -15px;
+		border-radius: 50%;
+		width: 30px;
+		height: 30px;
+		z-index: 99;
+		background-color: rgba(54, 185, 191, .3);
+	}
+	.also-setp-item i{
+		position: absolute;
+		left: 7px;
+		top: 7px;
+		border-radius: 50%;
+		width: 6px;
+		height: 6px;
+		background-color: #fff;
+		border: 5px solid #36b9bf;
+	}
+	.also-setp-stop span{
+		background-color: rgba(204, 204, 204, .3);
+	}
+	.also-setp-stop i{
+		border: 5px solid #ccc;
+	}
+	.also-setp-stop p{
+		color: #ccc;
+	}
+	.also-setp-box1, .also-setp-box2, .also-setp-box3{
+		display: none;
+	}
+	.also-setp1 .also-setp-box1{
+		display: block;
+	}
+	.also-setp2 .also-setp-box2{
+		display: block;
+	}
+	.also-setp3 .also-setp-box3{
+		display: block;
+	}

@@ -14,7 +14,10 @@
 
 module.exports = {
 	HTMLDirs:[
-		'alert'
+		'alert',
+		'login',
+		'register',
+		'find'
 	],
 	cssPublicPath:"../",
 	imgOutputPath:"img/",
