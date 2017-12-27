@@ -6,6 +6,14 @@ $(function(){
 		console.log("这里是返回");
 	});
 
+
+
+    $(function(){
+        $('.weui-tabbar__item').on('click', function () {
+            $(this).addClass('weui-bar__item_on').siblings('.weui-bar__item_on').removeClass('weui-bar__item_on');
+        });
+    });
+
 	// 日期控件生成
 	if("undefined" != typeof mark){
 		laydate.render({
