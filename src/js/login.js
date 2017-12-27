@@ -4,26 +4,6 @@ import Validform from '../plug/validForm.js';
 function changeCode() {
 	$("#codeImg").attr("src", "code.do?t=" + new Date().getTime());
 }
-function checkImeCode(){
-	$.ajax({
-                 type: "POST",
-                 url: 'registerU.do',
-			data : $('#basicCodeInfo').serialize(),
-			dataType : 'json',
-			cache : false,
-			error: function(XMLHttpRequest, textStatus, errorThrown) {
-
-            },
-			success : function(data) {
-				if(data.result=='success'){
-
-				}else{
-
-				}
-			}
-			});
-}
-
 function tooltips(msg){
 	var $tooltips = $('.js_tooltips');
 	$tooltips.html(msg)
@@ -48,10 +28,33 @@ $(function(){
 		changeCode();
 		$("#CODE").val("").get(0).focus();
 	})
-	$("#basicInfo").Validform({tiptype:function(msg,o,cssctl){
+	$("#basicInfo").Validform({
+		tiptype:function(msg,o,cssctl){
 						if(o.type==3){
 						tooltips(msg)
 					}
 
-        }});
+        },
+    ignoreHidden: true,
+		showAllError : false,
+		postonce : false,
+		ajaxPost : true,
+		datatype : {
+
+		},
+		beforeCheck : function(curform) {
+
+		},
+
+		beforeSubmit:function(curform){
+
+        },
+		callback : function(data) {
+			var loginname = $("#USERNAME").val();
+				errorcode =data.errorcode;
+			if(data.status == 'y') {
+						window.location.href = "/mobile_index";
+				}
+			}
+			});
 });
