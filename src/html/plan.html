@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+	<title>WeUI</title>
+	<link rel="stylesheet" href="./static/plug/laydate/theme/default/laydate.css">
+	<script type="text/javascript">
+	// 是否显示预备计划 
+	var isShowBasePlan = true;
+	// 特殊日期标注
+	var mark = {
+		'2017-11-15': '' //具体日期
+		,'2017-11-20': '' //如果为空字符，则默认显示数字+徽章
+		,'2017-11-21': ''
+	};
+	</script>
+</head>
+<body ontouchstart>
+		<div class="weui-tab">
+			<div class="weui-tab__panel">
+			</div>
+			<div class="weui-tabbar">
+				<a href="javascript:;" class="weui-tabbar__item">
+					<img src="../img/tabbar_icon_assess_normal.png" alt="" class="weui-tabbar__icon weui-tabbar__icon1">
+					<img src="../img/tabbar_icon_assess_select.png" alt="" class="weui-tabbar__icon weui-tabbar__icon2">
+					<p class="weui-tabbar__label">评估</p>
+				</a>
+				<a href="javascript:;" class="weui-tabbar__item">
+					<img src="../img/tabbar_icon_train_normal.png" alt="" class="weui-tabbar__icon weui-tabbar__icon1">
+					<img src="../img/tabbar_icon_train_select.png" alt="" class="weui-tabbar__icon weui-tabbar__icon2">
+					<p class="weui-tabbar__label">训练</p>
+				</a>
+				<a href="javascript:;" class="weui-tabbar__item weui-bar__item_on">
+					<img src="../img/tabbar_icon_book_normal.png" alt="" class="weui-tabbar__icon weui-tabbar__icon1">
+					<img src="../img/tabbar_icon_book_select.png" alt="" class="weui-tabbar__icon weui-tabbar__icon2">
+					<p class="weui-tabbar__label">金手册</p>
+				</a>
+				<a href="javascript:;" class="weui-tabbar__item">
+					<img src="../img/tabbar_icon_my_normal.png" alt="" class="weui-tabbar__icon weui-tabbar__icon1">
+					<img src="../img/tabbar_icon_my_normal.png" alt="" class="weui-tabbar__icon weui-tabbar__icon2">
+					<p class="weui-tabbar__label">我</p>
+				</a>
+			</div>
+		</div>
+
+	<script type="text/javascript" src="./static/plug/laydate/laydate.js"></script>
+</body>
+</html>

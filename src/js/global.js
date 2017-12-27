@@ -25,7 +25,11 @@ module.exports = {
 
 		// 非微信浏览器顶部插入header模板
 		if(!isWeiXin()){
-			$("body").prepend(_header);
+			if($(".weui-tab__panel").length>0){
+				$(".weui-tab__panel").prepend(_header);
+			}else{
+				$("body").prepend(_header);
+			}
 			$(document).on('click', '.left-arrow', function () {
 				if(typeof callBack == "function"){
 					callBack()
