@@ -10,29 +10,43 @@
 		<div class="also-logo">
 			<img src="../img/logo.png">
 		</div>
-		<div class="weui-cells weui-cells_form">
-            <div class="weui-cell">
-                <div class="weui-cell__hd"><label class="weui-label">账号</label></div>
+		<form id="basicInfo" method="post">
+			<div class="weui-cells weui-cells_form">
+	            <div class="weui-cell">
+	                <div class="weui-cell__hd"><label class="weui-label">账号</label></div>
+	                <div class="weui-cell__bd">
+	                    <input class="weui-input" type="text" name="USERNAME" id='USERNAME' pattern="[0-9]*" placeholder="请输入账号">
+	                </div>
+	            </div>
+	            <div class="weui-cell">
+	                <div class="weui-cell__hd"><label class="weui-label">密码</label></div>
+	                <div class="weui-cell__bd">
+	                    <input class="weui-input" name="PASSWORD" id='PASSWORD' type="password" pattern="[0-9]*" value="" placeholder="请输入密码">
+	                </div>
+	            </div>
+							<div class="weui-cell weui-cell_vcode">
+                <div class="weui-cell__hd"><label class="weui-label">验证码</label></div>
                 <div class="weui-cell__bd">
-                    <input class="weui-input" type="text" pattern="[0-9]*" placeholder="请输入账号">
+                    <input class="weui-input" type="text" placeholder="请输入验证码" datatype="*" errormsg="您输入的验证码有误！" nullmsg="请输入验证码！">
+										<p class="Validform_checktip" id='CODETIP'></p>
+                </div>
+                <div class="weui-cell__ft" id='changeCode'>
+                    <img class="weui-vcode-img" src="../img/vc.gif" id='codeImg'>
                 </div>
             </div>
-            <div class="weui-cell">
-                <div class="weui-cell__hd"><label class="weui-label">密码</label></div>
-                <div class="weui-cell__bd">
-                    <input class="weui-input" type="password" pattern="[0-9]*" value="" placeholder="请输入密码">
-                </div>
-            </div>
-        </div>
+	        </div>
 
-        <div class="also-btn-wrap">
-        	<a href="javascript:;" class="weui-btn weui-btn_primary">登录</a>
-        </div>
+	        <div class="also-btn-wrap">
+	        	<a href="javascript:;" class="weui-btn weui-btn_primary">登录</a>
+	        </div>
 
-        <div class="also-btn-wrap also-btn-flex">
-        	<a class="also-btn-text also-a-l" href="###">忘记密码</a>
-        	<a class="also-btn-text also-a-r" href="###">立即注册</a>
-        </div>
+	        <div class="also-btn-wrap also-btn-flex">
+	        	<a class="also-btn-text also-a-l" href="###">忘记密码</a>
+	        	<a class="also-btn-text also-a-r" href="###">立即注册</a>
+	        </div>
+		</form>
+
 	</div>
+	<script type="text/javascript" src="./static/plug/validForm.js"></script>
 </body>
 </html>

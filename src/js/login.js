@@ -9,4 +9,13 @@ $(function(){
 	global.tab(function (i) {
 		console.log(i);
 	});
+	//changeCode();
+	$("#changeCode").on(function(){
+		changeCode();
+		$("#CODE").val("").get(0).focus();
+	})
+	$("#basicInfo").Validform();
 });
+function changeCode() {
+			$("#codeImg").attr("src", "code.do?t=" + new Date().getTime());
+		}
