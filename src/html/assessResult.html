@@ -4,8 +4,21 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
 	<title>WeUI</title>
+	<link rel="stylesheet" href="./static/plug/laydate/theme/default/laydate.css">
+	<script type="text/javascript">
+	// 是否显示预备计划	
+	var isShowBasePlan = true;
+	// 特殊日期标注
+	var mark = {
+		'2017-11-15': '' //具体日期
+		,'2017-11-20': '' //如果为空字符，则默认显示数字+徽章
+		,'2017-11-21': ''
+	};
+	</script>
 </head>
 <body ontouchstart>
-	
+	<div id="rb-date"></div>
+
+	<script type="text/javascript" src="./static/plug/laydate/laydate.js"></script>
 </body>
 </html>

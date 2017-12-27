@@ -12,16 +12,31 @@
 // 	};
 // let HTMLDirs = getFileNameList('./src/html');
 
+// module.exports = {
+// 	HTMLDirs:[
+// 		'alert',
+// 		'login',
+// 		'register',
+// 		'find',
+// 		'assessResult'
+// 	],
+// 	cssPublicPath:"../",
+// 	imgOutputPath:"img/",
+// 	cssOutputPath:"./css/styles.css",
+// 	devServerOutputPath:"../dist",
+
+// }
 module.exports = {
-	HTMLDirs:[
-		'alert',
-		'login',
-		'register',
-		'find'
-	],
+	// HTMLDirs:[
+	// 	'alert',
+	// 	'login',
+	// 	'register',
+	// 	'find',
+	// 	'assessResult'
+	// ],
 	cssPublicPath:"../",
-	imgOutputPath:"img/",
-	cssOutputPath:"./css/styles.css",
+	imgOutputPath:"static/img/",
+	cssOutputPath:"./static/css/styles.css",
 	devServerOutputPath:"../dist",
 
 }

@@ -7,6 +7,8 @@ const HTMLWebpackPlugin = require("html-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin")
 // 抽取 css
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+// copy静态资源
+const copyWebpackPlugin = require("copy-webpack-plugin");
 // 清理无用css
 // const PurifyCssPlugin = require("purifycss-webpack");
 // 引入多页面文件列表
@@ -18,8 +20,23 @@ let Entries = {
 	zepto:'zepto'
 }
 
+// 获取所有页面 生成多页面的集合
+var fs= require('fs');
+const getFileNameList = path => {
+	let fileList = [];
+	let dirList = fs.readdirSync(path);
+		dirList.forEach(item => {
+			if (item.indexOf('html') > -1) {
+				fileList.push(item.split('.')[0]);
+			}
+		});
+		return fileList;
+	};
+let HTMLDirs = getFileNameList('./src/html');
+
 // 生成多页面的集合
-config.HTMLDirs.forEach((page) => {
+// config.HTMLDirs.forEach((page) => {
+HTMLDirs.forEach((page) => {
 	const htmlPlugin = new HTMLWebpackPlugin({
 		filename: `${page}.html`,
 		template: path.resolve(__dirname, `../src/html/${page}.html`),
@@ -33,7 +50,7 @@ module.exports = {
 	entry:Entries,
 	devtool:"cheap-module-source-map",
 	output:{
-		filename:"js/[name].bundle.[hash].js",
+		filename:"static/js/[name].bundle.[hash].js",
 		path:path.resolve(__dirname,"../dist")
 	},
 	// 加载器
@@ -110,6 +127,10 @@ module.exports = {
 		}),
 		// 将 css 抽取到某个文件夹
 		new ExtractTextPlugin(config.cssOutputPath),
+		new copyWebpackPlugin([{
+			from: "./src/plug",
+			to: "./static/plug"
+		}]),
 		// new PurifyCssPlugin({
 		//     path: glob.sync(path.join(__dirname, '../src/html/*html'))
 		// }),

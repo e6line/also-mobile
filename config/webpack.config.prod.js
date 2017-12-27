@@ -19,7 +19,7 @@ module.exports = webpackMerge(webpackBase,{
 		new webpack.optimize.CommonsChunkPlugin({
 			// chunk 名为 commons
 			name: "zepto",
-			filename: "js/[name].js",
+			filename: "static/js/[name].js",
 			minChunks: 2
 		}),
 	]
