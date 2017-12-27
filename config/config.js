@@ -34,8 +34,8 @@ module.exports = {
 	// 	'find',
 	// 	'assessResult'
 	// ],
-	cssPublicPath:"../",
-	imgOutputPath:"static/img/",
+	cssPublicPath:"../../",
+	imgOutputPath:"./static/img/",
 	cssOutputPath:"./static/css/styles.css",
 	devServerOutputPath:"../dist",
 
