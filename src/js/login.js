@@ -1,4 +1,9 @@
 import global from '../js/global.js';
+import Validform from '../plug/validForm.js';
+
+function changeCode() {
+	$("#codeImg").attr("src", "code.do?t=" + new Date().getTime());
+}
 
 $(function(){
 	// 非微信浏览器添加topBar
@@ -10,12 +15,9 @@ $(function(){
 		console.log(i);
 	});
 	//changeCode();
-	$("#changeCode").on(function(){
+	$("#changeCode").on("click", function(){
 		changeCode();
 		$("#CODE").val("").get(0).focus();
 	})
 	$("#basicInfo").Validform();
 });
-function changeCode() {
-			$("#codeImg").attr("src", "code.do?t=" + new Date().getTime());
-		}

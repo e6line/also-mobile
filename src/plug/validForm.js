@@ -62,9 +62,9 @@
                 var q = arguments[1];
                 a.util.check.call(this, o, q)
             });
-            o.delegate(":text", "keypress",
+            o.delegate("input[type=text]", "keypress",
             function(q) {
-                if (q.keyCode == 13 && o.find(":submit").length == 0) {
+                if (q.keyCode == 13 && o.find("[type=submit]").length == 0) {
                     o.submit()
                 }
             });
@@ -114,13 +114,13 @@
         },
         getValue: function(m) {
             var l, k = this;
-            if (m.is(":radio")) {
-                l = k.find(":radio[name='" + m.attr("name") + "']:checked").val();
+            if (m.is("input[type=radio]")) {
+                l = k.find("input[type=radio][name='" + m.attr("name") + "']:checked").val();
                 l = l === b ? "": l
             } else {
-                if (m.is(":checkbox")) {
+                if (m.is("input[type=checkbox]")) {
                     l = "";
-                    k.find(":checkbox[name='" + m.attr("name") + "']:checked").each(function() {
+                    k.find("input[type=checkbox][name='" + m.attr("name") + "']:checked").each(function() {
                         l += d(this).val() + ","
                     });
                     l = l === b ? "": l
@@ -200,14 +200,14 @@
                     }
                 })
             });
-            o.find(":checkbox[datatype],:radio[datatype]").each(function() {
+            o.find("input[type=checkbox][datatype],input[type=radio][datatype]").each(function() {
                 if (this.validform_inited == "inited") {
                     return true
                 }
                 this.validform_inited = "inited";
                 var q = d(this);
                 var p = q.attr("name");
-                o.find("[name='" + p + "']").filter(":checkbox,:radio").bind("click",
+                o.find("[name='" + p + "']").filter("input[type=checkbox],input[type=radio]").bind("click",
                 function() {
                     setTimeout(function() {
                         q.trigger("blur")
@@ -315,10 +315,10 @@
                     d(document).mousedown(p)
                 };
                 if (o.jqtransform.selector) {
-                    s.find(o.jqtransform.selector).filter('input:submit, input:reset, input[type="button"]').jqTransInputButton();
-                    s.find(o.jqtransform.selector).filter("input:text, input:password").jqTransInputText();
-                    s.find(o.jqtransform.selector).filter("input:checkbox").jqTransCheckBox();
-                    s.find(o.jqtransform.selector).filter("input:radio").jqTransRadio();
+                    s.find(o.jqtransform.selector).filter('[type=submit], input[type=reset], [type=button]').jqTransInputButton();
+                    s.find(o.jqtransform.selector).filter("input[type=text], input[type=password]").jqTransInputText();
+                    s.find(o.jqtransform.selector).filter("input[type=checkbox]").jqTransCheckBox();
+                    s.find(o.jqtransform.selector).filter("input[type=radio]").jqTransRadio();
                     s.find(o.jqtransform.selector).filter("textarea").jqTransTextarea();
                     if (s.find(o.jqtransform.selector).filter("select").length > 0) {
                         s.find(o.jqtransform.selector).filter("select").jqTransSelect();
@@ -350,9 +350,9 @@
                     return k
                 }
             } else {
-                k = n.is(":checkbox,:radio,select") ? k.replace(/\{0\|(.+)\}/, "") : k.replace(/\{0\|(.+)\}/, "$1")
+                k = n.is("input[type=checkbox],input[type=radio],select") ? k.replace(/\{0\|(.+)\}/, "") : k.replace(/\{0\|(.+)\}/, "$1")
             }
-            k = n.is(":checkbox,:radio,select") ? k.replace(m, "$2") : k.replace(m, "$1");
+            k = n.is("input[type=checkbox],input[type=radio],select") ? k.replace(m, "$2") : k.replace(m, "$1");
             n.attr("nullmsg", k);
             return k
         },
