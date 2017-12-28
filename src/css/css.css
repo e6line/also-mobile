@@ -69,6 +69,10 @@
 	.weui-grid:after,.weui-grid:before{
 		border: none;
 	}
+	.weui-grid__icon{
+		width: 36px;
+		height: 36px;
+	}
 /* alsoTopBar 微信浏览器下不显示 */
 	.also-header-wrap{
 		height: 46px;
@@ -169,33 +173,37 @@
 		animation: fadeinL .5s;
 	}
 /* 日历 */
-	.laydate-theme-rb{
+	#also-date{
+		height: 50px;
+		overflow: hidden;
+	}
+	.laydate-theme-also{
 		width: 100%;
 		box-shadow: none!important;
 		background: none!important;
 		border: none!important;
 	}
-	.laydate-theme-rb .laydate-prev-y, .laydate-theme-rb .laydate-next-y{
+	.laydate-theme-also .laydate-prev-y, .laydate-theme-also .laydate-next-y{
 		display: none;
 	}
-	.laydate-theme-rb .layui-laydate-header i.laydate-prev-m{
+	.laydate-theme-also .layui-laydate-header i.laydate-prev-m{
 		left: 0;
 	}
-	.laydate-theme-rb .layui-laydate-header i.laydate-next-m{
+	.laydate-theme-also .layui-laydate-header i.laydate-next-m{
 		right: 0;
 	}
-	.laydate-theme-rb .layui-laydate-main, .laydate-theme-rb .layui-laydate-content, .laydate-theme-rb .layui-laydate-content table{
+	.laydate-theme-also .layui-laydate-main, .laydate-theme-also .layui-laydate-content, .laydate-theme-also .layui-laydate-content table{
 		padding: 0;
 		width: 100%;
 		background-color: #fff;
 		white-space:nowrap;
 	}
-	.laydate-theme-rb .layui-laydate-main{
+	.laydate-theme-also .layui-laydate-main{
 		clear: both;
 		height: 50px;
     	overflow-y: hidden;
 	}
-	.laydate-theme-rb .layui-laydate-content{
+	.laydate-theme-also .layui-laydate-content{
 		float: left;
 		width: 70%;
     	height: 50px;
@@ -211,7 +219,7 @@
 		transition-duration: .3s;
 		-webkit-transition-duration: .3s;
 	}
-	.laydate-theme-rb .layui-laydate-content::-webkit-scrollbar{
+	.laydate-theme-also .layui-laydate-content::-webkit-scrollbar{
 		display:none; 
 		width:0px;
 		-webkit-appearance: none; 
@@ -230,7 +238,7 @@
 	    height: 32px!important;
 	    line-height: 32px!important;
 	}
-	.laydate-theme-rb .layui-laydate-header{
+	.laydate-theme-also .layui-laydate-header{
 		float: right;
 		width: 30%;
 		padding: 10px 0;
@@ -245,23 +253,23 @@
 	.layui-laydate .layui-this{
 		background-color: #36b9bf!important;
 	}
-	.laydate-theme-rb .layui-laydate-header i{
+	.laydate-theme-also .layui-laydate-header i{
 		display: none!important;
 	}
-	.laydate-theme-rb .layui-laydate-content table{
+	.laydate-theme-also .layui-laydate-content table{
 	}
-	.laydate-theme-rb .layui-laydate-content table thead{
+	.laydate-theme-also .layui-laydate-content table thead{
 		display: none;
 	}
-	.laydate-theme-rb .layui-laydate-content table tbody{
+	.laydate-theme-also .layui-laydate-content table tbody{
 		white-space:nowrap;
 	}
-	.laydate-theme-rb .layui-laydate-content table tr{
+	.laydate-theme-also .layui-laydate-content table tr{
 		display: inline-block;
 		height: 30px;
 		margin: 10px 0;
 	}
-	.laydate-theme-rb .layui-laydate-content table th, .laydate-theme-rb .layui-laydate-content table td{
+	.laydate-theme-also .layui-laydate-content table th, .laydate-theme-also .layui-laydate-content table td{
 		font-size: 16px;
 		border-radius: 50%;
 		padding: 5px;
@@ -269,21 +277,21 @@
 		width: 35px;
 		font-size: 14px;
 	}
-	.laydate-theme-rb .layui-laydate-content table td.layui-this{
+	.laydate-theme-also .layui-laydate-content table td.layui-this{
 		background: #36B9BF!important;
 	}
-	.laydate-theme-rb .layui-laydate-header{
+	.laydate-theme-also .layui-laydate-header{
 		color: #666;
 		border: none;
 	}
 	.laydate-set-ym span:hover, .layui-laydate-header i:hover{
 		color: #36B9BF!important;
 	}
-	.laydate-theme-rb .laydate-day-mark{
+	.laydate-theme-also .laydate-day-mark{
 		font-size: 14px;
 		line-height: 32px;
 	}
-	.laydate-theme-rb .laydate-day-mark::after{
+	.laydate-theme-also .laydate-day-mark::after{
 		content: '';
 		width: 6px;
 		height: 6px;
@@ -293,9 +301,31 @@
 		background-color: #aaa;
 	}
 /* also-style */
-	.also-grid{
+	.also-small-title{
+		font-size: 13px;
+		color: #666;
+		margin: 15px 0 -5px 15px;
+	}
+	.also-title{
+	    font-size: 15px;
+        padding: 14px 15px 10px;
+	    position: relative;
+	}
+	.also-title::after{
+		position: absolute;
+		content: '';
+		width: 30px;
+		height: 3px;
+		left: 15px;
+		bottom: 0px;
+		background-color: #36b9bf;
+	}
+	.also-grids .weui-grid{
 		width: 25%;
 		background-color: #fff;
+	}
+	.also-grids .weui-grid:active {
+	    background-color: #f7f7f7
 	}
 	.also-as-btn-wrap{
 		float: right;

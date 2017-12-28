@@ -8,7 +8,8 @@ const webpack = require("webpack");
 module.exports = webpackMerge(webpackBase,{
 	plugins:[
 	    new webpack.ProvidePlugin({
-	        $:"zepto"
+	        $:"zepto",
+	        zepto: "zepto"
 	    }),
 		// 代码压缩
 		new webpack.optimize.UglifyJsPlugin({
@@ -18,9 +19,10 @@ module.exports = webpackMerge(webpackBase,{
 		// 提取公共 JavaScript 代码
 		new webpack.optimize.CommonsChunkPlugin({
 			// chunk 名为 commons
+			// names: ["zepto", "commons"],
 			name: "zepto",
 			filename: "static/js/[name].js",
-			minChunks: 2
+			minChunks: 3
 		}),
 	]
 });

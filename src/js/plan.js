@@ -13,7 +13,7 @@ $(function(){
 	// 日期控件生成
 	if("undefined" != typeof mark){
 		laydate.render({
-			elem: '#rb-date',
+			elem: '#also-date',
 			position: 'static',
 			ready: function() {
 				$(".layui-laydate-content").scrollLeft(($("td.layui-this").offset().left - $(".layui-laydate-content").width()/2 + 16));
@@ -24,7 +24,7 @@ $(function(){
 				// $(".layui-laydate-content").scrollLeft(($("td.layui-this").offset().left - $(".layui-laydate-content").width()/2 + 16 + $(".layui-laydate-content").scrollLeft()));
 			},
 			mark: mark,
-			theme: 'rb',
+			theme: 'also',
 			format: 'yyyy-MM-dd',
 			done: function(value, date, endDate){
 				console.log(1)

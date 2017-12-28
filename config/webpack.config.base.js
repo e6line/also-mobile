@@ -18,6 +18,7 @@ let HTMLPlugins = [];
 // 入口文件集合
 let Entries = {
 	zepto:'zepto'
+	// commons: 'commons'
 }
 
 // 获取所有页面 生成多页面的集合
@@ -40,7 +41,7 @@ HTMLDirs.forEach((page) => {
 	const htmlPlugin = new HTMLWebpackPlugin({
 		filename: `${page}.html`,
 		template: path.resolve(__dirname, `../src/html/${page}.html`),
-		chunks: ['zepto', page],
+		chunks: ['zepto', page]
 	});
 	HTMLPlugins.push(htmlPlugin);
 	Entries[page] = path.resolve(__dirname, `../src/js/${page}.js`);

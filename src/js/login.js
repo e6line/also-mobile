@@ -1,5 +1,5 @@
 import global from '../js/global.js';
-import vf from '../plug/validForm.js';
+import Validform from '../plug/validForm.js';
 
 function changeCode() {
 	$("#codeImg").attr("src", "code.do?t=" + new Date().getTime());
