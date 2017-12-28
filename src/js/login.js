@@ -45,7 +45,6 @@ $(function(){
 		beforeSubmit:function(curform){
         },
 		callback : function(data) {
-				console.log("data.status---"+data.status);
 			if(data.status == 'y') {
 						window.location.href = basePath+"/mobile_index";
 				}
