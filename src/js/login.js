@@ -1,5 +1,5 @@
 import global from '../js/global.js';
-import Validform from '../plug/validForm.js';
+import vf from '../plug/validForm.js';
 
 function changeCode() {
 	$("#codeImg").attr("src", "code.do?t=" + new Date().getTime());
@@ -9,9 +9,9 @@ function tooltips(msg){
 	$tooltips.html(msg)
 	if ($tooltips.css('display') != 'none') return;
 	$tooltips.css('display', 'block');
-            setTimeout(function () {
-                $tooltips.css('display', 'none');
-            }, 2000);
+	setTimeout(function () {
+		$tooltips.css('display', 'none');
+	}, 2000);
 }
 $(function(){
 	// 非微信浏览器添加topBar
@@ -30,12 +30,12 @@ $(function(){
 	})
 	$("#basicInfo").Validform({
 		btnSubmit:"#btn_sub",
-		tiptype:function(msg,o,cssctl){
-						if(o.type==3){
-						tooltips(msg)
-					}
-        },
-    ignoreHidden: true,
+		tiptype:function(msg, o, cssctl){
+			if(o.type==3){
+				tooltips(msg)
+			}
+		},
+		ignoreHidden: true,
 		showAllError : false,
 		postonce : false,
 		ajaxPost : true,
@@ -43,11 +43,11 @@ $(function(){
 		beforeCheck : function(curform) {
 		},
 		beforeSubmit:function(curform){
-        },
+		},
 		callback : function(data) {
-			if(data.status == 'y') {
-						window.location.href = basePath+"/mobile_index";
+				if(data.status == 'y') {
+					window.location.href = basePath+"/mobile_index";
 				}
 			}
-			});
+		});
 });
