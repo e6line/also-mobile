@@ -66,6 +66,9 @@
 	.weui-tabbar__item.weui-bar__item_on .weui-tabbar__label{
 		color: #36b9bf;
 	}
+	.weui-grid:after,.weui-grid:before{
+		border: none;
+	}
 /* alsoTopBar 微信浏览器下不显示 */
 	.also-header-wrap{
 		height: 46px;
@@ -184,23 +187,66 @@
 	.laydate-theme-rb .layui-laydate-main, .laydate-theme-rb .layui-laydate-content, .laydate-theme-rb .layui-laydate-content table{
 		padding: 0;
 		width: 100%;
+		background-color: #fff;
 		white-space:nowrap;
+	}
+	.laydate-theme-rb .layui-laydate-main{
+		clear: both;
+		height: 50px;
+    	overflow-y: hidden;
 	}
 	.laydate-theme-rb .layui-laydate-content{
 		float: left;
 		width: 70%;
+    	height: 50px;
 		overflow: hidden;
 		overflow-x: scroll;
+		overflow-y:hidden;
+		padding-bottom:11px; /*iphone safari 去掉滚动条*/
+		-webkit-transform: translateZ(0px);
+		transform: translateZ(0px);
+		backface-visibility: hidden;
+		-webkit-overflow-scrolling: touch; /* 当手指从触摸屏上移开，会保持一段时间的滚动 */
+		-webkit-overflow-scrolling: auto; /* 当手指从触摸屏上移开，滚动会立即停止 */
+		transition-duration: .3s;
+		-webkit-transition-duration: .3s;
+	}
+	.laydate-theme-rb .layui-laydate-content::-webkit-scrollbar{
+		display:none; 
+		width:0px;
+		-webkit-appearance: none; 
+	}
+	.laydate-ym-show .layui-laydate-content table{
+		display: none;
+	}
+	.laydate-ym-show .layui-laydate-list{
+		display: block;
+		width: 100%;
+		height: 30px;
+	}
+	.layui-laydate-list>li{
+		padding: 0!important;
+		margin: 0!important;
+	    height: 32px!important;
+	    line-height: 32px!important;
 	}
 	.laydate-theme-rb .layui-laydate-header{
 		float: right;
 		width: 30%;
-		padding: 12px 0;
+		padding: 10px 0;
 		font-size: 14px;
 		background: #fff;
+		box-shadow: -2px 0 5px #ebebeb;
+		z-index: 100;
+	}
+	.laydate-set-ym{
+		font-size: 14px;
+	}
+	.layui-laydate .layui-this{
+		background-color: #36b9bf!important;
 	}
 	.laydate-theme-rb .layui-laydate-header i{
-		display: none;
+		display: none!important;
 	}
 	.laydate-theme-rb .layui-laydate-content table{
 	}
@@ -234,19 +280,23 @@
 		color: #36B9BF!important;
 	}
 	.laydate-theme-rb .laydate-day-mark{
-		font-size: 16px;
-		line-height: 30px;
+		font-size: 14px;
+		line-height: 32px;
 	}
 	.laydate-theme-rb .laydate-day-mark::after{
 		content: '';
-		width: 8px;
-		height: 8px;
-		left: 18px;
+		width: 6px;
+		height: 6px;
+		left: 15px;
 		top: auto;
 		bottom: 0px;
 		background-color: #aaa;
 	}
 /* also-style */
+	.also-grid{
+		width: 25%;
+		background-color: #fff;
+	}
 	.also-as-btn-wrap{
 		float: right;
 		margin-top: -5px;

@@ -1,7 +1,12 @@
+// 引入weui
 import weui from '../css/weui.min.css';
+// 引入公共样式库
 import style from '../css/css.css';
+// 引入zepto
 import $ from 'zepto';
 
+
+// 公共插架 global
 module.exports = {
 	topBar: function (callBack) {
 		//判断是否微信登陆

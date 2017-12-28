@@ -6,31 +6,48 @@ $(function(){
 		console.log("这里是返回");
 	});
 
-
-
-    $(function(){
-        $('.weui-tabbar__item').on('click', function () {
-            $(this).addClass('weui-bar__item_on').siblings('.weui-bar__item_on').removeClass('weui-bar__item_on');
-        });
-    });
+	$('.weui-tabbar__item').on('click', function () {
+		$(this).addClass('weui-bar__item_on').siblings('.weui-bar__item_on').removeClass('weui-bar__item_on');
+	});
 
 	// 日期控件生成
 	if("undefined" != typeof mark){
 		laydate.render({
 			elem: '#rb-date',
 			position: 'static',
+			ready: function() {
+				$(".layui-laydate-content").scrollLeft(($("td.layui-this").offset().left - $(".layui-laydate-content").width()/2 + 16));
+			},
 			change: function(value, date){ //监听日期被切换
-				// console.log(1111, value, date)
-				alert('你选中日期为:' + value);
+
+				smoothScroll($(".layui-laydate-content"), ($("td.layui-this").offset().left - $(".layui-laydate-content").width()/2 + 16 + $(".layui-laydate-content").scrollLeft()), 500)
+				// $(".layui-laydate-content").scrollLeft(($("td.layui-this").offset().left - $(".layui-laydate-content").width()/2 + 16 + $(".layui-laydate-content").scrollLeft()));
 			},
 			mark: mark,
 			theme: 'rb',
+			format: 'yyyy-MM-dd',
 			done: function(value, date, endDate){
-				// console.log(value); //得到日期生成的值，如：2017-08-18
-				// console.log(date); //得到日期时间对象：{year: 2017, month: 8, date: 18, hours: 0, minutes: 0, seconds: 0}
-				// console.log(endDate); //得结束的日期时间对象，开启范围选择（range: true）才会返回。对象成员同上。
+				console.log(1)
 			},
 			showBottom: false
 		});
 	}
+
+	// document.getElementById('slider_wrap').style.webkitOverflowScrolling = 'touch';
+	// document.getElementById("j_u_c_items").addEventListener('touchstart', function(event){});
+	var scrollToTimerCache = null;
+	function smoothScroll(el, to, duration) {
+		if (duration < 0) {
+			return;
+		}
+		var difference = to - el.scrollLeft();
+		var perTick = difference / duration * 40;
+		scrollToTimerCache = setTimeout(function() {
+			if (!isNaN(parseInt(perTick, 10))) {
+				el.scrollLeft(el.scrollLeft() + perTick)
+				smoothScroll(el, to, duration - 10);
+			}
+		}.bind(this), 10);
+	}
+
 });
