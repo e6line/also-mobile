@@ -7,10 +7,9 @@ const webpack = require("webpack");
 // 合并配置文件
 module.exports = webpackMerge(webpackBase,{
 	plugins:[
-	    new webpack.ProvidePlugin({
-	        $:"zepto",
-	        zepto: "zepto"
-	    }),
+		new webpack.ProvidePlugin({
+			$:"zepto"
+		}),
 		// 代码压缩
 		new webpack.optimize.UglifyJsPlugin({
 			// 开启 sourceMap

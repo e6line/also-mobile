@@ -4,7 +4,7 @@ import weui from '../css/weui.min.css';
 import style from '../css/css.css';
 // 引入zepto
 import $ from 'zepto';
-
+// var $ = require('zepto');
 
 // 公共插架 global
 module.exports = {

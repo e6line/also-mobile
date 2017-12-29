@@ -67,10 +67,10 @@ module.exports = {
 						attrs: ['img:src']
 					}
 				}
-			},
-			{
+			},{
 				test: require.resolve('zepto'),
 				loader: 'exports-loader?window.Zepto!script-loader'
+				// loader: 'imports-loader?$=Zepto'
 			},{
 				// 对 css 后缀名进行处理
 				test:/\.css$/,
