@@ -27,27 +27,30 @@ $(function(){
 	$("#changeCode").on("click", function(){
 		changeCode();
 		$("#CODE").val("").get(0).focus();
-	})
-	$("#basicInfo").Validform({
-		btnSubmit:"#btn_sub",
-		tiptype:function(msg, o, cssctl){
-			if(o.type==3){
-				tooltips(msg)
-			}
-		},
-		ignoreHidden: true,
-		showAllError : false,
-		postonce : false,
-		ajaxPost : true,
-		datatype : {},
-		beforeCheck : function(curform) {
-		},
-		beforeSubmit:function(curform){
-		},
-		callback : function(data) {
-				if(data.status == 'y') {
-					window.location.href = basePath+"/mobile_index";
+	});
+
+	setTimeout(function() {
+		$("#basicInfo").Validform({
+			btnSubmit:"#btn_sub",
+			tiptype:function(msg, o, cssctl){
+				if(o.type==3){
+					tooltips(msg)
 				}
-			}
-		});
+			},
+			ignoreHidden: true,
+			showAllError : false,
+			postonce : false,
+			ajaxPost : true,
+			datatype : {},
+			beforeCheck : function(curform) {
+			},
+			beforeSubmit:function(curform){
+			},
+			callback : function(data) {
+					if(data.status == 'y') {
+						window.location.href = basePath+"/mobile_index";
+					}
+				}
+			});
+	}, 2000);
 });
