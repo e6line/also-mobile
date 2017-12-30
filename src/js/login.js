@@ -1,5 +1,5 @@
 import global from '../js/global.js';
-import Validform from '../plug/validForm.js';
+import '../plug/validForm.js';
 
 function changeCode() {
 	$("#codeImg").attr("src", "code.do?t=" + new Date().getTime());
@@ -29,28 +29,26 @@ $(function(){
 		$("#CODE").val("").get(0).focus();
 	});
 
-	setTimeout(function() {
-		$("#basicInfo").Validform({
-			btnSubmit:"#btn_sub",
-			tiptype:function(msg, o, cssctl){
-				if(o.type==3){
-					tooltips(msg)
+	$("#basicInfo").Validform({
+		btnSubmit:"#btn_sub",
+		tiptype:function(msg, o, cssctl){
+			if(o.type==3){
+				tooltips(msg)
+			}
+		},
+		ignoreHidden: true,
+		showAllError : false,
+		postonce : false,
+		ajaxPost : true,
+		datatype : {},
+		beforeCheck : function(curform) {
+		},
+		beforeSubmit:function(curform){
+		},
+		callback : function(data) {
+				if(data.status == 'y') {
+					window.location.href = basePath+"/mobile_index";
 				}
-			},
-			ignoreHidden: true,
-			showAllError : false,
-			postonce : false,
-			ajaxPost : true,
-			datatype : {},
-			beforeCheck : function(curform) {
-			},
-			beforeSubmit:function(curform){
-			},
-			callback : function(data) {
-					if(data.status == 'y') {
-						window.location.href = basePath+"/mobile_index";
-					}
-				}
-			});
-	}, 2000);
+			}
+		});
 });

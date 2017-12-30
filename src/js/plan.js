@@ -50,4 +50,12 @@ $(function(){
 		}.bind(this), 10);
 	}
 
+
+	global.tab(function () {
+		console.log("这里是返回");
+	});
+
+	$('#plan-page').load('/alert.html #b')
+
+
 });

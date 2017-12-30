@@ -1,9 +1,11 @@
 // 引入weui
-import weui from '../css/weui.min.css';
+import weuiCss from '../css/weui.min.css';
 // 引入公共样式库
 import style from '../css/css.css';
 // 引入zepto
 import $ from 'zepto';
+// 引入weuiJs
+import weui from '../js/weui.min.js';
 // var $ = require('zepto');
 
 // 公共插架 global
@@ -30,8 +32,8 @@ module.exports = {
 
 		// 非微信浏览器顶部插入header模板
 		if(!isWeiXin()){
-			if($(".weui-tab__panel").length>0){
-				$(".weui-tab__panel").prepend(_header);
+			if($("#also-wrap").length>0){
+				$("#also-wrap").prepend(_header);
 			}else{
 				$("body").prepend(_header);
 			}
@@ -43,7 +45,7 @@ module.exports = {
 		}
 	},
 	tab: function (callBack) { // 目前只支持一个参数 index: 当选选项卡索引
-		$('body').on('click', '.weui-navbar__item', function () {
+		$(document).on('click', '.weui-navbar__item', function () {
 
 			var index = $(this).index();
 			$(this).addClass('weui-bar__item_on').siblings('.weui-bar__item_on').removeClass('weui-bar__item_on');

@@ -201,12 +201,12 @@
 	.laydate-theme-also .layui-laydate-main{
 		clear: both;
 		height: 50px;
-    	overflow-y: hidden;
+		overflow-y: hidden;
 	}
 	.laydate-theme-also .layui-laydate-content{
 		float: left;
 		width: 70%;
-    	height: 50px;
+		height: 50px;
 		overflow: hidden;
 		overflow-x: scroll;
 		overflow-y:hidden;
@@ -235,8 +235,8 @@
 	.layui-laydate-list>li{
 		padding: 0!important;
 		margin: 0!important;
-	    height: 32px!important;
-	    line-height: 32px!important;
+		height: 32px!important;
+		line-height: 32px!important;
 	}
 	.laydate-theme-also .layui-laydate-header{
 		float: right;
@@ -307,9 +307,9 @@
 		margin: 15px 0 -5px 15px;
 	}
 	.also-title{
-	    font-size: 15px;
-        padding: 14px 15px 10px;
-	    position: relative;
+		font-size: 15px;
+		padding: 14px 15px 10px;
+		position: relative;
 	}
 	.also-title::after{
 		position: absolute;
@@ -325,7 +325,7 @@
 		background-color: #fff;
 	}
 	.also-grids .weui-grid:active {
-	    background-color: #f7f7f7
+		background-color: #f7f7f7
 	}
 	.also-as-btn-wrap{
 		float: right;
@@ -545,4 +545,17 @@
 	}
 	.also-setp3 .also-setp-box3{
 		display: block;
+	}
+	.plan-page{
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		overflow-y: auto;
+		-webkit-overflow-scrolling: touch;
+		opacity: 0;
+		z-index: 1;
+		opacity: 1;
+		background-color: #fff;
 	}
