@@ -4,13 +4,11 @@ import weuiCss from '../css/weui.min.css';
 import style from '../css/css.css';
 // 引入zepto
 import $ from 'zepto';
-// 引入weuiJs
-import weui from '../js/weui.min.js';
 // var $ = require('zepto');
 
 // 公共插架 global
 module.exports = {
-	topBar: function (callBack) {
+	topBar: function (callBack, className) {
 		//判断是否微信登陆
 		function isWeiXin() {
 			var ua = window.navigator.userAgent.toLowerCase();
@@ -42,6 +40,7 @@ module.exports = {
 					callBack()
 				}
 			});
+			$(className).addClass('also-full-height')
 		}
 	},
 	tab: function (callBack) { // 目前只支持一个参数 index: 当选选项卡索引

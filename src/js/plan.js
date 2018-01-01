@@ -1,4 +1,6 @@
 import global from '../js/global.js';
+// 引入weuiJs
+import weui from '../js/weui.min.js';
 
 $(function(){
 	// 非微信浏览器添加topBar
@@ -6,8 +8,12 @@ $(function(){
 		console.log("这里是返回");
 	});
 
-	$('.weui-tabbar__item').on('click', function () {
-		$(this).addClass('weui-bar__item_on').siblings('.weui-bar__item_on').removeClass('weui-bar__item_on');
+	global.tab(function () {
+		console.log("这里是返回");
+	});
+
+	$('.also-tabbar__item').on('click', function () {
+		$(this).addClass('also-bar__item_on').siblings('.also-bar__item_on').removeClass('also-bar__item_on');
 	});
 
 	// 日期控件生成
@@ -49,13 +55,20 @@ $(function(){
 			}
 		}.bind(this), 10);
 	}
-
-
-	global.tab(function () {
-		console.log("这里是返回");
+	// 点击显示
+	$(".plan-btn").on('click', function() {
+		var loading = weui.loading('loading', {
+			className: 'custom-classname'
+		});
+		$('.also-tab').load('/alert.html .also-plan-alert', function(data, status, xhr) {
+			// 非微信浏览器添加topBar
+			global.topBar(function () {
+				console.log("这里是返回");
+			}, '.also-tab');
+			loading.hide(function() {
+				console.log('`loading` has been hidden');
+			});
+		});
 	});
-
-	$('#plan-page').load('/alert.html #b')
-
 
 });
