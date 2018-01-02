@@ -64,24 +64,31 @@ $(function(){
 	global.topBar(function () {
 		window.history.back(0) ;
 	});
-	$("#codehref").on("click",function(){
-		var phone = $("#basicCodeInfo")[0].PHONE.value;
-		if(phone !=null && phone!=''){
-			getPhoneCode(phone);
-		}else{
-			tooltips("手机号码不能为空!");
-		}
-	})
+
 
 	// 选项卡
 	global.tab(function (i) {
 		console.log(i);
 	});
+	$("#codehref").attr("disabled","disabled");
 	$("#basicCodeInfo").Validform({
 		btnSubmit:"#checkCodeAndPhoneBtn",
     tiptype:function(msg,o,cssctl){
+			var name =o.obj.attr("name");
 				if(o.type==3){
 				tooltips(msg)
+				if(name=='PHONE'){
+						$("#codehref").off("click"); //将按钮置为不可点击
+						$("#codehref").attr("disabled","disabled");
+					}
+			}else{
+				if(name=='PHONE'){
+					$("#codehref").off("click");
+					$("#codehref").removeAttr("disabled");
+					 $("#codehref").on("click",function(){
+						 getPhoneCode(phone);
+					 }); //绑定按钮事件
+						}
 			}
       },
       ignoreHidden: true,

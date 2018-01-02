@@ -76,8 +76,9 @@ $(function(){
 						if(o.type==3){
 						tooltips(msg)
 						if(name=='phone'){
-		                		$("#codehref").off("click"); //将按钮置为不可点击
-		                	}
+          		$("#codehref").off("click"); //将按钮置为不可点击
+							$("#codehref").attr("disabled","disabled");
+          	}
 					}else{
 						if(name=='phone'){
 							$("#codehref").off("click");
