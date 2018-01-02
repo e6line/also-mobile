@@ -511,13 +511,22 @@
 		font-size: 13px;
 		color: #ccc;
 	}
+	.also-as-il span em{
+		display: inline-block;
+		vertical-align: top;
+		font-style: normal;
+	}
 	.also-as-il span i{
 		display: inline-block;
 		width: 16px;
 		height: 16px;
+		vertical-align: top;
 	}
 	.also-as-il span i img{
 		width: 100%;
+	}
+	.also-saved{
+		background: url(../img/saved.png) left top no-repeat;
 	}
 /* also-login */
 	.login-bg{
