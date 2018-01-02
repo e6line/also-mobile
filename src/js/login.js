@@ -16,7 +16,7 @@ function tooltips(msg){
 $(function(){
 	// 非微信浏览器添加topBar
 	global.topBar(function () {
-		console.log("这里是返回");
+		window.history.back(0) ;
 	});
 	// 选项卡
 	global.tab(function (i) {
