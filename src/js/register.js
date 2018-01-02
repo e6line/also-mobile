@@ -14,8 +14,10 @@ function showStepTab(index){
 	tab.find(".also-setp").find(".also-setp-item").eq(index).removeClass("also-setp-stop");
 	tab.children().eq(index).hide().next().show();
 }
-function getPhoneCode(phone){
+function getPhoneCode(){
+	var phone = $("#phoneForm")[0].PHONE.value;
     		var url="tool/sendSMS.do";
+				if(phone !=null && phone!=''){
     		 $.ajax({
     	        "url":url,
     	        "type":"post",
@@ -40,13 +42,7 @@ function getPhoneCode(phone){
                                       }else{
                                           clearInterval(clock); //清除js定时器
                                           $("#codehref").on("click",function(){
-																					var phone = $("#phoneForm")[0].phone.value;
-																					if(phone !=null && phone!=''){
-																						getPhoneCode(phone);
-																					}else{
-																						tooltips("手机号码不能为空!");
-																					}
-																				getPhoneCode(phone);
+																					getPhoneCode();
 																	}).html("获取验证码");
                                           nums = 90; //重置时间
                                        }
@@ -58,6 +54,9 @@ function getPhoneCode(phone){
 								 tooltips("服务器繁忙，请稍候！");
     	          }
     	      })
+					}else{
+						tooltips("手机号码不能为空!");
+					}
 		}
 $(function(){
 	// 非微信浏览器添加topBar
@@ -74,19 +73,7 @@ $(function(){
 		tiptype:function(msg,o,cssctl){
 			var name =o.obj.attr("name");
 						if(o.type==3){
-						tooltips(msg)
-						if(name=='phone'){
-          		$("#codehref").off("click"); //将按钮置为不可点击
-							$("#codehref").attr("disabled","disabled");
-          	}
-					}else{
-						if(name=='phone'){
-							$("#codehref").off("click");
-							$("#codehref").removeAttr("disabled");
-		           $("#codehref").on("click",function(){
-								 getPhoneCode(phone);
-							 }); //绑定按钮事件
-		            }
+						tooltips(msg);
 					}
         },
     ignoreHidden: true,
@@ -114,6 +101,18 @@ $(function(){
 					var name =o.obj.attr("name");
 								if(o.type==3){
 								tooltips(msg)
+								if(name=='PHONE'){
+									$("#codehref").off("click"); //将按钮置为不可点击
+									$("#codehref").attr("disabled","disabled");
+								}
+							}else{
+								if(name=='PHONE'){
+									$("#codehref").off("click");
+									$("#codehref").removeAttr("disabled");
+									 $("#codehref").on("click",function(){
+										 getPhoneCode();
+									 }); //绑定按钮事件
+										}
 							}
 		        },
 		    ignoreHidden: true,
@@ -125,10 +124,11 @@ $(function(){
 				},
 				beforeSubmit:function(curform){
 					var form =$("#phoneForm");
-					var phone = form[0].phone.value;
+					var phone = form[0].PHONE.value;
 					var mobCode = form[0].mobCode.value;
 					$("#REPHONE").val(phone.replace(/(\d{3})\d{4}(\d{4})/, '$1****$2'));
 					$("#PHONE").val(phone);
+					$("#USERNAME").val(phone);
 					$("#mobCode").val(mobCode);
 					showStepTab(2)
 					return false;
@@ -157,16 +157,16 @@ $(function(){
 							$(".also-setp1").hide();
 							var msgPage =$("#msgPage");
 							if(data.result=='success'){
-								msgPage.show().addClass("msg_success");
-								msgPage.find(".weui-icon_msg").addClass("weui-icon-success")
+								msgPage.show().addClass("msg_success").removeClass("msg_warn");
+								msgPage.find(".weui-icon_msg").addClass("weui-icon-success").removeClass("weui-icon-warn")
 								msgPage.find(".weui-msg__title").html("注册成功！")
-								msgPage.find(".weui-btn_primary").html("去登录").attr("href","/login_toIndex");
+								msgPage.find(".weui-btn_primary").html("去登录").attr("href",basePath+"/login_toIndex");
 								msgPage.find(".weui-btn_default").html("weui-btn_default").hide();
 							}else{
-								msgPage.show().addClass("msg_warn");
-								msgPage.find(".weui-icon_msg").addClass("weui-icon-warn")
+								msgPage.show().addClass("msg_warn").removeClass("msg_success");
+								msgPage.find(".weui-icon_msg").addClass("weui-icon-warn").removeClass("weui-icon-success")
 								msgPage.find(".weui-msg__title").html("注册失败！")
-								msgPage.find(".weui-btn_primary").html("重新注册").attr("href","/goRegister");
+								msgPage.find(".weui-btn_primary").html("重新注册").attr("href",basePath+"/goRegister");
 								msgPage.find(".weui-btn_default").html("weui-btn_default").hide();
 							}
 							}

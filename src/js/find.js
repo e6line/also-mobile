@@ -9,50 +9,51 @@ function tooltips(msg){
                 $tooltips.css('display', 'none');
             }, 2000);
 }
-function getPhoneCode(phone){
+function getPhoneCode(){
     		var url="tool/sendSMS.do";
-    		 $.ajax({
-    	        "url":url,
-    	        "type":"post",
-    	        "dataType":"json",
-    	        "data":{"phone":phone,"type":"register"},
-    	        "beforeSend" : function() {
-    		    },
-    	        "success": function(data) {
-    	        	 if(data) {
-    	        		 if (data.result == "false") {
-    	        			 tooltips(data.errorMsg);
-    	        		 }
-    	        		 else{
-    	        		     var clock = '';
-                                 var nums = 90;
-                                $("#codehref").off("click"); //将按钮置为不可点击
-                             $("#codehref").html(nums+'秒');
-                                 clock = setInterval( function() {
-                                      nums--;
-                                      if(nums > 0){
-                                           $("#codehref").html(nums+'秒');
-                                      }else{
-                                          clearInterval(clock); //清除js定时器
-                                          $("#codehref").on("click",function(){
-																					var phone = $("#phoneForm")[0].phone.value;
-																					if(phone !=null && phone!=''){
-																						getPhoneCode(phone);
-																					}else{
-																						tooltips("手机号码不能为空!");
-																					}
-																				getPhoneCode(phone);
-																	}).html("获取验证码");
-                                          nums = 90; //重置时间
-                                       }
-                                 }, 1000); //一秒执行一次
-    	        		 }
-    	        	 }
-    	         },
-    	         "error":function (XMLHttpRequest, textStatus, errorThrown) {
-								 tooltips("服务器繁忙，请稍候！");
-    	          }
-    	      })
+				var phone = $("#basicCodeInfo")[0].PHONE.value;
+				if(phone !=null && phone!=''){
+					$.ajax({
+     	        "url":url,
+     	        "type":"post",
+     	        "dataType":"json",
+     	        "data":{"phone":phone,"type":"resetPwd"},
+     	        "beforeSend" : function() {
+     		    },
+     	        "success": function(data) {
+     	        	 if(data) {
+     	        		 if (data.result == "false") {
+     	        			 tooltips(data.errorMsg);
+     	        		 }
+     	        		 else{
+     	        		     var clock = '';
+                                  var nums = 90;
+                                 $("#codehref").off("click"); //将按钮置为不可点击
+                              $("#codehref").html(nums+'秒');
+                                  clock = setInterval( function() {
+                                       nums--;
+                                       if(nums > 0){
+                                            $("#codehref").html(nums+'秒');
+                                       }else{
+                                           clearInterval(clock); //清除js定时器
+                                           $("#codehref").on("click",function(){
+ 																					getPhoneCode();
+
+ 																	}).html("获取验证码");
+                                           nums = 90; //重置时间
+                                        }
+                                  }, 1000); //一秒执行一次
+     	        		 }
+     	        	 }
+     	         },
+     	         "error":function (XMLHttpRequest, textStatus, errorThrown) {
+ 								 tooltips("服务器繁忙，请稍候！");
+     	          }
+     	      })
+				}else{
+					tooltips("手机号码不能为空!");
+				}
+
 		}
 		function showStepTab(index){
 			var tab = $(".also-setp1");
@@ -86,7 +87,7 @@ $(function(){
 					$("#codehref").off("click");
 					$("#codehref").removeAttr("disabled");
 					 $("#codehref").on("click",function(){
-						 getPhoneCode(phone);
+						 getPhoneCode();
 					 }); //绑定按钮事件
 						}
 			}
@@ -106,6 +107,7 @@ $(function(){
 					var phone = form[0].PHONE.value;
 					$("#PHONE").val(phone);
 					showStepTab(1);
+					$("#resetKey").val(data.key);
 				}
 			}
 			});
@@ -127,16 +129,16 @@ $(function(){
 						$(".also-setp1").hide();
 						var msgPage =$("#msgPage");
 						if(data.status == 'y'){
-							msgPage.show().addClass("msg_success");
-							msgPage.find(".weui-icon_msg").addClass("weui-icon-success")
+							msgPage.show().addClass("msg_success").removeClass("msg_warn");
+							msgPage.find(".weui-icon_msg").addClass("weui-icon-success").removeClass("weui-icon-warn")
 							msgPage.find(".weui-msg__title").html("修改成功！")
-							msgPage.find(".weui-btn_primary").html("去登录").attr("href","/login_toIndex");
+							msgPage.find(".weui-btn_primary").html("去登录").attr("href",basePath+"/login_toIndex");
 							msgPage.find(".weui-btn_default").html("weui-btn_default").hide();
 						}else{
-							msgPage.show().addClass("msg_warn");
-							msgPage.find(".weui-icon_msg").addClass("weui-icon-warn")
+							msgPage.show().addClass("msg_warn").removeClass("msg_success");
+							msgPage.find(".weui-icon_msg").addClass("weui-icon-warn").removeClass("weui-icon-success")
 							msgPage.find(".weui-msg__title").html("修改失败！")
-							msgPage.find(".weui-btn_primary").html("重新找回密码").attr("href","/safty_verify");
+							msgPage.find(".weui-btn_primary").html("重新找回密码").attr("href",basePath+"safty_verify");
 							msgPage.find(".weui-btn_default").html("weui-btn_default").hide();
 						}
 
