@@ -311,6 +311,9 @@
 		bottom: 0px;
 		background-color: #36b9bf;
 	}
+	.also-grids{
+		min-height: 50px;
+	}
 	.also-grids .weui-grid{
 		width: 25%;
 		background-color: #fff;
@@ -503,6 +506,18 @@
 		border-radius: 4px;
 		color: #fff;
 		background-color: #36b9bf;
+	}
+	.also-as-il{
+		font-size: 13px;
+		color: #ccc;
+	}
+	.also-as-il span i{
+		display: inline-block;
+		width: 16px;
+		height: 16px;
+	}
+	.also-as-il span i img{
+		width: 100%;
 	}
 /* also-login */
 	.login-bg{
