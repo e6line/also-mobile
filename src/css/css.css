@@ -318,6 +318,9 @@
 	.also-grids .weui-grid:active {
 		background-color: #f7f7f7
 	}
+	.also-grids:before{
+		border: none;
+	}
 	.also-as-btn-wrap{
 		float: right;
 		margin-top: -5px;
@@ -492,6 +495,14 @@
 	.also-full-height{
 		height: calc(100% - 46px);
 		overflow-y: scroll;
+	}
+	.also-as-home-btn{
+		display: block;
+		padding: 5px 10px;
+		font-size: 13px;
+		border-radius: 4px;
+		color: #fff;
+		background-color: #36b9bf;
 	}
 /* also-login */
 	.login-bg{
