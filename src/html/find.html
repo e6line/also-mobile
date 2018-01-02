@@ -9,7 +9,7 @@
 	<div class="weui-toptips weui-toptips_warn js_tooltips" style="display: none;" >错误提示</div>
 	<div class="page msg_warn js_show" style="display: none;" id="msgPage">
 		<div class="weui-msg">
-				<div class="weui-msg__icon-area"><i class="weui-icon-warn weui-icon_msg" ></i></div>
+				<div class="weui-msg__icon-area"><i class="weui-icon_msg" ></i></div>
 				<div class="weui-msg__text-area">
 						<h2 class="weui-msg__title">操作成功</h2>
 						<!-- 内容详情，可根据实际需要安排，如果换行则不超过规定长度，居中展现 -->
@@ -61,7 +61,7 @@
 					</div>
 					<div class="weui-cell__bd">
 						<input class="weui-input" type="number"name="PHONE" pattern="[0-9]*"maxlength="11" placeholder="请输入手机号" datatype="m" maxlength="11"
-									errormsg="您输入的手机号码有误！" nullmsg="请输入手机号码！">
+									errormsg="您输入的手机号码有误！" nullmsg="请输入手机号码！"ajaxurl="tool/checkCodeAll.do?flag=hasU&isPhone=phone&isUser=user" >
 					</div>
 				</div>
 				<div class="weui-cell weui-cell_vcode">
@@ -106,6 +106,7 @@
 	                    <input class="weui-input" type="password"  value=""  name="REPWD"
 									placeholder="请重复输入新密码" datatype="*"maxlength="18" recheck="NEWPWD" nullmsg="确认密码不能为空!" errormsg="新密码和确认密码不一致!">
 											<input class="weui-input" type="hidden" id="PHONE" name="PHONE">
+											<input type="hidden" name='key' id='resetKey' >
 	                </div>
 	            </div>
 			</div>

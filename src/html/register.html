@@ -89,7 +89,7 @@
 						</select>
 					</div>
 					<div class="weui-cell__bd">
-						<input class="weui-input" type="number" pattern="[0-9]*" maxlength="11"name="phone" placeholder="请输入手机号" datatype="*" ajaxurl='tool/checkCodeAll.do?flag=hasU&isPhone=phone'maxlength="11" errormsg="您输入的手机号码有误！" nullmsg="请输入手机号码！">
+						<input class="weui-input" type="number" pattern="[0-9]*" maxlength="11"name="PHONE" placeholder="请输入手机号" datatype="*" ajaxurl='tool/checkCodeAll.do?flag=hasU&isPhone=phone'maxlength="11" errormsg="您输入的手机号码有误！" nullmsg="请输入手机号码！">
 					</div>
 				</div>
 				<div class="weui-cell weui-cell_vcode">
@@ -102,7 +102,6 @@
 					<div class="weui-cell__ft">
 						<button class="weui-vcode-btn" id="codehref">获取验证码</button>
 					</div>
-					<input type="hidden" name='PHONE' id='myPhone'>
 					<input type="hidden" name='flag' value='checkCodeAndPhone'>
 				</div>
 			</div>
@@ -126,7 +125,13 @@
 	                    <input class="weui-input" type="text" id="REPHONE"  disabled="disabled">
 											<input class="weui-input" type="hidden"  id="yqm" name="yqm">
 											<input class="weui-input" type="hidden" id="PHONE" name="PHONE">
+											<input class="weui-input" type="hidden" id="USERNAME" name="USERNAME">
 											<input class="weui-input" type="hidden" id="mobCode"name="mobCode">
+											<select name="ROLE_ID" id="ROLE_ID" style='display: none;'>
+												<option value="0" selected="selected">学生</option>
+												<option value="1">教师</option>
+												<option value="2">机构</option>
+											</select>
 	                </div>
 
 	            </div>
