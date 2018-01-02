@@ -12,6 +12,7 @@ $(function(){
 		console.log("这里是返回");
 	});
 
+	// 底部导航
 	$('.also-tabbar__item').on('click', function () {
 		$(this).addClass('also-bar__item_on').siblings('.also-bar__item_on').removeClass('also-bar__item_on');
 	});
@@ -33,7 +34,7 @@ $(function(){
 			theme: 'also',
 			format: 'yyyy-MM-dd',
 			done: function(value, date, endDate){
-				console.log(1)
+				console.log(value)
 			},
 			showBottom: false
 		});
@@ -41,6 +42,7 @@ $(function(){
 
 	// document.getElementById('slider_wrap').style.webkitOverflowScrolling = 'touch';
 	// document.getElementById("j_u_c_items").addEventListener('touchstart', function(event){});
+
 	var scrollToTimerCache = null;
 	function smoothScroll(el, to, duration) {
 		if (duration < 0) {
@@ -61,10 +63,11 @@ $(function(){
 			className: 'custom-classname'
 		});
 		$('.also-tab').load('/alert.html .also-plan-alert', function(data, status, xhr) {
-			// 非微信浏览器添加topBar
+			// 非微信浏览器添加topBar 
 			global.topBar(function () {
 				console.log("这里是返回");
 			}, '.also-tab');
+
 			loading.hide(function() {
 				console.log('`loading` has been hidden');
 			});
