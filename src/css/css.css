@@ -301,6 +301,7 @@
 		font-size: 15px;
 		padding: 14px 15px 10px;
 		position: relative;
+		clear: both;
 	}
 	.also-title::after{
 		position: absolute;
@@ -537,6 +538,101 @@
 	}
 	.also-saved{
 		background: url(../img/saved.png) left top no-repeat;
+	}
+	.also-promote {
+		position: relative;
+		width: 50px;
+		height: 80px;
+		margin: 0 auto;
+		background: #72ced2;
+		transition-duration: .5s;
+		-webkit-transition-duration: .5s;
+	}
+	.also-promote-score{
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		width: 100%;
+		height: 50%;
+		background: #36b9bf;
+		transition-duration: .5s;
+		-webkit-transition-duration: .5s
+	}
+	.gray{
+		background: #aaaaaa!important;
+	}
+	.gray .also-promote-score{
+		background: #c3c3c3;
+	}
+	.also-promote span{
+		position: absolute;
+		top: 50%;
+		left: 0;
+		width: 100%;
+		margin-top: -6px;
+		height: 12px;
+		line-height: 12px;
+		text-align: center;
+		font-size: 14px;
+		color: #fff;
+	}
+	.circle-wrap{
+		position: relative;
+		width: 70px;
+		height: 70px;
+		margin: 0 auto;
+		border-radius: 50%;
+		text-align: center;
+		border: 5px solid #ccc;
+	}
+	.circle-wrap{    
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+	.circle-wrap span{
+		display: inline-block;
+		line-height: 60px;
+		font-size: 12px;
+		font-weight: bold;
+		color: #545454;
+	}
+	.circle-wrap span i{
+		font-size: 18px;
+		font-style: normal;
+	}
+	.circle-wrap svg {
+		position: absolute;
+		top: -5px;
+		left: 50%;
+		-webkit-transform: translateX(-50%);
+		transform: translateX(-50%);
+		pointer-events: none;
+	}
+	.circle-wrap svg path {
+		fill: none;
+	}
+	.circle-wrap svg.circle path{
+		stroke: #36b9bf;
+		stroke-width: 5;
+		stroke-dasharray: 204.244;
+		stroke-dashoffset: 204.244;
+		transition-duration: .5s;
+		-webkit-transition-duration: .5s
+	}
+	.negative svg.circle path{
+		stroke: #fdd05c;
+	}
+	.also-plac{
+		float: right;
+		color: #333;
+		font-weight: normal;
+		font-size: 14px;
+	}
+	.also-plac i{
+		font-size: 16px;
+		color: #36b9bf;
+		font-style: normal;
 	}
 /* also-login */
 	.login-bg{
