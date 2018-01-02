@@ -10,6 +10,10 @@ import $ from 'zepto';
 module.exports = {
 	topBar: function (callBack, className) {
 		//判断是否微信登陆
+		/*
+		 * 接受两个参数
+		 * callBack: 回调函数; className: 为节点增加一个`also-full-height` cala(100% - 46px`这个是topBar的高度`)
+		*/
 		function isWeiXin() {
 			var ua = window.navigator.userAgent.toLowerCase();
 			if (ua.match(/MicroMessenger/i) == 'micromessenger') {
