@@ -57,6 +57,8 @@ $(function(){
 			}
 		}.bind(this), 10);
 	}
+
+
 	// 点击显示
 	$(".plan-btn").on('click', function() {
 		var loading = weui.loading('loading', {
@@ -72,6 +74,24 @@ $(function(){
 				console.log('`loading` has been hidden');
 			});
 		});
+	});
+
+
+	// 点击查看更多
+
+	setArticleHeight();
+	var setIndex = 1;
+	function setArticleHeight() {
+		if(setIndex%2){
+			$(".also-article").height($(".also-article h3").height() + $(".also-article p").eq(0).height() + $(".also-article p").eq(1).height() + $(".also-article p").eq(2).height() + $(".also-article p").eq(3).height() + 40);
+		}else{
+			$(".also-article").height($(".also-article h3").height() + $(".also-article p:first").height());
+		}
+		setIndex++;
+	}
+
+	$("#articleBtn").click(function() {
+		setArticleHeight();
 	});
 
 });
