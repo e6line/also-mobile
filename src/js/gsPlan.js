@@ -78,12 +78,13 @@ $(function(){
 
 
 	// 点击查看更多
-
+	var articleHeight = $(".also-article").height();
 	setArticleHeight();
 	var setIndex = 1;
 	function setArticleHeight() {
 		if(setIndex%2){
-			$(".also-article").height($(".also-article h3").height() + $(".also-article p").eq(0).height() + $(".also-article p").eq(1).height() + $(".also-article p").eq(2).height() + $(".also-article p").eq(3).height() + 40);
+			// 这地方做法挺二的，没想到更好的
+			$(".also-article").height(articleHeight - 40);
 		}else{
 			$(".also-article").height($(".also-article h3").height() + $(".also-article p:first").height());
 		}

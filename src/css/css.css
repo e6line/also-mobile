@@ -641,7 +641,7 @@
 		transition-duration: .3s;
 		-webkit-transition-duration: .3s;
 		overflow: hidden;
-		height: 0;
+		/*height: 0;*/
 	}
 	.also-article p {
 		margin: 0 0 .8em;
