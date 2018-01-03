@@ -34,6 +34,7 @@ module.exports = {
 
 		// 非微信浏览器顶部插入header模板
 		if(!isWeiXin()){
+			console.log($("#also-wrap").length, '这里是length')
 			if($("#also-wrap").length>0){
 				$("#also-wrap").prepend(_header);
 			}else{

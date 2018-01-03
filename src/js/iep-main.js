@@ -93,15 +93,39 @@ $(function(){
 				smoothScroll(el, to, duration - 10);
 			}
 		}.bind(this), 10);
-	}
+	};
 	var loading = weui.loading('loading', {
-			className: 'custom-classname'
-		});
+		className: 'custom-classname'
+	});
+
+
 	$('#plan-main-box').load('/iep.html', function(data, status, xhr) {
+
 		loading.hide(function() {
 			console.log('`loading` has been hidden');
 		});
 	});
+
+
+	// 点击显示
+
+	$(document).on('click', '.plan-btn', function () {
+
+		var loading = weui.loading('loading', {
+			className: 'custom-classname'
+		});
+		$('.also-tab').load('/alert.html .also-plan-alert', function(data, status, xhr) {
+			// 非微信浏览器添加topBar 
+			global.topBar(function () {
+				console.log("这里是返回");
+			}, '.also-tab');
+			
+			loading.hide(function() {
+				console.log('`loading` has been hidden');
+			});
+		});
+	});
+
 	// // 点击显示
 	// $(".plan-btn").on('click', function() {
 	// 	var loading = weui.loading('loading', {
