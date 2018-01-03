@@ -1,16 +1,8 @@
 import global from '../js/global.js';
-// 引入weuiJs
-import weui from '../js/weui.min.js';
+
 
 $(function(){
-	// 非微信浏览器添加topBar
-	global.topBar(function () {
-		console.log("这里是返回");
-	});
 
-	global.tab(function () {
-		console.log("这里是返回");
-	});
 	var baseData =[{"lxMc":"学业能力","lxDm":"01","iepLibList":[]},{"lxMc":"认知能力","lxDm":"02","iepLibList":[{"title":"记忆搭积木","saveFlag":"N","lxDm":"02","iepId":"62","iepUsrId":"2388848d20f54ea9967ecb30758820f6","nlMc":"感知觉反应","nlDm":"0201"},{"title":"指认四阶名词","saveFlag":"N","lxDm":"02","iepId":"86","iepUsrId":"1fff4c861422474aae48cc8686f43e59","nlMc":"词汇区辨","nlDm":"0203"}]},{"lxMc":"生存技能","lxDm":"03","iepLibList":[{"title":"开关水龙头并洗手","saveFlag":"N","lxDm":"03","iepId":"119","iepUsrId":"bd7d3a2ebdfb4da69ef76a7cf0b8377f","nlMc":"清洁洗漱","nlDm":"0305"},{"title":"处理纸盒装的饮料","saveFlag":"N","lxDm":"03","iepId":"140","iepUsrId":"bb4b814f00d94740b93ba25d0dc742f7","nlMc":"进食能力","nlDm":"0308"},{"title":"穿上鞋子","saveFlag":"N","lxDm":"03","iepId":"130","iepUsrId":"ba3c76468a72416985696f938495a008","nlMc":"穿脱能力","nlDm":"0307"}]},{"lxMc":"生命技能","lxDm":"04","iepLibList":[{"title":"脚踢球","saveFlag":"N","lxDm":"04","iepId":"167","iepUsrId":"cf45e7d162034873bf42d43f4d073a1e","nlMc":"运动能力","nlDm":"0402"}]},{"lxMc":"社会规则","lxDm":"05","iepLibList":[]},{"lxMc":"社交技能","lxDm":"06","iepLibList":[]}]
 
 		//循环训练内容also-plne-table
@@ -70,15 +62,12 @@ $(function(){
 	}
 
 	// 点击显示
-	$(".plan-btn").on('click', function() {
+	$(".plan-btn").on('click', function() {debugger
 		var loading = weui.loading('loading', {
 			className: 'custom-classname'
 		});
 		$('.also-tab').load('/alert.html .also-plan-alert', function(data, status, xhr) {
-			// 非微信浏览器添加topBar
-			global.topBar(function () {
-				console.log("这里是返回");
-			}, '.also-tab');
+
 
 			loading.hide(function() {
 				console.log('`loading` has been hidden');
