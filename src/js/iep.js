@@ -43,23 +43,4 @@ $(function(){
 		})
 
 
-	// document.getElementById('slider_wrap').style.webkitOverflowScrolling = 'touch';
-	// document.getElementById("j_u_c_items").addEventListener('touchstart', function(event){});
-
-	var scrollToTimerCache = null;
-	function smoothScroll(el, to, duration) {
-		if (duration < 0) {
-			return;
-		}
-		var difference = to - el.scrollLeft();
-		var perTick = difference / duration * 40;
-		scrollToTimerCache = setTimeout(function() {
-			if (!isNaN(parseInt(perTick, 10))) {
-				el.scrollLeft(el.scrollLeft() + perTick)
-				smoothScroll(el, to, duration - 10);
-			}
-		}.bind(this), 10);
-	}
-
 });
-	
