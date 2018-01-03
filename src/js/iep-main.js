@@ -100,7 +100,7 @@ $(function(){
 
 
 	$('#plan-main-box').load('/iep.html', function(data, status, xhr) {
-
+		require('../js/iep.js')
 		loading.hide(function() {
 			console.log('`loading` has been hidden');
 		});
@@ -119,7 +119,7 @@ $(function(){
 			global.topBar(function () {
 				console.log("这里是返回");
 			}, '.also-tab');
-			
+
 			loading.hide(function() {
 				console.log('`loading` has been hidden');
 			});

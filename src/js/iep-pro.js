@@ -65,6 +65,7 @@ $(function(){
 			className: 'custom-classname'
 		});
 		$('.also-tab').load('/alert.html .also-plan-alert', function(data, status, xhr) {
+
 			// 非微信浏览器添加topBar 
 			global.topBar(function () {
 				console.log("这里是返回");
