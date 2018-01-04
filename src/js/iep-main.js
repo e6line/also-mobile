@@ -43,7 +43,7 @@ $(function(){
 			change: function(value, date){ //监听日期被切换
 				$("#iepDate").val(value);
 				smoothScroll($(".layui-laydate-content"), ($("td.layui-this").offset().left - $(".layui-laydate-content").width()/2 + 16 + $(".layui-laydate-content").scrollLeft()), 500)
-				//iepBoxChange("showPlane.do?stuId="+stuId+"&date="+value);
+				iepBoxChange("showPlane.do?stuId="+stuId+"&date="+value);
 				// $(".layui-laydate-content").scrollLeft(($("td.layui-this").offset().left - $(".layui-laydate-content").width()/2 + 16 + $(".layui-laydate-content").scrollLeft()));
 			},
 			mark: mark,
