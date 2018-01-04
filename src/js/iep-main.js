@@ -6,7 +6,7 @@ import weui from '../js/weui.min.js';
 $(function(){
 
 	function iepBoxChange(url){
-		
+
 		var loading = weui.loading('loading', {
 			className: 'custom-classname'
 		});
@@ -43,20 +43,15 @@ $(function(){
 			change: function(value, date){ //监听日期被切换
 				$("#iepDate").val(value);
 				smoothScroll($(".layui-laydate-content"), ($("td.layui-this").offset().left - $(".layui-laydate-content").width()/2 + 16 + $(".layui-laydate-content").scrollLeft()), 500)
-				iepBoxChange("showPlane.do?stuId="+stuId+"&date="+value);
+				//iepBoxChange("showPlane.do?stuId="+stuId+"&date="+value);
 				// $(".layui-laydate-content").scrollLeft(($("td.layui-this").offset().left - $(".layui-laydate-content").width()/2 + 16 + $(".layui-laydate-content").scrollLeft()));
 			},
 			mark: mark,
 			theme: 'also',
 			format: 'yyyy-MM-dd',
-			done: function(value, date, endDate){
-				console.log(value)
-			},
 			showBottom: false
 		});
 	}
-
-	iepBoxChange("showPlane.do");
 	// document.getElementById('slider_wrap').style.webkitOverflowScrolling = 'touch';
 	// document.getElementById("j_u_c_items").addEventListener('touchstart', function(event){});
 
@@ -74,4 +69,5 @@ $(function(){
 			}
 		}.bind(this), 10);
 	};
+	iepBoxChange("showPlane");
 });
