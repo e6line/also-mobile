@@ -1,7 +1,16 @@
 import global from '../js/global.js';
 // 引入weuiJs
 import weui from '../js/weui.min.js';
-
+function iepBoxChange(url){
+	$('#plan-main-box').load(basePath+url, function(data, status, xhr) {
+		if(isShowBasePlan){
+			require('../js/iep-pro.js');
+		}else{
+			require('../js/iep.js');
+		}
+		loading.hide(function() { });
+	});
+}
 $(function(){
 	$("#iepDate").val(sysDate);
 	// 非微信浏览器添加topBar
@@ -25,8 +34,9 @@ $(function(){
 				$(".layui-laydate-content").scrollLeft(($("td.layui-this").offset().left - $(".layui-laydate-content").width()/2 + 16));
 			},
 			change: function(value, date){ //监听日期被切换
-				$("#iepDate").val(value)
+				$("#iepDate").val(value);
 				smoothScroll($(".layui-laydate-content"), ($("td.layui-this").offset().left - $(".layui-laydate-content").width()/2 + 16 + $(".layui-laydate-content").scrollLeft()), 500)
+				iepBoxChange("showPlane.do?stuId="+stuId+"&date="+value);
 				// $(".layui-laydate-content").scrollLeft(($("td.layui-this").offset().left - $(".layui-laydate-content").width()/2 + 16 + $(".layui-laydate-content").scrollLeft()));
 			},
 			mark: mark,
@@ -38,7 +48,7 @@ $(function(){
 			showBottom: false
 		});
 	}
-
+iepBoxChange("showPlane.do");
 	// document.getElementById('slider_wrap').style.webkitOverflowScrolling = 'touch';
 	// document.getElementById("j_u_c_items").addEventListener('touchstart', function(event){});
 
@@ -58,18 +68,6 @@ $(function(){
 	};
 	var loading = weui.loading('loading', {
 		className: 'custom-classname'
-	});
-
-
-	$('#plan-main-box').load('/iep-pro.html', function(data, status, xhr) {
-		if(isShowBasePlan){
-			require('../js/iep-pro.js')
-		}else{
-			require('../js/iep.js')
-		}
-		loading.hide(function() {
-			console.log('`loading` has been hidden');
-		});
 	});
 
 });
