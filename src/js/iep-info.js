@@ -60,15 +60,27 @@ $(function(){
 		beforeCheck : function(curform) {},
 		beforeSubmit:function(curform){},
 		callback : function(data) {
-			alert("data2")
-			return false;
+			$(".also-plan-alert").hide();
+			var msgPage =$("#msgPage");
+			if(data.code == '000000'){
+				msgPage.show().addClass("msg_success").removeClass("msg_warn");
+				msgPage.find(".weui-icon_msg").addClass("weui-icon-success").removeClass("weui-icon-warn")
+				msgPage.find(".weui-msg__title").html("保存成功！")
+				msgPage.find(".weui-btn_primary").html("去登录").attr("href","javascript:window.history.back(-1)");
+				msgPage.find(".weui-btn_default").html("weui-btn_default").hide();
+			}else{
+				msgPage.show().addClass("msg_warn").removeClass("msg_success");
+				msgPage.find(".weui-icon_msg").addClass("weui-icon-warn").removeClass("weui-icon-success")
+				msgPage.find(".weui-msg__title").html("保存失败！")
+				msgPage.find(".weui-btn_primary").html("重新填写信息").attr("href","javascript:location.reload()");
+				msgPage.find(".weui-btn_default").html("weui-btn_default").hide();
+			}
 			}
 			});
 
 });
 //画图表
 function myEchart(timeData,planAChart){
-	timeData =['2018-01-01','2018-01-02','2018-01-03'];
 	var xAxis = $.map(timeData,function (item) {
 		return item[0];
 	})
@@ -149,7 +161,7 @@ function myEchart(timeData,planAChart){
 			}],
 			visualMap: {
 				top: 0,
-				right: 10,
+				right: 40,
 				orient:'horizontal',
 				pieces: [{
 					gt: 0,
