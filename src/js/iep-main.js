@@ -6,6 +6,11 @@ import weui from '../js/weui.min.js';
 $(function(){
 
 	function iepBoxChange(url){
+		
+		var loading = weui.loading('loading', {
+			className: 'custom-classname'
+		});
+
 		$('#plan-main-box').load(basePath+url, function(data, status, xhr) {
 			if(isShowBasePlan){
 				require('../js/iep-pro.js');
@@ -50,7 +55,7 @@ $(function(){
 			showBottom: false
 		});
 	}
-	
+
 	iepBoxChange("showPlane.do");
 	// document.getElementById('slider_wrap').style.webkitOverflowScrolling = 'touch';
 	// document.getElementById("j_u_c_items").addEventListener('touchstart', function(event){});
@@ -69,8 +74,4 @@ $(function(){
 			}
 		}.bind(this), 10);
 	};
-	var loading = weui.loading('loading', {
-		className: 'custom-classname'
-	});
-
 });
