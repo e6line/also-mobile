@@ -1,19 +1,21 @@
 import global from '../js/global.js';
 import '../plug/validForm.js';
 
-function changeCode() {
-	$("#codeImg").attr("src", "code.do?t=" + new Date().getTime());
-}
-function tooltips(msg){
-	var $tooltips = $('.js_tooltips');
-	$tooltips.html(msg)
-	if ($tooltips.css('display') != 'none') return;
-	$tooltips.css('display', 'block');
-	setTimeout(function () {
-		$tooltips.css('display', 'none');
-	}, 2000);
-}
+
 $(function(){
+	function changeCode() {
+		$("#codeImg").attr("src", "code.do?t=" + new Date().getTime());
+	}
+	function tooltips(msg){
+		var $tooltips = $('.js_tooltips');
+		$tooltips.html(msg)
+		if ($tooltips.css('display') != 'none') return;
+		$tooltips.css('display', 'block');
+		setTimeout(function () {
+			$tooltips.css('display', 'none');
+		}, 2000);
+	}
+	
 	// 非微信浏览器添加topBar
 	global.topBar(function () {
 		window.history.back(0) ;
