@@ -1,24 +1,28 @@
 import global from '../js/global.js';
 // 引入weuiJs
 import weui from '../js/weui.min.js';
-function iepBoxChange(url){
-	$('#plan-main-box').load(basePath+url, function(data, status, xhr) {
-		if(isShowBasePlan){
-			require('../js/iep-pro.js');
-		}else{
-			require('../js/iep.js');
-		}
-		loading.hide(function() { });
-	});
-}
+
+
 $(function(){
+
+
+	function iepBoxChange(url){
+		$('#plan-main-box').load(basePath+url, function(data, status, xhr) {
+			if(isShowBasePlan){
+				require('../js/iep-pro.js');
+			}else{
+				require('../js/iep.js');
+			}
+			loading.hide(function() { });
+		});
+	}
+
+
 	$("#iepDate").val(sysDate);
 	// 非微信浏览器添加topBar
 	global.topBar(function () {
 		window.history.back(0) ;
 	});
-
-
 
 	// 底部导航
 	$('.also-tabbar__item').on('click', function () {
