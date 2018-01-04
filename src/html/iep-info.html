@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+	<title>"${pd.iepTitle}"</title>
+	<script type="text/javascript">
+	var iepLogResult="${iepLogResult}";
+	var isUpgrade= "${pd.isUpgrade}";
+	var nlMcForNext = "${pd.nlMcForNext}";
+	var timeData ="${pd.tj}";
+	</script>
+</head>
+<body ontouchstart>
+	<div class="weui-toptips weui-toptips_warn js_tooltips" style="display: none;" >错误提示</div>
+	<div class="page js_show" style="display: none;" id="msgPage">
+		<div class="weui-msg">
+				<div class="weui-msg__icon-area"><i class="weui-icon_msg" ></i></div>
+				<div class="weui-msg__text-area">
+						<h2 class="weui-msg__title">操作成功</h2>
+						<!-- 内容详情，可根据实际需要安排，如果换行则不超过规定长度，居中展现 -->
+						<p class="weui-msg__desc"></p>
+				</div>
+				<div class="weui-msg__opr-area">
+						<p class="weui-btn-area">
+								<a href="javascript:history.back();" class="weui-btn weui-btn_primary">推荐操作</a>
+								<a href="javascript:history.back();" class="weui-btn weui-btn_default">辅助操作</a>
+						</p>
+				</div>
+				<div class="weui-msg__extra-area">
+						<div class="weui-footer">
+								<p class="weui-footer__links">
+									<!-- 底部链接文本 -->
+										<a href="javascript:void(0);" class="weui-footer__link"></a>
+								</p>
+								<p class="weui-footer__text">Copyright © 2018 ALSOLIFE</p>
+						</div>
+				</div>
+		</div>
+</div>
+<div class="also-plan-alert">
+	<form method="post" action="/saveIepInfo.do" id='basicInfo'>
+	<div class="weui-cells">
+		<div class="weui-cell weui-cell_select weui-cell_select-after">
+			<div class="weui-cell__hd">
+				<label for="" class="weui-label">通过率</label>
+			</div>
+			<div class="weui-cell__bd">
+				<select class="weui-select" name="tgl" id='tgl' datatype="*"  errormsg="请选择通过率！" nullmsg="请选择通过率！">
+					<option value="">请选择</option>
+					<option value="0.3">30%以下</option>
+					<option value="0.4">40%</option>
+					<option value="0.5">50%</option>
+					<option value="0.6">60%</option>
+					<option value="0.7">70%</option>
+					<option value="0.8">80%以上</option>
+				</select>
+			</div>
+		</div>
+		<div class="weui-cell weui-cell_select weui-cell_select-after">
+			<div class="weui-cell__hd">
+				<label for="" class="weui-label">辅助情况</label>
+			</div>
+			<div class="weui-cell__bd">
+				<select class="weui-select" name="wcqk" id='wcqk'datatype="*"  errormsg="请选择完成情况！" nullmsg="请选择完成情况！">
+					<option value="">请选择</option>
+					<option value="1">肢体辅助</option>
+					<option value="2">其他辅助</option>
+					<option value="4">无辅助</option>
+				</select>
+			</div>
+		</div>
+		<div class="weui-cell">
+			<div class="weui-cell__hd">
+				<label for="" class="weui-label">备注</label>
+			</div>
+			<div class="weui-cell__bd">
+				<input class="weui-input" name="bz" id='bz' type="text" placeholder="请输入文本"/>
+			</div>
+		</div>
+	</div>
+	<button type='submit'style="display:none;" id="saveBtn"></button>
+	<input id="iepUsrId"  name='iepUsrId'type='hidden' value='${pd.iepUsrId }'></input>
+	<input id='userId'name='stuId' type='hidden' value='${pd.userId}'>
+	<input id="iepId" name='iepId' type='hidden' value='${iepLib.iepId}'></input>
+	<input id="lxdm" name='lxDm' type='hidden' value='${iepLib.lxDm}'></input>
+	<input id="nldm"name='nlDm' type='hidden' value='${iepLib.nlDm}'></input>
+	<input id="jndDm" name='jndDm'type='hidden' value='${iepLib.jndDm}'></input>
+	<input id="saveDate" name='date' type='hidden' value='${pd.saveDate }'></input>
+	<input id="saveFlag" name ="saveFlag" type='hidden' value='${pd.saveFlag }'></input>
+</form>
+	<div class="weui-cells">
+		<div class="weui-tab">
+			<div class="weui-navbar">
+				<div class="weui-navbar__item weui-bar__item_on">
+					说明
+				</div>
+				<div class="weui-navbar__item">
+					统计
+				</div>
+			</div>
+			<div class="weui-tab__panel">
+				<div>
+					<article class="weui-article">
+						<section>
+							<section>
+								<p class="weui-flex">
+									<span class="also-p-title">训练名称</span>
+									<span class="weui-flex__item">"${iepLib.title}"</span>
+								</p>
+								<p class="weui-flex">
+									<span class="also-p-title">训练目标</span>
+									<span class="weui-flex__item">"${iepLib.xlmb}"</span>
+								</p>
+								<p class="weui-flex">
+									<span class="also-p-title">复习课程</span>
+									<span class="weui-flex__item">"${iepLib.xlqt}"</span>
+								</p>
+								<p class="weui-flex">
+									<span class="also-p-title">课程训练</span>
+									<span class="weui-flex__item">"${iepLib.xlbz}"</span>
+								</p>
+							</section>
+						</section>
+					</article>
+				</div>
+				<div style="display:none">
+					<article class="weui-article">
+						<div id="iep-info-echarts" ></div>
+					</article>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="also-actionBar-seat">
+		<div class="also-actionBar">
+			<div class="also-actionBar-wrap">
+				<a class="advanced" href="###" id='advanced'><strong>马上进阶</strong><span>下一阶段：<i>动作模仿</i></span></a>
+				<a class="preserved" href="###" id="save">保存</a>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

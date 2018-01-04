@@ -4,21 +4,14 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
 	<title>训练</title>
-	<link rel="stylesheet" href="./static/plug/laydate/theme/default/laydate.css">
 	<script type="text/javascript">
 	// 是否显示预备计划
 	var isShowBasePlan = true;
-	// 特殊日期标注
-	var mark = {
-		'2017-11-15': '' //具体日期
-		,'2017-11-20': '' //如果为空字符，则默认显示数字+徽章
-		,'2017-11-21': ''
-	};
+	var baseData="${pd.xllb}";
+
 	</script>
 </head>
 <body ontouchstart>
-	<div class="also-tab">
-		<div class="also-tab__panel" id="also-wrap">
 			<section class="also-article">
 				<h3>ALSO给您带来第一周的“基础性”训练计划</h3>
 				<p>
@@ -38,70 +31,8 @@
 
 			<!-- 这里是内容 -->
 			<div class="weui-panel">
-				<h3 class="also-title">学业能力</h3>
-				<div class="weui-panel__bd">
-					<div class="weui-grids also-grids">
-						<a href="javascript:;" class="weui-grid plan-btn also-saved" >
-							<div class="weui-grid__icon">
-								<img src="../img/i-0101.png" alt="">
-							</div>
-							<p class="weui-grid__label">动作模仿</p>
-						</a>
-						<a href="javascript:;" class="weui-grid plan-btn" >
-							<div class="weui-grid__icon">
-								<img src="../img/i-0102.png" alt="">
-							</div>
-							<p class="weui-grid__label">动作模仿</p>
-						</a>
-						<a href="javascript:;" class="weui-grid plan-btn" >
-							<div class="weui-grid__icon">
-								<img src="../img/i-0104.png" alt="">
-							</div>
-							<p class="weui-grid__label">动作模仿</p>
-						</a>
-						<a href="javascript:;" class="weui-grid plan-btn" >
-							<div class="weui-grid__icon">
-								<img src="../img/i-0105.png" alt="">
-							</div>
-							<p class="weui-grid__label">动作模仿</p>
-						</a>
-					</div>
-				</div>
-				<h3 class="also-title">学业能力</h3>
-				<div class="weui-panel__bd">
-					<div class="weui-grids also-grids">
-						<a href="javascript:;" class="weui-grid plan-btn" >
-							<div class="weui-grid__icon">
-								<img src="../img/i-0107.png" alt="">
-							</div>
-							<p class="weui-grid__label">动作模仿</p>
-						</a>
-						<a href="javascript:;" class="weui-grid plan-btn" >
-							<div class="weui-grid__icon">
-								<img src="../img/i-0108.png" alt="">
-							</div>
-							<p class="weui-grid__label">动作模仿</p>
-						</a>
-						<a href="javascript:;" class="weui-grid plan-btn" >
-							<div class="weui-grid__icon">
-								<img src="../img/i-0109.png" alt="">
-							</div>
-							<p class="weui-grid__label">动作模仿</p>
-						</a>
-						<a href="javascript:;" class="weui-grid plan-btn" >
-							<div class="weui-grid__icon">
-								<img src="../img/i-0201.png" alt="">
-							</div>
-							<p class="weui-grid__label">动作模仿</p>
-						</a>
-					</div>
-				</div>
+
 			</div>
 			<!-- /这里是内容 -->
-
-			<!-- <div class="plan-page" id="plan-page"></div> -->
-		</div>
-
-	</div>
 </body>
 </html>

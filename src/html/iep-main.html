@@ -8,21 +8,37 @@
 	<script type="text/javascript">
 	// 是否显示预备计划
 	var isShowBasePlan = true;
+	var basePath ="<%=basePath%>";
+	// 是否显示预备计划
+	//var isShowBasePlan = true;
+	var saveDate="${pd.saveDate}"
+	var minDate="${pd.beginDate}"
+	var maxDate="${pd.endDate}"
+	var sysDate="${pd.sysDate}"
+	var stuId="${pd.userId}"
+
+	// 特殊日期标注
+	var mark = {};
+	if(saveDate!=null){
+		mark=saveDate;
+	}
 	// 特殊日期标注
 	var mark = {
 		'2017-11-15': '' //具体日期
 		,'2017-11-20': '' //如果为空字符，则默认显示数字+徽章
 		,'2017-11-21': ''
 	};
+
 	</script>
 </head>
 <body ontouchstart>
 	<div class="also-tab">
+		<input type="hidden" id='iepDate' value=''>
 		<div class="also-tab__panel" id="also-wrap">
 			<div id="also-date"></div>
 			<div id='plan-main-box'>
 			<!-- 这里是内容 -->
-			
+
 			<!-- /这里是内容 -->
 
 			</div>
