@@ -1,15 +1,15 @@
 import global from '../js/global.js';
-import Validform from '../plug/validForm.js';function tooltips(msg) {
+import Validform from '../plug/validForm.js';
 
 $(function(){
 	function tooltips(msg) {
-	    var $tooltips = $('.js_tooltips');
-	    $tooltips.html(msg) if ($tooltips.css('display') != 'none') return;
-	    $tooltips.css('display', 'block');
-	    setTimeout(function() {
-	        $tooltips.css('display', 'none');
-	    },
-	    2000);
+		var $tooltips = $('.js_tooltips');
+		$tooltips.html(msg) if ($tooltips.css('display') != 'none') return;
+		$tooltips.css('display', 'block');
+		setTimeout(function() {
+			$tooltips.css('display', 'none');
+		},
+		2000);
 	}
 	function showStepTab(index) {
 		var tab = $(".also-setp1");
@@ -60,7 +60,7 @@ $(function(){
 			tooltips("手机号码不能为空!");
 		}
 	}
-	
+
 	// 非微信浏览器添加topBar
 	global.topBar(function () {
 		window.history.back(0) ;
