@@ -67,6 +67,9 @@
 	.weui-picker__action{
 		color: #36b9bf;
 	}
+	.weui-cell__bd{
+		color: #666;
+	}
 /* alsoTopBar 微信浏览器下不显示 */
 	.also-header-wrap{
 		height: 46px;
