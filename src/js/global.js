@@ -16,14 +16,13 @@ module.exports = {
 		*/
 		function isWeiXin() {
 			var ua = window.navigator.userAgent.toLowerCase();
-			// if (ua.match(/MicroMessenger/i) == 'micromessenger') {
-			if (/macintosh|window/.test(navigator.userAgent.toLowerCase())) {
-				return false;
-			} else {
+			if (ua.match(/MicroMessenger/i) == 'micromessenger' && ($.os.phone || $.os.tablet)) {
 				return true;
+			} else {
+				return false;
 			}
 		}
-		var title = $("title").html();
+		var title = document.title;
 		// 顶部header模板
 		var _header = '<div class="also-header-wrap"><div class="also-header">'+
 						'<div class="also-header-left">'+
@@ -35,7 +34,6 @@ module.exports = {
 
 		// 非微信浏览器顶部插入header模板
 		if(!isWeiXin()){
-			console.log($("#also-wrap").length, '这里是length')
 			if($("#also-wrap").length>0){
 				$("#also-wrap").prepend(_header);
 			}else{
