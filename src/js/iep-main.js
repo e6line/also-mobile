@@ -5,7 +5,6 @@ import weui from '../js/weui.min.js';
 
 $(function(){
 
-
 	function iepBoxChange(url){
 		$('#plan-main-box').load(basePath+url, function(data, status, xhr) {
 			if(isShowBasePlan){
@@ -16,7 +15,6 @@ $(function(){
 			loading.hide(function() { });
 		});
 	}
-
 
 	$("#iepDate").val(sysDate);
 	// 非微信浏览器添加topBar
