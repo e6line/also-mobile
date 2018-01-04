@@ -16,10 +16,11 @@ module.exports = {
 		*/
 		function isWeiXin() {
 			var ua = window.navigator.userAgent.toLowerCase();
-			if (ua.match(/MicroMessenger/i) == 'micromessenger') {
-				return true;
-			} else {
+			// if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+			if (/macintosh|window/.test(navigator.userAgent.toLowerCase())) {
 				return false;
+			} else {
+				return true;
 			}
 		}
 		var title = $("title").html();
