@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+	<title>评估</title>
+</head>
+<body ontouchstart>
+
+		<link rel="stylesheet" href="./static/plug/video/video-js.min.css">
+		<div class="weui-panel">
+			<h3 class="also-title">第1题（A013）<em class="also-s-tit">动作模仿</em><span class="also-s-ft">1/20</span></h3>
+			<div class="weui-panel__bd">
+				<article class="weui-article" style="border-top: 1px solid #f7f7f7; padding-bottom: 10px">
+					<h3>在坐姿状态时，儿童能否在如“这样做”的语言辅助下，即可模仿他人做出只包含一个步骤的动作。</h3>
+				</article>
+
+				<div class="weui-cells weui-cells_radio">
+					<label class="weui-cell weui-check__label" for="x11">
+						<div class="weui-cell__bd">
+							<p>满足<span class="also-small-t">（能模仿10个一步动作）</span></p>
+						</div>
+						<div class="weui-cell__ft">
+							<input type="radio" class="weui-check" name="radio1" id="x11">
+							<span class="weui-icon-checked"></span>
+						</div>
+					</label>
+					<label class="weui-cell weui-check__label" for="x12">
+
+						<div class="weui-cell__bd">
+							<p>部分满足<span class="also-small-t">（能模仿的一步动作多于5个）</span></p>
+						</div>
+						<div class="weui-cell__ft">
+							<input type="radio" name="radio1" class="weui-check" id="x12" checked="checked">
+							<span class="weui-icon-checked"></span>
+						</div>
+					</label>
+					<label class="weui-cell weui-check__label" for="x13">
+
+						<div class="weui-cell__bd">
+							<p>不满足</p>
+						</div>
+						<div class="weui-cell__ft">
+							<input type="radio" name="radio1" class="weui-check" id="x13">
+							<span class="weui-icon-checked"></span>
+						</div>
+					</label>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="weui-cells weui-cells_form">
+			<div class="weui-cell">
+				<div class="weui-cell__hd"><label class="weui-label">备注</label></div>
+				<div class="weui-cell__bd">
+					<input class="weui-input" type="text" pattern="" placeholder="请输入备注信息">
+				</div>
+			</div>
+		</div>
+
+		<div class="weui-panel">
+			<h3 class="also-title">操作指南</h3>
+			<div class="weui-panel__bd">
+				<article class="weui-article">
+					<video
+						id="also-player"
+						class="video-js"
+						controls
+						preload="auto"
+						poster="./static/plug/video/oceans.png"
+						height="200"
+						data-setup='{}'>
+					  <source src="./static/plug/video/oceans.mp4" type="video/mp4"></source>
+					  <p class="vjs-no-js"></p>
+					</video>
+					<section style="margin: 1.5em 0 0;">
+						<p class="weui-flex">
+							<span class="also-p-title">训练名称</span>
+							<span class="weui-flex__item">配对颜色</span>
+						</p>
+						<p class="weui-flex">
+							<span class="also-p-title">训练目标</span>
+							<span class="weui-flex__item">配对红黄蓝绿四种颜色，提升孩子的视觉观察能力，区辩能力和对常见颜色的认知能力。</span>
+						</p>
+						<p class="weui-flex">
+							<span class="also-p-title">复习课程</span>
+							<span class="weui-flex__item">实物配对、卡片配对、实物卡片配对</span>
+						</p>
+						<p class="weui-flex">
+							<span class="also-p-title">课程训练</span>
+							<span class="weui-flex__item">回合式训练</span>
+						</p>
+					</section>
+				</article>
+			</div>
+		</div>
+
+		<div class="weui-panel">
+			<h3 class="also-title">图片</h3>
+			<div class="weui-panel__bd">
+				<article class="weui-article">
+					<ul class="weui-uploader__files" id="uploaderFiles">
+						<li class="weui-uploader__file also-pic-item"><img src="../img/logo3.png"></li>
+						<li class="weui-uploader__file also-pic-item"><img src="../img/logo3.png"></li>
+						<li class="weui-uploader__file also-pic-item"><img src="../img/logo3.png"></li>
+					</ul>
+				</article>
+			</div>
+		</div>
+
+		<div class="also-actionBar-seat">
+			<div class="also-actionBar">
+				<div class="also-actionBar-wrap">
+					<a class="presBtn" href="###">上一题</a>
+					<a class="nextBtn" href="###">下一题</a>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="./static/plug/video/video.min.js"></script>
+</body>
+</html>

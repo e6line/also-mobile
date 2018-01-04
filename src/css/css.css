@@ -64,6 +64,9 @@
 		width: 36px;
 		height: 36px;
 	}
+	.weui-picker__action{
+		color: #36b9bf;
+	}
 /* alsoTopBar 微信浏览器下不显示 */
 	.also-header-wrap{
 		height: 46px;
@@ -382,7 +385,7 @@
 		color: #36b9bf;
 	}
 	.also-p-title{
-		font-weight: bold;
+		color: #36b9bf;
 		margin-right: 10px;
 	}
 	.also-actionBar-seat{
@@ -668,6 +671,78 @@
 		font-size: 14px;
 		background:#fbf3e5 url(../img/preliminary-plan_bg_foot.png) center bottom repeat-x;
 	}
+	.also-s-tit{
+		display: inline-block;
+		font-style: normal;
+		padding: 0px 5px;
+		font-size: 12px;
+		font-weight: normal;
+		color: #de9a3f;
+		border: 1px solid #de9a3f;
+		border-radius: 4px;
+		background-color: #fcf5eb;
+	}
+	.also-s-ft{
+		position: absolute;
+		top: 17px;
+		right: 0;
+		text-align: right;
+		display: block;
+		height: 20px;
+		padding: 0 20px 0 15px;
+		font-size: 12px;
+		color: #fff;
+		font-weight: normal;
+		background-color: #36b9bf;
+		overflow: hidden;
+	}
+	.also-s-ft:before{
+		position: absolute;
+		content: "";
+		left: -5px;
+		top: 5px;
+		width: 10px;
+		height: 10px;
+		background: #fff;
+		-webkit-transform: rotate(45deg) skew(18deg,20deg);
+		-moz-transform: rotate(45deg) skew(18deg,20deg);
+		-o-transform: rotate(45deg) skew(18deg,20deg);
+		-ms-transform: rotate(45deg) skew(18deg,20deg);
+		transform: rotate(45deg) skew(18deg,20deg);
+	}
+	.also-s-ft:after{
+		position: absolute;
+		content: "";
+		right: 5px;
+		top: 8px;
+	    height: 0;
+		width: 0;
+		border-top: 4px solid #86d5d9;
+		border-right: 4px solid transparent ; 
+		border-left: 4px solid transparent;
+	}
+	.also-small-t{
+		font-size: 14px;
+		color: #666;
+	}
+	.also-pic-item{}
+	.also-pic .weui-gallery__opr{
+		display: none;
+	}
+	.presBtn, .nextBtn{
+		display: block;
+		flex: 1;
+		height: 50px;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+		color: #fff;
+		background-color: #36b9bf;
+	}
+	.presBtn{
+		background-color: #f7f7fa;
+		color: #333333;
+	}
 /* also-login */
 	.login-bg{
 		height: 100%;
@@ -678,11 +753,11 @@
 		background-image: url(../img/login_pic_bg.png);
 	}
 	.also-login-wrap{
-
+		padding-top: 60px;
 	}
 	.also-logo{
 		text-align: center;
-		margin: 60px auto;
+		margin: 0 auto 60px;
 		width: 40%;
 	}
 	.also-logo img{
@@ -786,4 +861,21 @@
 		z-index: 1;
 		opacity: 1;
 		background-color: #fff;
+	}
+/* also-video */
+	.video-js .vjs-big-play-button{
+		top: 50%!important;
+		left: 50%!important;
+		width: 2em!important;
+		height: 2em!important;
+		margin-left: -1em;
+		margin-top: -1em;
+		border-color: #333!important;
+		-webkit-border-radius: 50%!important;
+		-moz-border-radius: 50%!important;
+		border-radius: 50%!important;
+	}
+	.video-js .vjs-big-play-button:before{
+		color: #999;
+		line-height: 2em;
 	}
