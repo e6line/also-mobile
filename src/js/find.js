@@ -5,7 +5,8 @@ $(function(){
 
 	function tooltips(msg) {
 		var $tooltips = $('.js_tooltips');
-		$tooltips.html(msg) if ($tooltips.css('display') != 'none') return;
+		$tooltips.html(msg);
+		 if ($tooltips.css('display') != 'none') return;
 		$tooltips.css('display', 'block');
 		setTimeout(function() {
 			$tooltips.css('display', 'none');
@@ -62,7 +63,6 @@ $(function(){
 		tab.children().eq(index).hide().next().show();
 	}
 
-	
 	// 非微信浏览器添加topBar
 	global.topBar(function () {
 		window.history.back(0) ;
@@ -79,7 +79,8 @@ $(function(){
 		tiptype: function(msg, o, cssctl) {
 			var name = o.obj.attr("name");
 			if (o.type == 3) {
-				tooltips(msg) if (name == 'PHONE') {
+				tooltips(msg);
+				if (name == 'PHONE') {
 					$("#codehref").off("click"); //将按钮置为不可点击
 					$("#codehref").attr("disabled", "disabled");
 				}
@@ -130,11 +131,15 @@ $(function(){
 			var msgPage = $("#msgPage");
 			if (data.status == 'y') {
 				msgPage.show().addClass("msg_success").removeClass("msg_warn");
-				msgPage.find(".weui-icon_msg").addClass("weui-icon-success").removeClass("weui-icon-warn") msgPage.find(".weui-msg__title").html("修改成功！") msgPage.find(".weui-btn_primary").html("去登录").attr("href", basePath + "/login_toIndex");
+				msgPage.find(".weui-icon_msg").addClass("weui-icon-success").removeClass("weui-icon-warn");
+				msgPage.find(".weui-msg__title").html("修改成功！");
+				msgPage.find(".weui-btn_primary").html("去登录").attr("href", basePath + "/login_toIndex");
 				msgPage.find(".weui-btn_default").html("weui-btn_default").hide();
 			} else {
 				msgPage.show().addClass("msg_warn").removeClass("msg_success");
-				msgPage.find(".weui-icon_msg").addClass("weui-icon-warn").removeClass("weui-icon-success") msgPage.find(".weui-msg__title").html("修改失败！") msgPage.find(".weui-btn_primary").html("重新找回密码").attr("href", basePath + "safty_verify");
+				msgPage.find(".weui-icon_msg").addClass("weui-icon-warn").removeClass("weui-icon-success");
+				msgPage.find(".weui-msg__title").html("修改失败！");
+				msgPage.find(".weui-btn_primary").html("重新找回密码").attr("href", basePath + "safty_verify");
 				msgPage.find(".weui-btn_default").html("weui-btn_default").hide();
 			}
 

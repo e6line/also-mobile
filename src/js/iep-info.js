@@ -79,11 +79,15 @@ $(function(){
 			var msgPage = $("#msgPage");
 			if (data.code == '000000') {
 				msgPage.show().addClass("msg_success").removeClass("msg_warn");
-				msgPage.find(".weui-icon_msg").addClass("weui-icon-success").removeClass("weui-icon-warn") msgPage.find(".weui-msg__title").html("保存成功！") msgPage.find(".weui-btn_primary").html("去登录").attr("href", "javascript:window.history.back(-1)");
+				msgPage.find(".weui-icon_msg").addClass("weui-icon-success").removeClass("weui-icon-warn");
+				msgPage.find(".weui-msg__title").html("保存成功！");
+				msgPage.find(".weui-btn_primary").html("去登录").attr("href", "javascript:window.history.back(-1)");
 				msgPage.find(".weui-btn_default").html("weui-btn_default").hide();
 			} else {
 				msgPage.show().addClass("msg_warn").removeClass("msg_success");
-				msgPage.find(".weui-icon_msg").addClass("weui-icon-warn").removeClass("weui-icon-success") msgPage.find(".weui-msg__title").html("保存失败！") msgPage.find(".weui-btn_primary").html("重新填写信息").attr("href", "javascript:location.reload()");
+				msgPage.find(".weui-icon_msg").addClass("weui-icon-warn").removeClass("weui-icon-success");
+				msgPage.find(".weui-msg__title").html("保存失败！");
+				msgPage.find(".weui-btn_primary").html("重新填写信息").attr("href", "javascript:location.reload()");
 				msgPage.find(".weui-btn_default").html("weui-btn_default").hide();
 			}
 		}
@@ -94,7 +98,8 @@ $(function(){
 	    var xAxis = $.map(timeData,
 	    function(item) {
 	        return item[0];
-	    }) var planAoption = {
+	    });
+	    var planAoption = {
 	        title: {
 	            text: '完成情况通过率统计图'
 	        },

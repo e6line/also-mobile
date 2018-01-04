@@ -4,12 +4,12 @@ import Validform from '../plug/validForm.js';
 $(function(){
 	function tooltips(msg) {
 		var $tooltips = $('.js_tooltips');
-		$tooltips.html(msg) if ($tooltips.css('display') != 'none') return;
+		$tooltips.html(msg);
+		if ($tooltips.css('display') != 'none') return;
 		$tooltips.css('display', 'block');
 		setTimeout(function() {
 			$tooltips.css('display', 'none');
-		},
-		2000);
+		},2000);
 	}
 	function showStepTab(index) {
 		var tab = $(".also-setp1");
