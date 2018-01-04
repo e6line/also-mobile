@@ -1,63 +1,66 @@
 import global from '../js/global.js';
 import Validform from '../plug/validForm.js';function tooltips(msg) {
-	var $tooltips = $('.js_tooltips');
-	$tooltips.html(msg) if ($tooltips.css('display') != 'none') return;
-	$tooltips.css('display', 'block');
-	setTimeout(function() {
-		$tooltips.css('display', 'none');
-	},
-	2000);
-}
-function showStepTab(index) {
-	var tab = $(".also-setp1");
-	tab.find(".also-setp").find(".also-setp-item").eq(index).removeClass("also-setp-stop");
-	tab.children().eq(index).hide().next().show();
-}
-function getPhoneCode() {
-	var phone = $("#phoneForm")[0].PHONE.value;
-	var url = "tool/sendSMS.do";
-	if (phone != null && phone != '') {
-		$.ajax({
-			"url": url,
-			"type": "post",
-			"dataType": "json",
-			"data": {
-				"phone": phone,
-				"type": "register"
-			},
-			"beforeSend": function() {},
-			"success": function(data) {
-				if (data) {
-					if (data.result == "false") {
-						tooltips(data.errorMsg);
-					} else {
-						var clock = ''; 
-						var nums = 90; $("#codehref").off("click"); //将按钮置为不可点击
-						$("#codehref").html(nums + '秒');
-						clock = setInterval(function() {
-							nums--; 
-							if (nums > 0) { 
-								$("#codehref").html(nums + '秒'); 
-							} else {  
-								clearInterval(clock); //清除js定时器
-								$("#codehref").on("click", function() {
-									getPhoneCode();
-								}).html("获取验证码");  
-								nums = 90; 
-							} 
-						}, 1000); //一秒执行一次
-					}
-				}
-			},
-			"error": function(XMLHttpRequest, textStatus, errorThrown) {
-				tooltips("服务器繁忙，请稍候！");
-			}
-		})
-	} else {
-		tooltips("手机号码不能为空!");
-	}
-}
+
 $(function(){
+	function tooltips(msg) {
+	    var $tooltips = $('.js_tooltips');
+	    $tooltips.html(msg) if ($tooltips.css('display') != 'none') return;
+	    $tooltips.css('display', 'block');
+	    setTimeout(function() {
+	        $tooltips.css('display', 'none');
+	    },
+	    2000);
+	}
+	function showStepTab(index) {
+		var tab = $(".also-setp1");
+		tab.find(".also-setp").find(".also-setp-item").eq(index).removeClass("also-setp-stop");
+		tab.children().eq(index).hide().next().show();
+	}
+	function getPhoneCode() {
+		var phone = $("#phoneForm")[0].PHONE.value;
+		var url = "tool/sendSMS.do";
+		if (phone != null && phone != '') {
+			$.ajax({
+				"url": url,
+				"type": "post",
+				"dataType": "json",
+				"data": {
+					"phone": phone,
+					"type": "register"
+				},
+				"beforeSend": function() {},
+				"success": function(data) {
+					if (data) {
+						if (data.result == "false") {
+							tooltips(data.errorMsg);
+						} else {
+							var clock = '';
+							var nums = 90; $("#codehref").off("click"); //将按钮置为不可点击
+							$("#codehref").html(nums + '秒');
+							clock = setInterval(function() {
+								nums--; 
+								if (nums > 0) { 
+									$("#codehref").html(nums + '秒'); 
+								} else {  
+									clearInterval(clock); //清除js定时器
+									$("#codehref").on("click", function() {
+										getPhoneCode();
+									}).html("获取验证码");  
+									nums = 90; 
+								} 
+							}, 1000); //一秒执行一次
+						}
+					}
+				},
+				"error": function(XMLHttpRequest, textStatus, errorThrown) {
+					tooltips("服务器繁忙，请稍候！");
+				}
+			})
+		} else {
+			tooltips("手机号码不能为空!");
+		}
+	}
+	
 	// 非微信浏览器添加topBar
 	global.topBar(function () {
 		window.history.back(0) ;
