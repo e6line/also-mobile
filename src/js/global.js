@@ -52,7 +52,7 @@ module.exports = {
 
 			var index = $(this).index();
 			$(this).addClass('weui-bar__item_on').siblings('.weui-bar__item_on').removeClass('weui-bar__item_on');
-			$('.weui-tab__panel div').hide().eq(index).show();
+			$('.weui-tab__panel>div').hide().eq(index).show();
 
 			if(typeof callBack == "function"){
 				callBack(index)
