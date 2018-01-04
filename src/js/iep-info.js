@@ -11,9 +11,6 @@ import 'echarts/lib/component/title';
 import 'echarts/lib/component/toolbox';
 import 'echarts/lib/component/dataZoom';
 
-
-console.log(echarts)
-
 function tooltips(msg){
 	var $tooltips = $('.js_tooltips');
 	$tooltips.html(msg)
