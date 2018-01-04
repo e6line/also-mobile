@@ -782,6 +782,53 @@
 		font-weight: 600;
 		color: #36b9bf;
 	}
+	.gold-icon{
+		margin: 6px;
+		list-style:none;width:24px;height:24px;display: inline-block;
+	}
+	/* 场景图标 */
+	.c-0101{background-position:-24px 0px}
+	.c-0103{background-position:0px -24px}
+	.c-0104{background-position:-24px -24px}
+	.c-0105{background-position:-48px 0px}
+	.c-0106{background-position:-48px -24px}
+	.c-0107{background-position:0px -48px}
+	.c-0108{background-position:-24px -48px}
+	.c-0109{background-position:-48px -48px}
+	.c-0110{background-position:-72px 0px}
+	.c-0201{background-position:-72px -24px}
+	.c-0202{background-position:-72px -48px}
+	.c-0203{background-position:0px -72px}
+	.c-0204{background-position:-24px -72px}
+	.c-0205{background-position:-48px -72px}
+	.c-0301{background-position:-72px -72px}
+	.c-0302{background-position:-96px 0px}
+	.c-0303{background-position:-96px -24px}
+	.c-0304{background-position:-96px -48px}
+	.c-0305{background-position:-96px -72px}
+	.c-0306{background-position:0px -96px}
+	.c-0307{background-position:-24px -96px}
+	.c-0401{background-position:-48px -96px}
+	.c-0402{background-position:-72px -96px}
+	.c-0403{background-position:-96px -96px}
+	.c-0102{background-position:-120px 0px}
+	.c-0101,.c-0103,.c-0104,.c-0105,.c-0106,.c-0107,.c-0108,.c-0109,.c-0110,.c-0201,.c-0202,.c-0203,.c-0204,.c-0205,.c-0301,.c-0302,.c-0303,.c-0304,.c-0305,.c-0306,.c-0307,.c-0401,.c-0402,.c-0403,.c-0102{background-repeat: no-repeat;background-image: url(../img/style_c.png)}
+	.gold-set .also-btn-wrap{
+		background-color: #fff;
+	}
+	.gold-set .weui-grid{
+		position: relative;
+	}
+	.gold-set .weui-icon-success{
+		position: absolute;
+		right: 3px;
+		top: 3px;
+		display: none;
+		color: #36b9bf;
+	}
+	.weui-grid-on .weui-icon-success{
+		display: block;
+	}
 /* also-login */
 	.login-bg{
 		height: 100%;
