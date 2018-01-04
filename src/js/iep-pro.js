@@ -43,7 +43,7 @@ $(function(){
 			className: 'custom-classname'
 		});
 		var that = $(this);
-		var title = that.find("span").text()
+		var title = that.find("span").text();
 		var iepId = that.attr("value");
 		var iepUsrId = that.attr("iepUsrId");
 		var date = $("#also-date").val();

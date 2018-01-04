@@ -18,7 +18,7 @@ $(function(){
 	
 	// 非微信浏览器添加topBar
 	global.topBar(function () {
-		window.history.back(0) ;
+		window.history.back(0);
 	});
 	// 选项卡
 	global.tab(function (i) {
