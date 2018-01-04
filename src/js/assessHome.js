@@ -1,6 +1,4 @@
 import global from '../js/global.js';
-// 引入weuiJs
-import weui from '../js/weui.min.js';
 
 $(function(){
 	// 非微信浏览器添加topBar
@@ -22,7 +20,7 @@ $(function(){
 			$(this).removeClass('gray');
 		}
 		$(this).find('.also-promote-score').css({
-			height: promoteData[index] + '%' 
+			height: promoteData[index] + '%'
 		});
 		$(this).find('span').html(promoteData[index] + '%');
 	});
