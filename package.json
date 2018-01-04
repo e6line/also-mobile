@@ -40,6 +40,7 @@
     "webpack-merge": "^4.1.0"
   },
   "dependencies": {
+    "echarts": "^3.8.5",
     "html-withimg-loader": "^0.1.16",
     "layui-laydate": "^5.0.9",
     "weui": "^1.1.2",
