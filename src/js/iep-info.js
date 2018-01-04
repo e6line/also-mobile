@@ -1,6 +1,19 @@
 import global from '../js/global.js';
 import Validform from '../plug/validForm.js';
-import echarts from '../plug/echarts.min.js';
+// import echarts from '../plug/echarts.min.js';
+import * as echarts from 'echarts/lib/echarts';
+import 'echarts/lib/chart/line';
+
+// https://github.com/ecomfe/echarts/blob/master/index.js 组件列表
+// 引入提示框组件、标题组件、工具箱组件。
+import 'echarts/lib/component/tooltip';
+import 'echarts/lib/component/title';
+import 'echarts/lib/component/toolbox';
+import 'echarts/lib/component/dataZoom';
+
+
+console.log(echarts)
+
 function tooltips(msg){
 	var $tooltips = $('.js_tooltips');
 	$tooltips.html(msg)
