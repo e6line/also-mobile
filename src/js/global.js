@@ -22,14 +22,14 @@ module.exports = {
 				return false;
 			}
 		}
-		var title = document.title;
+		var _title = document.title;
 		// 顶部header模板
 		var _header = '<div class="also-header-wrap"><div class="also-header">'+
 						'<div class="also-header-left">'+
 							'<a class="also-header-back"></a>'+
 							'<div class="left-arrow"></div>'+
 						'</div>'+
-						'<h1 class="also-header-title"><span>'+ title +'</span></h1>'+
+						'<h1 class="also-header-title"><span>'+ _title +'</span></h1>'+
 					'</div></div>';
 
 		// 非微信浏览器顶部插入header模板
