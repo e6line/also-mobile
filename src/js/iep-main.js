@@ -50,7 +50,8 @@ $(function(){
 			showBottom: false
 		});
 	}
-iepBoxChange("showPlane.do");
+	
+	iepBoxChange("showPlane.do");
 	// document.getElementById('slider_wrap').style.webkitOverflowScrolling = 'touch';
 	// document.getElementById("j_u_c_items").addEventListener('touchstart', function(event){});
 
