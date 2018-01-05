@@ -83,7 +83,6 @@ module.exports = {
 				}]
 			}); 
 		*/
-
 		var btnsHtml = '';
 		for(var i = 0; i < options.btns.length; i++){
 			btnsHtml += '<a href="javascript:;" class="weui-btn weui-btn_'+ options.btns[i]['style'] +' also-msg-btn">'+ options.btns[i]['text'] +'</a>';
