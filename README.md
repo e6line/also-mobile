@@ -1,3 +1,12 @@
 # Also-Mobile
  Based on the mobile terminal also platform。
- 优先提交了登录&注册&找回
+
+# 注册 & 登录 & 找回
+
+# 训练
+
+# 评估
+
+# 金手册
+
+# 我（没有）
