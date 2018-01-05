@@ -5,6 +5,19 @@ import global from '../js/global.js';
 
 $(function(){
 
+	//事件委托
+	$(document).on('click', '.plan-btn', function () {
+		var loading = weui.loading('loading', {
+			className: 'custom-classname'
+		});
+		var that = $(this);
+		var iepId = that.attr("value");
+		var iepUsrId = that.attr("iepUsrId");
+		var date = $("#also-date").val();
+		var url = basePath+"showIepLibMobile.do?flag=corseList&stuId="+stuId+"&iepId="+iepId+"&iepUsrId="+iepUsrId;
+		window.location.href = url;
+	});
+
 	function iepBoxChange(url){
 
 		var loading = weui.loading('loading', {
@@ -13,9 +26,13 @@ $(function(){
 
 		$('#plan-main-box').load(basePath+url, function(data, status, xhr) {
 			if(isShowBasePlan){
-				require('../js/iep-pro.js');
+				var iepPro = require('../js/iep-pro.js');
+				iepPro.domPlan();
+				// 注意这里会涉及循环绑定，可以会需要委托
+				iepPro.setArticleHeight();
 			}else{
-				require('../js/iep.js');
+				var iep = require('../js/iep.js');
+				iep.domPlan();
 			}
 			loading.hide(function() { });
 		});
