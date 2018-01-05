@@ -39,6 +39,7 @@ module.exports = {
 			}else{
 				$("body").prepend(_header);
 			}
+			$(document).off('click', '.left-arrow');
 			$(document).on('click', '.left-arrow', function () {
 				if(typeof callBack == "function"){
 					callBack()
@@ -48,6 +49,8 @@ module.exports = {
 		}
 	},
 	tab: function (callBack) { // 目前只支持一个参数 index: 当选选项卡索引
+
+		$(document).off('click', '.weui-navbar__item');
 		$(document).on('click', '.weui-navbar__item', function () {
 
 			var index = $(this).index();
@@ -87,12 +90,13 @@ module.exports = {
 							'</div>'+
 						'</div>'+
 					'</div>';
-		console.log(_tpl)			
+			
 		if($("#msgPage").length>0){
 			$("#msgPage").remove();
 		}
 		$("body").prepend(_tpl);
-
+		
+		$(document).off('click', '.also-msg-btn');
 		$(document).on('click', '.also-msg-btn', function () {
 			var _index = $(this).index();
 			if(typeof options.btns[_index].callBack == "function"){
