@@ -42,7 +42,7 @@ $(function(){
 		window.history.back(0) ;
 	});
 
-	var h =$(".weui-tab__panel .weui-article").height()<400?400:$(".weui-tab__panel .weui-article").height();
+	var h =$(".weui-tab__panel .weui-article").height()<300?300:$(".weui-tab__panel .weui-article").height()>500?500:$(".weui-tab__panel .weui-article").height();
 	var w =$(".weui-tab__panel .weui-article").width();
 	$('#iep-info-echarts').height(h).width(w);
 
