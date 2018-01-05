@@ -297,6 +297,9 @@
 		bottom: 0px;
 		background-color: #aaa;
 	}
+	.weui-msg{
+		padding-top: 100px;
+	}
 /* also-style */
 	.also-small-title{
 		font-size: 13px;
@@ -722,7 +725,7 @@
 		content: "";
 		right: 5px;
 		top: 8px;
-	    height: 0;
+		height: 0;
 		width: 0;
 		border-top: 4px solid #86d5d9;
 		border-right: 4px solid transparent ; 
@@ -831,6 +834,21 @@
 	}
 	.weui-grid-on .weui-icon-success{
 		display: block;
+	}
+	.also-page {
+		overflow-y: auto;
+		-webkit-overflow-scrolling: touch;
+		opacity: 0;
+		z-index: 501;
+		background-color: #fff;
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+	}
+	.also-page.js_show{
+		opacity: 1;
 	}
 /* also-login */
 	.login-bg{
