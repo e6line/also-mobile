@@ -15,7 +15,7 @@ $(function(){
 			$tooltips.css('display', 'none');
 		}, 2000);
 	}
-	
+
 	// 非微信浏览器添加topBar
 	global.topBar(function () {
 		window.history.back(0);
@@ -35,7 +35,7 @@ $(function(){
 		btnSubmit:"#btn_sub",
 		tiptype:function(msg, o, cssctl){
 			if(o.type==3){
-				tooltips(msg)
+				weui.topTips(msg, 3000);
 			}
 		},
 		ignoreHidden: true,

@@ -47,21 +47,3 @@ module.exports = {
 		});
 	}
 }
-
-
-// $(function(){
-
-// 	// 点击显示
-// 	$(".plan-btn").on('click', function() {
-// 		var loading = weui.loading('loading', {
-// 			className: 'custom-classname'
-// 		});
-// 		var that =$(this);
-// 		var iepId =that.attr("value");
-// 		var iepUsrId =that.attr("iepUsrId");
-// 		var date = $("#iepDate").val();
-// 		var url =basePath+"showIepLibMobile.do?flag=corseList&stuId="+stuId+"&iepId="+iepId+"&iepUsrId="+iepUsrId;
-// 		window.location.href =url;
-
-// 	});
-// });

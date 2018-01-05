@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
-	<title>"${pd.nlMc}"</title>
+	<title>"${pd.iepLib.nlMc}"</title>
 	<script type="text/javascript">
 	var iepLogResult="${iepLogResult}";
 	var isUpgrade= "${pd.isUpgrade}";
@@ -12,9 +12,8 @@
 	</script>
 </head>
 <body ontouchstart>
-	<div class="weui-toptips weui-toptips_warn js_tooltips" style="display: none;" >错误提示</div>
 <div class="also-plan-alert">
-	<form method="post" action="/saveIepInfo.do" id='basicInfo'>
+	<form method="post" action="<%=path%>/saveIepInfo.do" id='basicInfo'>
 	<div class="weui-cells">
 		<div class="weui-cell weui-cell_select weui-cell_select-after">
 			<div class="weui-cell__hd">
@@ -110,8 +109,8 @@
 	<div class="also-actionBar-seat">
 		<div class="also-actionBar">
 			<div class="also-actionBar-wrap">
-				<a class="advanced" href="###" id='advanced'><strong>马上进阶</strong><span>下一阶段：<i>动作模仿</i></span></a>
-				<a class="preserved" href="###" id="save">保存</a>
+				<a class="advanced" href="javascript:;" id='advanced'><strong>马上进阶</strong><span>下一阶段：<i>动作模仿</i></span></a>
+				<a class="preserved" href="javascript:;" id="save">保存</a>
 			</div>
 		</div>
 	</div>

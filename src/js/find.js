@@ -3,16 +3,7 @@ import Validform from '../plug/validForm.js';
 
 $(function(){
 
-	function tooltips(msg) {
-		var $tooltips = $('.js_tooltips');
-		$tooltips.html(msg);
-		 if ($tooltips.css('display') != 'none') return;
-		$tooltips.css('display', 'block');
-		setTimeout(function() {
-			$tooltips.css('display', 'none');
-		},
-		2000);
-	}
+
 	function getPhoneCode() {
 		var url = "tool/sendSMS.do";
 		var phone = $("#basicCodeInfo")[0].PHONE.value;
@@ -29,7 +20,7 @@ $(function(){
 				"success": function(data) {
 					if (data) {
 						if (data.result == "false") {
-							tooltips(data.errorMsg);
+							weui.topTips(data.errorMsg, 3000);
 						} else {
 							var clock = ''; 
 							var nums = 90; $("#codehref").off("click"); //将按钮置为不可点击
@@ -49,11 +40,11 @@ $(function(){
 					}
 				},
 				"error": function(XMLHttpRequest, textStatus, errorThrown) {
-					tooltips("服务器繁忙，请稍候！");
+					weui.topTips("服务器繁忙，请稍候！", 3000);
 				}
 			})
 		} else {
-			tooltips("手机号码不能为空!");
+			weui.topTips("手机号码不能为空!", 3000);
 		}
 
 	}
@@ -68,10 +59,7 @@ $(function(){
 		window.history.back(0) ;
 	});
 
-	// 选项卡
-	global.tab(function (i) {
-		console.log(i);
-	});
+
 
 	$("#codehref").attr("disabled", "disabled");
 	$("#basicCodeInfo").Validform({
@@ -80,6 +68,7 @@ $(function(){
 			var name = o.obj.attr("name");
 			if (o.type == 3) {
 				tooltips(msg);
+				weui.topTips(msg, 3000);
 				if (name == 'PHONE') {
 					$("#codehref").off("click"); //将按钮置为不可点击
 					$("#codehref").attr("disabled", "disabled");
@@ -116,7 +105,7 @@ $(function(){
 		btnSubmit: "#resetPass",
 		tiptype: function(msg, o, cssctl) {
 			if (o.type == 3) {
-				tooltips(msg)
+				weui.topTips(msg, 3000);
 			}
 		},
 		ignoreHidden: true,
@@ -128,19 +117,32 @@ $(function(){
 		beforeSubmit: function(curform) {},
 		callback: function(data) {
 			$(".also-setp1").hide();
-			var msgPage = $("#msgPage");
 			if (data.status == 'y') {
-				msgPage.show().addClass("msg_success").removeClass("msg_warn");
-				msgPage.find(".weui-icon_msg").addClass("weui-icon-success").removeClass("weui-icon-warn");
-				msgPage.find(".weui-msg__title").html("修改成功！");
-				msgPage.find(".weui-btn_primary").html("去登录").attr("href", basePath + "/login_toIndex");
-				msgPage.find(".weui-btn_default").html("weui-btn_default").hide();
+				global.msg({
+					icon: 'warn/success',
+					title: '修改成功！',
+					desc: '',
+					btns:[{
+						text: '去登录',
+						style: 'primary',
+						callBack: function() {
+							window.location.href = basePath+"login_toIndex";
+						}
+					}]
+				});
 			} else {
-				msgPage.show().addClass("msg_warn").removeClass("msg_success");
-				msgPage.find(".weui-icon_msg").addClass("weui-icon-warn").removeClass("weui-icon-success");
-				msgPage.find(".weui-msg__title").html("修改失败！");
-				msgPage.find(".weui-btn_primary").html("重新找回密码").attr("href", basePath + "safty_verify");
-				msgPage.find(".weui-btn_default").html("weui-btn_default").hide();
+				global.msg({
+					icon: 'warn/success',
+					title: '修改失败！',
+					desc: '',
+					btns:[{
+						text: '重新找回密码',
+						style: 'primary',
+						callBack: function() {
+							window.location.href = basePath+"safty_verify";
+						}
+					}]
+				});
 			}
 
 		}

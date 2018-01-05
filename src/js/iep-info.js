@@ -12,22 +12,13 @@ import 'echarts/lib/component/toolbox';
 import 'echarts/lib/component/dataZoom';
 
 $(function(){
-	function tooltips(msg){
-		var $tooltips = $('.js_tooltips');
-		$tooltips.html(msg)
-		if ($tooltips.css('display') != 'none') return;
-		$tooltips.css('display', 'block');
-		setTimeout(function () {
-			$tooltips.css('display', 'none');
-		}, 2000);
-	}
 
 	if(iepLogResult!=null&&iepLogResult!=""){
 		var wcqk =iepLogResult.wcqk ;
 		var tgl =iepLogResult.tgl;
 		var bz =iepLogResult.bz !=null&&iepLogResult.bz!=""?iepLogResult.bz:"";
-		$("#tgl option[value="+tgl+"]").attr("selected",true);
-		$("#wcqk option[value="+wcqk+"]").attr("selected",true);
+		$("#tgl option[value='"+tgl+"']").attr("selected",true);
+		$("#wcqk option[value='"+wcqk+"']").attr("selected",true);
 		$("#bz").val(bz);
 	}
 
@@ -64,7 +55,7 @@ $(function(){
 		tiptype: function(msg, o, cssctl) {
 			var name = o.obj.attr("name");
 			if (o.type == 3) {
-				tooltips(msg);
+				weui.topTips(msg, 3000);
 			}
 		},
 		ignoreHidden: true,
@@ -74,25 +65,21 @@ $(function(){
 		datatype: {},
 		beforeCheck: function(curform) {},
 		beforeSubmit: function(curform) {},
-		callback: function(data) {
-			$(".also-plan-alert").hide();
-			var msgPage = $("#msgPage");
+		callback: function(data) {debugger
 			if (data.code == '000000') {
-				msgPage.show().addClass("msg_success").removeClass("msg_warn");
-				msgPage.find(".weui-icon_msg").addClass("weui-icon-success").removeClass("weui-icon-warn");
-				msgPage.find(".weui-msg__title").html("保存成功！");
-				msgPage.find(".weui-btn_primary").html("去登录").attr("href", "javascript:window.history.back(-1)");
-				msgPage.find(".weui-btn_default").html("weui-btn_default").hide();
+				weui.alert('保存成功！', {
+    			title: '',
+    			buttons: [{
+	        label: '确定',
+	        type: 'primary',
+	        onClick: function(){window.history.back(-1); }
+		    	}]
+				});
 			} else {
-				msgPage.show().addClass("msg_warn").removeClass("msg_success");
-				msgPage.find(".weui-icon_msg").addClass("weui-icon-warn").removeClass("weui-icon-success");
-				msgPage.find(".weui-msg__title").html("保存失败！");
-				msgPage.find(".weui-btn_primary").html("重新填写信息").attr("href", "javascript:location.reload()");
-				msgPage.find(".weui-btn_default").html("weui-btn_default").hide();
+				weui.alert('保存失败！');
 			}
 		}
 	});
-
 	//画图表
 	function myEchart(timeData, planAChart) {
 	    var xAxis = $.map(timeData,
@@ -175,7 +162,7 @@ $(function(){
 	        }],
 	        visualMap: {
 	            top: 0,
-	            right: 40,
+	            right: 10,
 	            orient: 'horizontal',
 	            pieces: [{
 	                gt: 0,

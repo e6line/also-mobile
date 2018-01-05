@@ -2,15 +2,6 @@ import global from '../js/global.js';
 import Validform from '../plug/validForm.js';
 
 $(function(){
-	function tooltips(msg) {
-		var $tooltips = $('.js_tooltips');
-		$tooltips.html(msg);
-		if ($tooltips.css('display') != 'none') return;
-		$tooltips.css('display', 'block');
-		setTimeout(function() {
-			$tooltips.css('display', 'none');
-		},2000);
-	}
 	function showStepTab(index) {
 		var tab = $(".also-setp1");
 		tab.find(".also-setp").find(".also-setp-item").eq(index).removeClass("also-setp-stop");
@@ -32,7 +23,7 @@ $(function(){
 				"success": function(data) {
 					if (data) {
 						if (data.result == "false") {
-							tooltips(data.errorMsg);
+							weui.topTips(data.errorMsg, 3000);
 						} else {
 							var clock = '';
 							var nums = 90; $("#codehref").off("click"); //将按钮置为不可点击
@@ -53,11 +44,11 @@ $(function(){
 					}
 				},
 				"error": function(XMLHttpRequest, textStatus, errorThrown) {
-					tooltips("服务器繁忙，请稍候！");
+					weui.topTips("服务器繁忙，请稍候！", 3000);
 				}
 			})
 		} else {
-			tooltips("手机号码不能为空!");
+			weui.topTips("手机号码不能为空!", 3000);
 		}
 	}
 
@@ -75,7 +66,7 @@ $(function(){
 		tiptype:function(msg,o,cssctl){
 			var name =o.obj.attr("name");
 						if(o.type==3){
-						tooltips(msg);
+						weui.topTips(msg, 3000);
 					}
 		},
 	ignoreHidden: true,
@@ -102,7 +93,7 @@ $(function(){
 				tiptype:function(msg,o,cssctl){
 					var name =o.obj.attr("name");
 								if(o.type==3){
-								tooltips(msg)
+								weui.topTips(msg, 3000);
 								if(name=='PHONE'){
 									$("#codehref").off("click"); //将按钮置为不可点击
 									$("#codehref").attr("disabled","disabled");
@@ -143,7 +134,7 @@ $(function(){
 						btnSubmit:"#registerU",
 						tiptype:function(msg,o,cssctl){
 										if(o.type==3){
-										tooltips(msg)
+										weui.topTips(msg, 3000);
 									}
 						},
 					ignoreHidden: true,
@@ -157,19 +148,32 @@ $(function(){
 						},
 						callback : function(data) {
 							$(".also-setp1").hide();
-							var msgPage =$("#msgPage");
 							if(data.result=='success'){
-								msgPage.show().addClass("msg_success").removeClass("msg_warn");
-								msgPage.find(".weui-icon_msg").addClass("weui-icon-success").removeClass("weui-icon-warn")
-								msgPage.find(".weui-msg__title").html("注册成功！")
-								msgPage.find(".weui-btn_primary").html("去登录").attr("href",basePath+"/login_toIndex");
-								msgPage.find(".weui-btn_default").html("weui-btn_default").hide();
+								global.msg({
+									icon: 'warn/success',
+									title: '注册成功！',
+									desc: '',
+									btns:[{
+										text: '去登陆',
+										style: 'primary',
+										callBack: function() {
+											window.location.href = basePath+"/login_toIndex";
+										}
+									}]
+								});
 							}else{
-								msgPage.show().addClass("msg_warn").removeClass("msg_success");
-								msgPage.find(".weui-icon_msg").addClass("weui-icon-warn").removeClass("weui-icon-success")
-								msgPage.find(".weui-msg__title").html("注册失败！")
-								msgPage.find(".weui-btn_primary").html("重新注册").attr("href",basePath+"/goRegister");
-								msgPage.find(".weui-btn_default").html("weui-btn_default").hide();
+								global.msg({
+									icon: 'warn/success',
+									title: '注册失败！',
+									desc: '',
+									btns:[{
+										text: '重新注册',
+										style: 'primary',
+										callBack: function() {
+											window.location.href = basePath+"/goRegister";
+										}
+									}]
+								});
 							}
 							}
 							});
