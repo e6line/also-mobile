@@ -63,6 +63,27 @@ module.exports = {
 		});
 	},
 	msg: function (options) {
+		/* msg
+			global.msg({
+				icon: 'warn/success',
+				title: '操作成功',
+				desc: '这里是文字描述',
+				btns:[{
+					text: '推荐操作',
+					style: 'primary',
+					callBack: function() {
+						console.log(1)
+					}
+				},{
+					text: '辅助操作',
+					style: 'default',
+					callBack: function() {
+						console.log(2)
+					}
+				}]
+			}); 
+		*/
+
 		var btnsHtml = '';
 		for(var i = 0; i < options.btns.length; i++){
 			btnsHtml += '<a href="javascript:;" class="weui-btn weui-btn_'+ options.btns[i]['style'] +' also-msg-btn">'+ options.btns[i]['text'] +'</a>';
@@ -95,7 +116,7 @@ module.exports = {
 			$("#msgPage").remove();
 		}
 		$("body").prepend(_tpl);
-		
+
 		$(document).off('click', '.also-msg-btn');
 		$(document).on('click', '.also-msg-btn', function () {
 			var _index = $(this).index();
