@@ -50,11 +50,10 @@ $(function(){
 			className: 'custom-classname'
 		});
 		var that =$(this);
-		var title =that.find("p").text()
 		var iepId =that.attr("value");
 		var iepUsrId =that.attr("iepUsrId");
 		var date = $("#iepDate").val();
-		var url =basePath+"showIepLibMobile.do?flag=corseList&stuId="+stuId+"&iepId="+iepId+"&iepUsrId="+iepUsrId+"&iepTitle="+title;
+		var url =basePath+"showIepLibMobile.do?flag=corseList&stuId="+stuId+"&iepId="+iepId+"&iepUsrId="+iepUsrId;
 		window.location.href =url;
 
 	});

@@ -41,11 +41,10 @@ $(function(){
 			className: 'custom-classname'
 		});
 		var that = $(this);
-		var title = that.find("p").text();
 		var iepId = that.attr("value");
 		var iepUsrId = that.attr("iepUsrId");
 		var date = $("#also-date").val();
-		var url = basePath+"showIepLibMobile.do?flag=corseList&stuId="+stuId+"&iepId="+iepId+"&iepUsrId="+iepUsrId+"&iepTitle="+title;;
+		var url = basePath+"showIepLibMobile.do?flag=corseList&stuId="+stuId+"&iepId="+iepId+"&iepUsrId="+iepUsrId;
 		window.location.href = url;
 		// $('.also-tab').load('/iep-info.html .also-plan-alert', function(data, status, xhr) {
 		// 	require('../js/iep-info.js');
