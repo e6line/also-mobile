@@ -13,9 +13,10 @@ $(function(){
 		var that = $(this);
 		var iepId = that.attr("value");
 		var iepUsrId = that.attr("iepUsrId");
-		var date = $("#also-date").val();
-		var url = basePath+"showIepLibMobile.do?flag=corseList&stuId="+stuId+"&iepId="+iepId+"&iepUsrId="+iepUsrId;
+		var date = $("#iepDate").val();
+		var url = basePath+"showIepLibMobile.do?flag=corseList&stuId="+stuId+"&iepId="+iepId+"&iepUsrId="+iepUsrId+"&saveDate="+date;
 		window.location.href = url;
+		loading.hide(function() { });
 	});
 
 	function iepBoxChange(url){
@@ -66,7 +67,9 @@ $(function(){
 			mark: mark,
 			theme: 'also',
 			format: 'yyyy-MM-dd',
-			showBottom: false
+			showBottom: false,
+			min: minDate,
+			max:maxDate
 		});
 	}
 	// document.getElementById('slider_wrap').style.webkitOverflowScrolling = 'touch';

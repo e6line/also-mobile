@@ -30,7 +30,7 @@ $(function(){
 
 	// 非微信浏览器添加topBar
 	global.topBar(function () {
-		window.history.back(0) ;
+		window.history.go(-1);
 	});
 
 	var h =$(".weui-tab__panel .weui-article").height()<300?300:$(".weui-tab__panel .weui-article").height()>500?500:$(".weui-tab__panel .weui-article").height();
@@ -72,7 +72,7 @@ $(function(){
     			buttons: [{
 	        label: '确定',
 	        type: 'primary',
-	        onClick: function(){window.history.back(-1); }
+	        onClick: function(){window.history.go(-1); }
 		    	}]
 				});
 			} else {
