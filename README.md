@@ -22,12 +22,12 @@
 
 #### global 
 
-```js
+```javascript
 	// topBar
 	global.topBar(function () {
 		console.log("这里是返回");
 	});
-	
+
 	// 选项卡
 	global.tab(function (index) {
 		if(index==1){
