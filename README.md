@@ -28,7 +28,7 @@ global.topBar(function () {
 	console.log("callBack")
 }, 'className')
 
-// 选项卡
+// tab
 global.tab(function (index) {
 	console.log(index)
 })
