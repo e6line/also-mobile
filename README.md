@@ -2,6 +2,24 @@
  "version": "1.0.0"
  Based on the mobile terminal also platform。
 
+####安装
+
+````
+npm install
+````
+
+####dev
+
+````
+npm run dev
+````
+
+####build
+
+````
+npm run build
+````
+
 ### 注册 & 登录 & 找回
  [login](https://github.com/e6line/also-mobile/blob/master/src/html/login.html) [reg](https://github.com/e6line/also-mobile/blob/master/src/html/register.html) [find](https://github.com/e6line/also-mobile/blob/master/src/html/find.html)
 
