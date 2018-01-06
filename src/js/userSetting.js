@@ -4,7 +4,7 @@ $(function(){
 	// 非微信浏览器添加topBar
 	global.topBar(function () {
 		console.log("这里是返回");
-	});
+	}, '.weui-tab');
 
 	// 选项卡
 	global.tab(function (index) {
