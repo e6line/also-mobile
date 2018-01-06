@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+	<title>设置</title>
+</head>
+<body ontouchstart>
+		<div class="weui-toptips weui-toptips_warn js_tooltips" style="display: none;">最多选择8种</div>
+		<div class="weui-tab">
+			<div class="weui-navbar">
+				<div class="weui-navbar__item weui-bar__item_on">
+					基础信息
+				</div>
+				<div class="weui-navbar__item">
+					安全设置
+				</div>
+				<div class="weui-navbar__item">
+					场景设置
+				</div>
+			</div>
+			<div class="weui-tab__panel">
+				<div>
+					<form>
+						<div class="weui-cells weui-cells_form" id="uploader">
+							<div class="also-portrait">
+								<img src="../img/logo3.png">
+							</div>
+							<div class="weui-cell">
+								<div class="weui-cell__bd">
+									<div class="weui-uploader">
+										<div class="weui-uploader__hd">
+											<p class="weui-uploader__title">上传头像</p>
+											<div class="weui-uploader__info"><span id="uploadCount">0</span>/1</div>
+										</div>
+										<div class="weui-uploader__bd">
+											<ul class="weui-uploader__files" id="uploaderFiles">
+											</ul>
+											<div class="weui-uploader__input-box">
+												<input id="uploaderInput" class="weui-uploader__input" type="file" accept="image/*" capture="camera" multiple="" />
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="weui-cells__title">姓名</div>
+						<div class="weui-cells">
+							<div class="weui-cell">
+								<div class="weui-cell__bd">
+									<input class="weui-input" type="text" placeholder="请输入姓名">
+								</div>
+							</div>
+						</div>
+						<div class="weui-cells__title">性别</div>
+						<div class="weui-cells weui-cells_radio">
+							<label class="weui-cell weui-check__label" for="x11">
+								<div class="weui-cell__bd">
+									<p>男</p>
+								</div>
+								<div class="weui-cell__ft">
+									<input type="radio" class="weui-check" name="radio1" id="x11">
+									<span class="weui-icon-checked"></span>
+								</div>
+							</label>
+							<label class="weui-cell weui-check__label" for="x12">
+								<div class="weui-cell__bd">
+									<p>女</p>
+								</div>
+								<div class="weui-cell__ft">
+									<input type="radio" name="radio1" class="weui-check" id="x12" checked="checked">
+									<span class="weui-icon-checked"></span>
+								</div>
+							</label>
+						</div>
+						<div class="weui-cells__title">生日</div>
+						<div class="weui-cells">
+							<div class="weui-cell">
+								<div class="weui-cell__bd">
+									<input class="weui-input" id="Birthday" type="text" placeholder="请选择">
+								</div>
+							</div>
+						</div>
+						<div class="weui-cells__title">所在地区</div>
+						<div class="weui-cells">
+							<div class="weui-cell">
+								<div class="weui-cell__bd">
+									<input class="weui-input" id="area" type="text" placeholder="请选择">
+								</div>
+							</div>
+						</div>
+						<div class="also-btn-wrap">
+							<a href="javascript:;" id="btn_sub" class="weui-btn weui-btn_primary">保存</a>
+						</div>
+					</form>
+				</div>
+				<div style="display:none">
+					<form>
+						<div class="weui-cells__title">修改密码</div>
+						<div class="weui-cells">
+							<div class="weui-cell">
+								<div class="weui-cell__hd"><label class="weui-label">原密码</label></div>
+								<div class="weui-cell__bd">
+									<input class="weui-input" type="password" placeholder="请输入原密码">
+								</div>
+							</div>
+							<div class="weui-cell">
+								<div class="weui-cell__hd"><label class="weui-label">新密码</label></div>
+								<div class="weui-cell__bd">
+									<input class="weui-input" type="password" placeholder="请输入新密码">
+								</div>
+							</div>
+							<div class="weui-cell">
+								<div class="weui-cell__hd"><label class="weui-label">确认密码</label></div>
+								<div class="weui-cell__bd">
+									<input class="weui-input" type="password" placeholder="请再次输入新密码">
+								</div>
+							</div>
+						</div>
+						<div class="also-btn-wrap">
+							<a href="javascript:;" id="btn_sub" class="weui-btn weui-btn_primary">保存</a>
+						</div>
+					</form>
+				</div>
+				<div style="display:none">
+					<div class="gold-set">
+						<div class="weui-panel">
+							<h3 class="also-title">家庭场景</h3>
+							<div class="weui-grids also-grids">
+								<a href="javascript:;" class="weui-grid">
+									<div class="weui-grid__icon">
+										<i class="gold-icon c-0101"></i>
+									</div>
+									<p class="weui-grid__label">穿脱衣服</p>
+									<i class="weui-icon-success"></i>
+								</a>
+								<a href="javascript:;" class="weui-grid">
+									<div class="weui-grid__icon">
+										<i class="gold-icon c-0101"></i>
+									</div>
+									<p class="weui-grid__label">穿脱衣服</p>
+									<i class="weui-icon-success"></i>
+								</a>
+								<a href="javascript:;" class="weui-grid">
+									<div class="weui-grid__icon">
+										<i class="gold-icon c-0101"></i>
+									</div>
+									<p class="weui-grid__label">穿脱衣服</p>
+									<i class="weui-icon-success"></i>
+								</a>
+								<a href="javascript:;" class="weui-grid">
+									<div class="weui-grid__icon">
+										<i class="gold-icon c-0101"></i>
+									</div>
+									<p class="weui-grid__label">穿脱衣服</p>
+									<i class="weui-icon-success"></i>
+								</a>
+								<a href="javascript:;" class="weui-grid">
+									<div class="weui-grid__icon">
+										<i class="gold-icon c-0101"></i>
+									</div>
+									<p class="weui-grid__label">穿脱衣服</p>
+									<i class="weui-icon-success"></i>
+								</a>
+								<a href="javascript:;" class="weui-grid">
+									<div class="weui-grid__icon">
+										<i class="gold-icon c-0101"></i>
+									</div>
+									<p class="weui-grid__label">穿脱衣服</p>
+									<i class="weui-icon-success"></i>
+								</a>
+								<a href="javascript:;" class="weui-grid">
+									<div class="weui-grid__icon">
+										<i class="gold-icon c-0101"></i>
+									</div>
+									<p class="weui-grid__label">穿脱衣服</p>
+									<i class="weui-icon-success"></i>
+								</a>
+								<a href="javascript:;" class="weui-grid">
+									<div class="weui-grid__icon">
+										<i class="gold-icon c-0101"></i>
+									</div>
+									<p class="weui-grid__label">穿脱衣服</p>
+									<i class="weui-icon-success"></i>
+								</a>
+							</div>
+						</div>
+						<div class="weui-panel">
+							<h3 class="also-title">交通出行</h3>
+							<div class="weui-grids also-grids">
+								<a href="javascript:;" class="weui-grid">
+									<div class="weui-grid__icon">
+										<i class="gold-icon c-0101"></i>
+									</div>
+									<p class="weui-grid__label">穿脱衣服</p>
+									<i class="weui-icon-success"></i>
+								</a>
+								<a href="javascript:;" class="weui-grid">
+									<div class="weui-grid__icon">
+										<i class="gold-icon c-0101"></i>
+									</div>
+									<p class="weui-grid__label">穿脱衣服</p>
+									<i class="weui-icon-success"></i>
+								</a>
+								<a href="javascript:;" class="weui-grid">
+									<div class="weui-grid__icon">
+										<i class="gold-icon c-0101"></i>
+									</div>
+									<p class="weui-grid__label">穿脱衣服</p>
+									<i class="weui-icon-success"></i>
+								</a>
+								<a href="javascript:;" class="weui-grid">
+									<div class="weui-grid__icon">
+										<i class="gold-icon c-0101"></i>
+									</div>
+									<p class="weui-grid__label">穿脱衣服</p>
+									<i class="weui-icon-success"></i>
+								</a>
+								<a href="javascript:;" class="weui-grid">
+									<div class="weui-grid__icon">
+										<i class="gold-icon c-0101"></i>
+									</div>
+									<p class="weui-grid__label">穿脱衣服</p>
+									<i class="weui-icon-success"></i>
+								</a>
+								<a href="javascript:;" class="weui-grid">
+									<div class="weui-grid__icon">
+										<i class="gold-icon c-0101"></i>
+									</div>
+									<p class="weui-grid__label">穿脱衣服</p>
+									<i class="weui-icon-success"></i>
+								</a>
+								<a href="javascript:;" class="weui-grid">
+									<div class="weui-grid__icon">
+										<i class="gold-icon c-0101"></i>
+									</div>
+									<p class="weui-grid__label">穿脱衣服</p>
+									<i class="weui-icon-success"></i>
+								</a>
+								<a href="javascript:;" class="weui-grid">
+									<div class="weui-grid__icon">
+										<i class="gold-icon c-0101"></i>
+									</div>
+									<p class="weui-grid__label">穿脱衣服</p>
+									<i class="weui-icon-success"></i>
+								</a>
+							</div>
+						</div>
+						<div class="also-btn-wrap">
+							<a href="javascript:;" class="weui-btn weui-btn_primary">保存</a>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+
+<script type="text/javascript" src="./static/plug/weui.min.js"></script>
+</body>
+</html>
