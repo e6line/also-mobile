@@ -25,7 +25,7 @@
 ```javascript
 // topBar
 global.topBar(function () {
-	console.log("这里是返回")
+	console.log("callBack")
 }, 'className')
 
 // 选项卡
@@ -36,19 +36,19 @@ global.tab(function (index) {
 // msg
 global.msg({
 	icon: 'warn/success',
-	title: '操作成功',
-	desc: '这里是文字描述',
+	title: 'title',
+	desc: 'desc',
 	btns:[{
-		text: '推荐操作',
+		text: 'Confirm',
 		style: 'primary',
 		callBack: function() {
-			console.log(1)
+			console.log('Confirm')
 		}
 	},{
-		text: '辅助操作',
+		text: 'Cancel',
 		style: 'default',
 		callBack: function() {
-			console.log(2)
+			console.log('Cancel')
 		}
 	}]
 })
