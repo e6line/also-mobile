@@ -25,15 +25,13 @@
 ```javascript
 // topBar
 global.topBar(function () {
-	console.log("这里是返回");
-}, 'className');
+	console.log("这里是返回")
+}, 'className')
 
 // 选项卡
 global.tab(function (index) {
-	if(index==1){
-		$('#iep-info-echarts').show().find("div").show();
-	}
-});
+	console.log(index)
+})
 
 // msg
 global.msg({
@@ -53,5 +51,5 @@ global.msg({
 			console.log(2)
 		}
 	}]
-});
+})
 ```
