@@ -1,4 +1,5 @@
-# Also-Mobile
+# Also-Mobile 
+ "version": "1.0.0"
  Based on the mobile terminal also platform。
 
 ### 注册 & 登录 & 找回
