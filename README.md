@@ -2,19 +2,19 @@
  "version": "1.0.0"
  Based on the mobile terminal also platform。
 
-####安装
+#### 安装
 
 ````
 npm install
 ````
 
-####dev
+#### dev
 
 ````
 npm run dev
 ````
 
-####build
+#### build
 
 ````
 npm run build
