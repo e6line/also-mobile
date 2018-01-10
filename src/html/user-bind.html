@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+	<title>用户绑定</title>
+	<script type="text/javascript">var basePath ="<%=basePath%>";</script>
+</head>
+<body ontouchstart class="login-bg">
+	<div class="also-login-wrap">
+		<div class="also-logo">
+			<img src="../img/logo.png">
+		</div>
+		<form id="basicInfo" method="post" action="login_login">
+			<div class="weui-cells weui-cells_form">
+				<div class="weui-cell weui-cell_select weui-cell_select-before">
+					<div class="weui-cell__hd">
+						<select class="weui-select" name="select2">
+							<option value="1">+86</option>
+							<option value="2">+80</option>
+							<option value="3">+84</option>
+							<option value="4">+87</option>
+						</select>
+					</div>
+					<div class="weui-cell__bd">
+						<input class="weui-input" type="number" name="PHONE" pattern="[0-9]*" maxlength="11" placeholder="请输入手机号" datatype="m" maxlength="11" errormsg="您输入的手机号码有误！" nullmsg="请输入手机号码！" ajaxurl="tool/checkCodeAll.do?flag=hasU&isPhone=phone&isUser=user" >
+					</div>
+				</div>
+				<div class="weui-cell weui-cell_vcode">
+					<div class="weui-cell__hd">
+						<label class="weui-label">验证码</label>
+					</div>
+					<div class="weui-cell__bd">
+						<input class="weui-input" name="mobCode" maxlength="6" type="text" placeholder="请输入验证码" maxlength="6" datatype="*"  errormsg="您输入的验证码有误！" nullmsg="请输入验证码！">
+					</div>
+					<div class="weui-cell__ft">
+						<button type="button" class="weui-vcode-btn" id="codehref">获取验证码</button>
+						<input type="hidden" name='flag' value='checkCodeAndPhone'>
+						<input type="hidden" name='type' value='resetPwd'>
+					</div>
+				</div>
+			</div>
+
+			<div class="also-btn-wrap">
+				<a href="javascript:;" id="btn_sub" class="weui-btn weui-btn_primary">绑定</a>
+			</div>
+		</form>
+	</div>
+	<script type="text/javascript" src="./static/plug/weui.min.js"></script>
+</body>
+</html>
