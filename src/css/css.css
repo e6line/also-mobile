@@ -24,9 +24,9 @@
 		width: 50px;
 		height: 2px;
 		background: #36b9bf;
-		 -webkit-transform: scaleX(1); 
+		 -webkit-transform: scaleX(1);
 		-ms-transform: scaleX(1);
-		 transform: scaleX(1); 
+		 transform: scaleX(1);
 	}
 	.weui-navbar__item.weui-bar__item_on{
 		color: #36b9bf;
@@ -50,6 +50,13 @@
 	.weui-media-box__desc{
 		font-size: 16px;
 		color: #333;
+		line-height: 1.4;
+		cursor: pointer;
+	}
+	.weui-media-box__question{
+		font-size: 16px;
+		font-weight: 600;
+    color: #37b6bf;
 		line-height: 1.4;
 	}
 	.weui-media-box__info{
@@ -217,9 +224,9 @@
 		-webkit-transition-duration: .3s;
 	}
 	.laydate-theme-also .layui-laydate-content::-webkit-scrollbar{
-		display:none; 
+		display:none;
 		width:0px;
-		-webkit-appearance: none; 
+		-webkit-appearance: none;
 	}
 	.laydate-ym-show .layui-laydate-content table{
 		display: none;
@@ -598,7 +605,7 @@
 		text-align: center;
 		border: 5px solid #ccc;
 	}
-	.circle-wrap{    
+	.circle-wrap{
 		-webkit-box-sizing: border-box;
 		-moz-box-sizing: border-box;
 		box-sizing: border-box;
@@ -667,6 +674,13 @@
 		margin-bottom: .34em;
 		color: #DF9A3F;
 	}
+	.also-title i{font-style: normal;margin: 0 4px;font-size: 14px;}
+	.also-title i.green{color: #91a453}
+	.also-title i.blue{color: #37b9bf}
+	.also-title i.red{color: #d00202}
+	.also-title i.purple{color: #9a1969}
+	.also-title i.orange{color: #ea4408}
+	.also-title i.dark{color: #0F0273}
 	.also-article * {
 		max-width: 100%;
 		-webkit-box-sizing: border-box;
@@ -728,7 +742,7 @@
 		height: 0;
 		width: 0;
 		border-top: 4px solid #86d5d9;
-		border-right: 4px solid transparent ; 
+		border-right: 4px solid transparent ;
 		border-left: 4px solid transparent;
 	}
 	.also-small-t{
@@ -739,7 +753,7 @@
 	.also-pic .weui-gallery__opr{
 		display: none;
 	}
-	.presBtn, .nextBtn{
+	.presBtn, .nextBtn,.submitBtn{
 		display: block;
 		flex: 1;
 		height: 50px;
@@ -752,6 +766,10 @@
 	.presBtn{
 		background-color: #f7f7fa;
 		color: #333333;
+	}
+	.submitBtn{
+		background-color: #df9a3f;
+		color: #fff;
 	}
 	.goldManualLogo{
 		position: absolute;
