@@ -52,6 +52,7 @@
 		color: #333;
 		line-height: 1.4;
 		cursor: pointer;
+		display: block;
 	}
 	.weui-media-box__question{
 		font-size: 16px;
