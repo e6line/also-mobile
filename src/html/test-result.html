@@ -1,97 +1,50 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
-	<title>WeUI</title>
-	<link rel="stylesheet" href="./static/plug/laydate/theme/default/laydate.css">
+	<title>评估结果</title>
 	<script type="text/javascript">
-	// 是否显示预备计划
-	var isShowBasePlan = true;
-	// 特殊日期标注
-	var mark = {
-		'2017-11-15': '' //具体日期
-		,'2017-11-20': '' //如果为空字符，则默认显示数字+徽章
-		,'2017-11-21': ''
-	};
+	var baseData =[{
+    "bz": "",
+    "csxh": 0,
+    "czff": "大人和孩子面对面坐好，大人发出指令“这样做”，并同时做出一个粗大动作（如“拍手”、“摸头”等），测试孩子是否能够马上跟随做出同样的动作？\n \n<br>提示：模仿内容可以包括：\n<br>（1）手部：拍手、搓手、摇手（再见）、飞吻、拍腿、拍墙、击掌、遮脸、摸肚子、摸五官、抱胳膊、手掐腰、举手；\n<br>（2）头部：点头、低头、抬头、摇头；\n<br>（3）腿：跺脚、起立、坐下、踏步、转圈",
+    "dj1": "10.jpg",
+    "dj2": "11.jpg",
+    "dj3": "",
+    "dj4": "",
+    "jnd": "一步坐姿动作模仿",
+    "jndDm": "010201",
+    "level": 2,
+    "lxDm": "01",
+    "lxMc": "学业能力",
+    "mzbz_b": "能模仿的一步动作多于5个",
+    "mzbz_m": "能模仿10个一步动作",
+    "nl": "",
+    "nlDm": "0102",
+    "nlMc": "动作模仿",
+    "paperId": "87182a363112459e961ab313c570ffd1",
+    "pgdj": "",
+    "pgzl": "“这样做”、“请你跟我这样做”",
+    "photo": "",
+    "qDm": "A12101",
+    "qId": "4",
+    "qScore": 0,
+    "scoreCount": 0,
+    "title": "在坐姿状态时，孩子能否在如“这样做”的语言辅助下，即可模仿他人做出只包含一个步骤的动作",
+    "tjsj": "2018-01-10",
+    "tmxh": 1,
+    "usrBz": "",
+    "video": "0c0f841451b5406d948478f98995c7e2/37d722fb6a4b406c893528cc35b25306-5456d705cfd07e668f702e78be66cb6f.mp4",
+    "wcmb": "",
+    "xlkc": "",
+    "zb": ""
+  }]
 	</script>
 </head>
 <body ontouchstart>
 	<div class="also-as-re">
-
-		<div class="weui-panel">
-			<div class="weui-panel__hd">第1题（A12201）</div>
-			<div class="weui-panel__bd">
-				<div class="weui-media-box weui-media-box_text">
-					<p class="weui-media-box__desc">在坐姿状态时，儿童能否在如“这样做”的语言辅助在坐姿状态时，儿童能否在如“这样做”的语言辅助在坐姿状态时，儿童能否在如“这样做”的语言辅助在坐姿状态时，儿童能否在如“这样做”的语言辅助在坐姿状态时，儿童能否在如“这样做”的语言辅助在坐姿状态时，儿童能否在如“这样做”的语言辅助</p>
-					<ul class="weui-media-box__info">
-						<li class="weui-media-box__info__meta">认知能力</li>
-						<li class="weui-media-box__info__meta weui-media-box__info__meta_extra">动作模仿</li>
-						<li class="also-as-btn-wrap"><a class="also-as-btn as-btn1" href="###">部分满足</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-
-		<div class="weui-panel">
-			<div class="weui-panel__hd">第2题（A12201）</div>
-			<div class="weui-panel__bd">
-				<div class="weui-media-box weui-media-box_text">
-					<p class="weui-media-box__desc">在坐姿状态时，儿童能言辅助在坐姿状态时</p>
-					<ul class="weui-media-box__info">
-						<li class="weui-media-box__info__meta">认知能力</li>
-						<li class="weui-media-box__info__meta weui-media-box__info__meta_extra">动作模仿</li>
-						<li class="also-as-btn-wrap"><a class="also-as-btn as-btn2" href="###">满足</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-
-		<div class="weui-panel">
-			<div class="weui-panel__hd">第3题（A12201）</div>
-			<div class="weui-panel__bd">
-				<div class="weui-media-box weui-media-box_text">
-					<p class="weui-media-box__desc">在坐姿状态时</p>
-					<ul class="weui-media-box__info">
-						<li class="weui-media-box__info__meta">认知能力</li>
-						<li class="weui-media-box__info__meta weui-media-box__info__meta_extra">动作模仿</li>
-						<li class="also-as-btn-wrap"><a class="also-as-btn as-btn3" href="###">不满足</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-
-		<div class="weui-panel">
-			<div class="weui-panel__hd">第2题（A12201）</div>
-			<div class="weui-panel__bd">
-				<div class="weui-media-box weui-media-box_text">
-					<p class="weui-media-box__desc">在坐姿状态时，儿童能言辅助在坐姿状态时</p>
-					<ul class="weui-media-box__info">
-						<li class="weui-media-box__info__meta">认知能力</li>
-						<li class="weui-media-box__info__meta weui-media-box__info__meta_extra">动作模仿</li>
-						<li class="also-as-btn-wrap"><a class="also-as-btn as-btn2" href="###">满足</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-
-		<div class="weui-panel">
-			<div class="weui-panel__hd">第2题（A12201）</div>
-			<div class="weui-panel__bd">
-				<div class="weui-media-box weui-media-box_text">
-					<p class="weui-media-box__desc">在坐姿状态时，儿童能言辅助在坐姿状态时</p>
-					<ul class="weui-media-box__info">
-						<li class="weui-media-box__info__meta">认知能力</li>
-						<li class="weui-media-box__info__meta weui-media-box__info__meta_extra">动作模仿</li>
-						<li class="also-as-btn-wrap"><a class="also-as-btn as-btn2" href="###">满足</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-
 	</div>
-
-	<script type="text/javascript" src="./static/plug/laydate/laydate.js"></script>
 	<script type="text/javascript" src="./static/plug/weui.min.js"></script>
 </body>
 </html>

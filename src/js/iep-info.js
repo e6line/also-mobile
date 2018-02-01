@@ -10,20 +10,50 @@ import 'echarts/lib/component/tooltip';
 import 'echarts/lib/component/title';
 import 'echarts/lib/component/toolbox';
 import 'echarts/lib/component/dataZoom';
-
+import 'echarts/lib/component/legend';
+import 'echarts/lib/component/visualMap';
 $(function(){
 
 	if(iepLogResult!=null&&iepLogResult!=""){
 		var wcqk =iepLogResult.wcqk ;
 		var tgl =iepLogResult.tgl;
 		var bz =iepLogResult.bz !=null&&iepLogResult.bz!=""?iepLogResult.bz:"";
-		$("#tgl option[value='"+tgl+"']").attr("selected",true);
-		$("#wcqk option[value='"+wcqk+"']").attr("selected",true);
+		var sel1 =$("#tgl option");
+		$("#tgl").empty()
+		sel1.each(function(){
+			var that = $(this)
+			var txt =that.text();
+			var vl = that.val();
+			var opt;
+			if(vl == tgl){
+				opt =$('<option value="'+vl+'" selected="selected">'+txt+'</option>');
+			}else{
+				opt =$('<option value="'+vl+'">'+txt+'</option>');
+			}
+			$("#tgl").append(opt);
+		})
+		var sel2 =$("#wcqk option");
+		$("#wcqk").empty();
+		sel2.each(function(){
+			var that = $(this)
+			var txt =that.text();
+			var vl = that.val();
+			var opt;
+			if(vl == wcqk){
+				opt =$('<option value="'+vl+'" selected="selected">'+txt+'</option>');
+			}else{
+				opt =$('<option value="'+vl+'">'+txt+'</option>');
+			}
+			$("#wcqk").append(opt);
+		})
 		$("#bz").val(bz);
 	}
-
 	if(isUpgrade=="Y"){
 		$("#advanced").show().find("i").text(nlMcForNext);
+		$("#advanced").off();
+		$("#advanced").on('click',function(){
+			upgradePlan();
+		})
 	}else{
 		$("#advanced").hide();
 	}
@@ -32,7 +62,14 @@ $(function(){
 	global.topBar(function () {
 		window.history.go(-1);
 	});
-
+	weui.tab('#iepTab',{
+			defaultIndex: 0,
+			onChange: function(index){
+					if(index==1){
+						$('#iep-info-echarts').show().find("div").show();
+					}
+			}
+	});
 	var h =$(".weui-tab__panel .weui-article").height()<300?300:$(".weui-tab__panel .weui-article").height()>500?500:$(".weui-tab__panel .weui-article").height();
 	var w =$(".weui-tab__panel .weui-article").width();
 	$('#iep-info-echarts').height(h).width(w);
@@ -41,16 +78,19 @@ $(function(){
 	// 画图表
 	myEchart(timeData, planAChart);
 	// 选项卡
-	global.tab(function (index) {
-		if(index==1){
-			$('#iep-info-echarts').show().find("div").show();
-		}
-	});
+
 
 	$("#save").on('click',function(){
 		$("#saveBtn").trigger("click");
 	});
-
+	// 图片点击
+	$(".also-pic-item").on('click', function () {
+		var url = $(this).find('img').attr('src');
+		console.log(url)
+		var gallery = weui.gallery(url, {
+			className: 'also-pic'
+		});
+	});
 	$("#basicInfo").Validform({
 		tiptype: function(msg, o, cssctl) {
 			var name = o.obj.attr("name");
@@ -65,27 +105,96 @@ $(function(){
 		datatype: {},
 		beforeCheck: function(curform) {},
 		beforeSubmit: function(curform) {},
-		callback: function(data) {debugger
-			if (data.code == '000000') {
-				weui.alert('保存成功！', {
-    			title: '',
-    			buttons: [{
-	        label: '确定',
-	        type: 'primary',
-	        onClick: function(){window.history.go(-1); }
-		    	}]
-				});
+		callback: function(data) {
+			if (data.msg == "success") {
+				if(data.data.upgradeFlag == "Y"){
+					weui.dialog({
+					    title: '保存成功！',
+					    content: '您的训练计划完成非常好，是否升级训练计划？',
+					    className: 'custom-classname',
+					    buttons: [{
+					        label: '取消',
+					        type: 'default',
+					        onClick: function () {location.href=document.referrer; }
+					    }, {
+					        label: '确定',
+					        type: 'primary',
+					        onClick: function () { upgradePlan();  }
+					    }]
+					});
+
+				} else {
+					weui.alert('保存成功！', {
+						title: '',
+						buttons: [{
+						label: '确定',
+						type: 'primary',
+						onClick: function(){location.href=document.referrer; }
+						}]
+					});
+				}
 			} else {
 				weui.alert('保存失败！');
 			}
 		}
 	});
+	function upgradePlan(){
+	var iepUsrId = $("#iepUsrId").val();
+    var info={
+        iepUsrId:iepUsrId
+    }
+    $.ajax({
+        cache : false,
+        type : "POST",
+        url : "upgradePlan.do",//把表单数据发送到ajax.jsp
+        data : info, //要发送的是ajaxFrm表单中的数据
+        // dataType:'text',
+        //contentType:"application/x-www-form-urlencoded;charset=utf-8",
+        async : false,
+        error : function(jqXHR, textStatus, errorThrown) {
+            weui.toast('服务器繁忙，请稍后...', 3000);
+        },
+        success : function(data) {
+        	var text = "";
+					var icon="";
+					$("#iepInfoBox").hide();
+            if(data.code == "000000"){
+                text = "升级成功！";
+								icon="success";
+            } else {
+                text = data.msg;
+								icon="warn";
+            }
+						global.msg({
+							icon: icon,
+							title: text,
+							desc: '',
+							btns:[{
+								text: '确定',
+								style: 'primary',
+								callBack: function() {
+
+									if(data.code == "000000"){
+			                location.href=document.referrer;
+			            } else {
+			               location.reload();
+			            }
+								}
+							}]
+						});
+        }
+    });
+}
+
 	//画图表
 	function myEchart(timeData, planAChart) {
 	    var xAxis = $.map(timeData,
 	    function(item) {
 	        return item[0];
 	    });
+			var seriesData= timeData.map(function(item) {
+	                return item[1]
+	            })
 	    var planAoption = {
 	        title: {
 	            text: '完成情况通过率统计图'
@@ -114,7 +223,7 @@ $(function(){
 	            }
 	        },
 	        xAxis: {
-	            data: timeData
+	            data: xAxis
 	        },
 	        yAxis: {
 	            interval: 10,
@@ -145,7 +254,10 @@ $(function(){
 	            }
 	        },
 	        toolbox: {
-	            left: 'center',
+							x: 'right',                // 水平安放位置，默认为全图右对齐，可选为：
+																 // 'center' ¦ 'left' ¦ 'right'
+																 // ¦ {number}（x坐标，单位px）
+								y: 'top',
 	            feature: {
 	                dataZoom: {
 	                    yAxisIndex: 'none'
@@ -161,9 +273,9 @@ $(function(){
 	            type: 'inside'
 	        }],
 	        visualMap: {
-	            top: 0,
-	            right: 10,
-	            orient: 'horizontal',
+	            top: 30,
+	            right: 3,
+	            orient: 'vertical',
 	            pieces: [{
 	                gt: 0,
 	                lte: 30,
@@ -194,9 +306,7 @@ $(function(){
 	                    opacity: 0.05
 	                }
 	            },
-	            data: timeData.map(function(item) {
-	                return item[1]
-	            }),
+	            data: seriesData,
 	            markLine: {
 	                silent: true,
 	                data: [{

@@ -1,103 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
 	<title>家长预访谈</title>
+	<script type="text/javascript">
+	var basePath ="<%=basePath%>";
+	var testPro ="${data}";
+	var isUpgrade = '${pd.isUpgrade}';
+	</script>
 </head>
 <body ontouchstart>
-
-		<div class="weui-panel">
-			<h3 class="also-title">第1题</h3>
-			<div class="weui-panel__bd">
-				<article class="weui-article" style="border-top: 1px solid #f7f7f7; padding-bottom: 10px">
-					<h3>在大约10个人参与的幼儿园课堂上，孩子能否听懂并执行3个有针对性的集体指令，如“男同学在这一边排队”</h3>
-				</article>
-				<div class="weui-cells weui-cells_radio">
-					<label class="weui-cell weui-check__label" for="x11">
-						<div class="weui-cell__bd">
-							<p>满足</p>
-						</div>
-						<div class="weui-cell__ft">
-							<input type="radio" class="weui-check" name="radio1" id="x11" checked="checked">
-							<span class="weui-icon-checked"></span>
-						</div>
-					</label>
-					<label class="weui-cell weui-check__label" for="x12">
-						<div class="weui-cell__bd">
-							<p>不满足</p>
-						</div>
-						<div class="weui-cell__ft">
-							<input type="radio" name="radio1" class="weui-check" id="x12">
-							<span class="weui-icon-checked"></span>
-						</div>
-					</label>
-				</div>
-			</div>
-		</div>
-
-		<div class="weui-panel">
-			<h3 class="also-title">第2题</h3>
-			<div class="weui-panel__bd">
-				<article class="weui-article" style="border-top: 1px solid #f7f7f7; padding-bottom: 10px">
-					<h3>在大约10个人参与的幼儿园课堂上，孩子能否听懂并执行3个有针对性的集体指令，如“男同学在这一边排队”</h3>
-				</article>
-				<div class="weui-cells weui-cells_radio">
-					<label class="weui-cell weui-check__label" for="x21">
-						<div class="weui-cell__bd">
-							<p>满足</p>
-						</div>
-						<div class="weui-cell__ft">
-							<input type="radio" class="weui-check" name="radio2" id="x21" checked="checked">
-							<span class="weui-icon-checked"></span>
-						</div>
-					</label>
-					<label class="weui-cell weui-check__label" for="x22">
-						<div class="weui-cell__bd">
-							<p>不满足</p>
-						</div>
-						<div class="weui-cell__ft">
-							<input type="radio" name="radio2" class="weui-check" id="x22">
-							<span class="weui-icon-checked"></span>
-						</div>
-					</label>
-				</div>
-			</div>
-		</div>
-
-		<div class="weui-panel">
-			<h3 class="also-title">第3题</h3>
-			<div class="weui-panel__bd">
-				<article class="weui-article" style="border-top: 1px solid #f7f7f7; padding-bottom: 10px">
-					<h3>在大约10个人参与的幼儿园课堂上，孩子能否听懂并执行3个有针对性的集体指令，如“男同学在这一边排队”</h3>
-				</article>
-				<div class="weui-cells weui-cells_radio">
-					<label class="weui-cell weui-check__label" for="x31">
-						<div class="weui-cell__bd">
-							<p>满足</p>
-						</div>
-						<div class="weui-cell__ft">
-							<input type="radio" class="weui-check" name="radio3" id="x31" checked="checked">
-							<span class="weui-icon-checked"></span>
-						</div>
-					</label>
-					<label class="weui-cell weui-check__label" for="x32">
-						<div class="weui-cell__bd">
-							<p>不满足</p>
-						</div>
-						<div class="weui-cell__ft">
-							<input type="radio" name="radio3" class="weui-check" id="x32">
-							<span class="weui-icon-checked"></span>
-						</div>
-					</label>
-				</div>
-			</div>
-		</div>
-
-		<div class="also-btn-wrap" style="background-color: #fff">
-			<a href="javascript:;" class="weui-btn weui-btn_primary">提交</a>
-		</div>
-
+	<div id="testPro"></div>
+	<form   id="testBox">
+	<div class="also-btn-wrap" style="background-color: #fff">
+		<a href="javascript:;" class="weui-btn weui-btn_primary" id="submitBtn">提交</a>
+		<input type="hidden" id="token" name="token" value="${token}"/>
+		<input type="hidden" id="nlcs" name="nlcs" value="${nlcs}"/>
+		<input type="hidden" id="lxDmStr" name="lxDmStr" value="${lxDm}"/>
+		<input type="hidden" id="stuId" name="stuId" value="${stuId}"/>
+	</div>
+</form>
 <script type="text/javascript" src="./static/plug/weui.min.js"></script>
 </body>
 </html>

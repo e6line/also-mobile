@@ -1,10 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
 	<title>我</title>
 	<link rel="stylesheet" href="./static/plug/laydate/theme/default/laydate.css">
+	<script type="text/javascript">
+	var basePath ="<%=basePath%>";
+	var  headPATH="${pd.headPATH}";
+	var path ="<%=path%>";
+	var name="${pd.name }";
+	var birthYear ="${pd.year}";
+	var birthMonth ="${pd.month}";
+	var phone ="${pd.PHONE }";
+	</script>
 </head>
 <body ontouchstart>
 
@@ -14,11 +23,11 @@
 			<div class="weui-cells">
 				<div class="weui-cell">
 					<div class="weui-cell__hd" style="position: relative; margin-right: 10px; border-radius: 50%; overflow:hidden;">
-						<img src="../img/pic_160.png" style="width: 80px;display: block">
+						<img src="../img/logo.png" style="width: 80px;display: block" id="getUserAvatar">
 					</div>
 					<div class="weui-cell__bd">
-						<p>王一冰</p>
-						<p style="font-size: 13px;color: #888888;">4岁7个月 / 18601142667</p>
+						<p id="name">--</p>
+						<p style="font-size: 13px;color: #888888;"><i id="birthday">--</i> / <i id="phone">--</i></p>
 					</div>
 				</div>
 			</div>
@@ -26,37 +35,46 @@
 			<div class="weui-cells">
 				<div class="weui-cell weui-cell_access">
 					<div class="weui-cell__hd" style="position: relative; margin-right: 10px;">
-						<img src="../img/tabbar_icon_book_select.png" style="width: 24px;display: block">
+						<img src="../img/edit.png" style="width: 24px;display: block">
 					</div>
-					<div class="weui-cell__bd">
-						<span style="vertical-align: middle">金手册</span>
-					</div>
-					<div class="weui-cell__ft"></div>
-				</div>
-				<div class="weui-cell weui-cell_access">
-					<div class="weui-cell__hd" style="position: relative; margin-right: 10px;">
-						<img src="../img/tabbar_icon_assess_select.png" style="width: 24px;display: block">
-					</div>
-					<div class="weui-cell__bd">
-						<span style="vertical-align: middle">评估</span>
+					<div class="weui-cell__bd btns-me">
+						<span style="vertical-align: middle" data_href="showMyManual.do?mobileFlag=mobile">今日手册</span>
 					</div>
 					<div class="weui-cell__ft"></div>
 				</div>
 				<div class="weui-cell weui-cell_access">
 					<div class="weui-cell__hd" style="position: relative; margin-right: 10px;">
-						<img src="../img/tabbar_icon_train_select.png" style="width: 24px;display: block">
+						<img src="../img/time.png" style="width: 24px;display: block">
 					</div>
-					<div class="weui-cell__bd">
-						<span style="vertical-align: middle">训练</span>
+					<div class="weui-cell__bd btns-me">
+						<span style="vertical-align: middle" data_href='getMyJndList.do?mobileFlag=mobile'>我的记录</span>
 					</div>
 					<div class="weui-cell__ft"></div>
 				</div>
 				<div class="weui-cell weui-cell_access">
 					<div class="weui-cell__hd" style="position: relative; margin-right: 10px;">
-						<img src="../img/tabbar_icon_book_normal.png" style="width: 24px;display: block">
+						<img src="../img/presentation.png" style="width: 24px;display: block">
 					</div>
-					<div class="weui-cell__bd">
-						<span style="vertical-align: middle">报告</span>
+					<div class="weui-cell__bd btns-me">
+						<span style="vertical-align: middle" data_href='test_viewreport.do?mobileFlag=mobile' >报告</span>
+					</div>
+					<div class="weui-cell__ft"></div>
+				</div>
+				<div class="weui-cell weui-cell_access">
+					<div class="weui-cell__hd" style="position: relative; margin-right: 10px;">
+						<img src="../img/share.png" style="width: 24px;display: block">
+					</div>
+					<div class="weui-cell__bd btns-me">
+						<span style="vertical-align: middle" data_href='wechat/shareChildsProgress.do?stuId=${pd.stuId }&num=${pd.stuDescNum}'>进步情况</span>
+					</div>
+					<div class="weui-cell__ft"></div>
+				</div>
+				<div class="weui-cell weui-cell_access">
+					<div class="weui-cell__hd" style="position: relative; margin-right: 10px;">
+						<img src="../img/setting.png" style="width: 24px;display: block">
+					</div>
+					<div class="weui-cell__bd btns-me">
+						<span style="vertical-align: middle" data_href='user_updateprofile.do?mobileFlag=mobile&saveFlag=0'>设置</span>
 					</div>
 					<div class="weui-cell__ft"></div>
 				</div>
@@ -67,8 +85,8 @@
 					<div class="weui-cell__hd" style="position: relative; margin-right: 10px;">
 						<img src="../img/icon100_com_141.png" style="width: 24px;display: block; opacity: .3">
 					</div>
-					<div class="weui-cell__bd">
-						<span style="vertical-align: middle">退出</span>
+					<div class="weui-cell__bd btns-me">
+						<span style="vertical-align: middle" data_href="logout.do">退出</span>
 					</div>
 					<div class="weui-cell__ft"></div>
 				</div>
@@ -77,22 +95,22 @@
 
 		</div>
 		<div class="also-tabbar">
-			<a href="assessHome.html" class="also-tabbar__item">
+			<a href="<%=path%>/testprofile" class="also-tabbar__item">
 				<img src="../img/tabbar_icon_assess_normal.png" alt="" class="also-tabbar__icon also-tabbar__icon1">
 				<img src="../img/tabbar_icon_assess_select.png" alt="" class="also-tabbar__icon also-tabbar__icon2">
 				<p class="also-tabbar__label">评估</p>
 			</a>
-			<a href="plan.html" class="also-tabbar__item">
+			<a href="<%=path%>/showPlaneMain" class="also-tabbar__item">
 				<img src="../img/tabbar_icon_train_normal.png" alt="" class="also-tabbar__icon also-tabbar__icon1">
 				<img src="../img/tabbar_icon_train_select.png" alt="" class="also-tabbar__icon also-tabbar__icon2">
 				<p class="also-tabbar__label">训练</p>
 			</a>
-			<a href="goldManual.html" class="also-tabbar__item">
+			<a href="<%=path%>/showManual" class="also-tabbar__item">
 				<img src="../img/tabbar_icon_book_normal.png" alt="" class="also-tabbar__icon also-tabbar__icon1">
 				<img src="../img/tabbar_icon_book_select.png" alt="" class="also-tabbar__icon also-tabbar__icon2">
 				<p class="also-tabbar__label">金手册</p>
 			</a>
-			<a href="me.html" class="also-tabbar__item also-bar__item_on">
+			<a href="<%=path%>/user_mobile_mainindex" class="also-tabbar__item also-bar__item_on">
 				<img src="../img/tabbar_icon_my_normal.png" alt="" class="also-tabbar__icon also-tabbar__icon1">
 				<img src="../img/tabbar_icon_my_select.png" alt="" class="also-tabbar__icon also-tabbar__icon2">
 				<p class="also-tabbar__label">我</p>

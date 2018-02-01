@@ -4,8 +4,35 @@ import weuiCss from '../css/weui.min.css';
 import style from '../css/css.css';
 // 引入zepto
 import $ from 'zepto';
+var wx = require('weixin-js-sdk');
+import weui from '../js/weui.min.js';
 // var $ = require('zepto');
+$(function(){
+	//防止返回历史记录
+	var historyUrl = window.location.href;
+	if(historyUrl.indexOf("goBind")>-1){
+		pushHistory(historyUrl);
+	}
 
+	function pushHistory(url) {
+			var state = {
+					title: "title",
+					url: url   };
+			window.history.replaceState(state,null,url)
+			window.history.pushState(state, "title", url);
+	};
+	window.addEventListener("popstate", function(e) {
+
+	 //alert("我监听到了浏览器的返回按钮事件啦");//根据自己的需求实现自己的功能
+	 var ua = navigator.userAgent.toLowerCase();
+	 if(ua.match(/MicroMessenger/i)=="micromessenger") {
+		 var his = window.location.href;
+		 if(his.indexOf("goBind")>-1){
+			 wx.closeWindow();
+		 }
+	 }
+	}, false);
+})
 // 公共插架 global
 module.exports = {
 	topBar: function (callBack, className) {
@@ -81,7 +108,7 @@ module.exports = {
 						console.log(2)
 					}
 				}]
-			}); 
+			});
 		*/
 		var btnsHtml = '';
 		for(var i = 0; i < options.btns.length; i++){
@@ -110,7 +137,7 @@ module.exports = {
 							'</div>'+
 						'</div>'+
 					'</div>';
-			
+
 		if($("#msgPage").length>0){
 			$("#msgPage").remove();
 		}
@@ -123,6 +150,31 @@ module.exports = {
 				options.btns[_index].callBack();
 			}
 		});
+	},
+	alsoAjax:function(obj){
+		var loading = weui.loading('提交中...');
+		$.ajax({
+			cache : false,
+			type : "POST",
+			url : obj.url,
+			data : obj.info, //要发送的是ajaxFrm表单中的数据
+			async : false,
+			error : function(request) {
+				loading.hide();
+				weui.toast('服务器繁忙！', 3000);
+			},
+			success : function(data) {
+				loading.hide();
+				if(typeof obj.callBack == "function"){
+					obj.callBack(data)
+				}
+			}
+		});
+	},
+	arrayRemove:function(delEle,array){
+		var index =$.inArray(delEle,array);
+		if(index>-1){
+			array.splice(index, 1);
+		}
 	}
 }
-

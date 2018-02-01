@@ -8,10 +8,17 @@
 	var iepLogResult="${iepLogResult}";
 	var isUpgrade= "${pd.isUpgrade}";
 	var nlMcForNext = "${pd.nlMcForNext}";
+	var iepLib ="${iepLib}"
 	var timeData ="${pd.tj}";
+	timeData=[]
+
+	var iepLogResult = {"bz":"1111","count":0,"iepId":"","iepUsrId":"","jndDm":"010516","jndMc":"","lxDm":"","lxMc":"","nlDm":"","rq":{"date":17,"day":3,"hours":0,"minutes":0,"month":0,"seconds":0,"time":1516118400000,"timezoneOffset":-480,"year":118},"tgl":0.4,"userId":"","wcqk":"2"};
+	var isUpgrade = "Y", nlMcForNext = "数概念",timeData =[["2018年01月07日","90"],["2018年01月13日","90"],["2018年01月14日","90"],["2018年01月15日","80"],["2018年01月16日","80"],["2018年01月17日","70"]];
+
 	</script>
 </head>
 <body ontouchstart>
+	<div id="iepInfoBox">
 <div class="also-plan-alert">
 	<form method="post" action="<%=path%>/saveIepInfo.do" id='basicInfo'>
 	<div class="weui-cells">
@@ -46,10 +53,10 @@
 		</div>
 		<div class="weui-cell">
 			<div class="weui-cell__hd">
-				<label for="" class="weui-label">备注</label>
+				<label for="" class="weui-label">子项目</label>
 			</div>
 			<div class="weui-cell__bd">
-				<input class="weui-input" name="bz" id='bz' type="text" placeholder="请输入文本"/>
+				<input class="weui-input" name="bz" id='bz' type="text" placeholder="请输入子项目"/>
 			</div>
 		</div>
 	</div>
@@ -63,10 +70,12 @@
 	<input id="saveDate" name='date' type='hidden' value='${pd.sysdate }'></input>
 	<input id="saveFlag" name ="saveFlag" type='hidden' value='${pd.saveFlag }'></input>
 </form>
+
+</div>
 	<div class="weui-cells">
-		<div class="weui-tab">
+		<div class="weui-tab" id="iepTab">
 			<div class="weui-navbar">
-				<div class="weui-navbar__item weui-bar__item_on">
+				<div class="weui-navbar__item ">
 					说明
 				</div>
 				<div class="weui-navbar__item">
@@ -74,7 +83,7 @@
 				</div>
 			</div>
 			<div class="weui-tab__panel">
-				<div>
+				<div class="weui-tab__content">
 					<article class="weui-article">
 						<section>
 							<section>
@@ -98,7 +107,7 @@
 						</section>
 					</article>
 				</div>
-				<div style="display:none">
+				<div  class="weui-tab__content">
 					<article class="weui-article">
 						<div id="iep-info-echarts" ></div>
 					</article>
@@ -106,6 +115,18 @@
 			</div>
 		</div>
 	</div>
+	<div class="weui-cells">
+		<h3 class="also-title">图片</h3>
+		<div class="weui-panel__bd">
+			<article class="weui-article">
+				<ul class="weui-uploader__files" id="uploaderFiles">
+					<li class="weui-uploader__file also-pic-item"><img src="../img/testImg.jpg"></li>
+					<li class="weui-uploader__file also-pic-item"><img src="../img/testImg.jpg"></li>
+					<li class="weui-uploader__file also-pic-item"><img src="../img/logo.png"></li>
+				</ul>
+			</article>
+			</div>
+		</div>
 	<div class="also-actionBar-seat">
 		<div class="also-actionBar">
 			<div class="also-actionBar-wrap">

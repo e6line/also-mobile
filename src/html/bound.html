@@ -11,7 +11,7 @@
 		<div class="also-logo">
 			<img src="../img/logo.png">
 		</div>
-		<form id="basicInfo" method="post" action="login_login">
+		<form id="basicInfo" method="post" action="tool/checkCodeAll.do">
 			<div class="weui-cells weui-cells_form">
 				<div class="weui-cell weui-cell_select weui-cell_select-before">
 					<div class="weui-cell__hd">
@@ -23,7 +23,13 @@
 						</select>
 					</div>
 					<div class="weui-cell__bd">
-						<input class="weui-input" type="number" name="PHONE" pattern="[0-9]*" maxlength="11" placeholder="请输入手机号" datatype="m" maxlength="11" errormsg="您输入的手机号码有误！" nullmsg="请输入手机号码！" ajaxurl="tool/checkCodeAll.do?flag=hasU&isPhone=phone&isUser=user" >
+						<input class="weui-input" type="text" name="PHONE" id="PHONE"pattern="[0-9]*" maxlength="11" placeholder="请输入手机号" datatype="m"  errormsg="您输入的手机号码有误！" nullmsg="请输入手机号码！"  >
+					</div>
+				</div>
+				<div class="weui-cell" style="display:none;" id="yqmArea">
+					<div class="weui-cell__hd"><label class="weui-label">邀请码</label></div>
+					<div class="weui-cell__bd">
+						<input class="weui-input" type="text" pattern="[0-9a-zA-Z]{8,8}"  placeholder="请输入邀请码"maxlength="8" ajaxurl="tool/checkCodeAll.do?flag=yqm" id="yqm"name="yqm" errormsg="您输入的邀请码有误！" nullmsg="邀请码不能为空！">
 					</div>
 				</div>
 				<div class="weui-cell weui-cell_vcode">
@@ -31,18 +37,17 @@
 						<label class="weui-label">验证码</label>
 					</div>
 					<div class="weui-cell__bd">
-						<input class="weui-input" name="mobCode" maxlength="6" type="text" placeholder="请输入验证码" maxlength="6" datatype="*"  errormsg="您输入的验证码有误！" nullmsg="请输入验证码！">
+						<input class="weui-input" name="mobCode" id="mobCode" maxlength="6" type="text" placeholder="请输入验证码" maxlength="6"  datatype="*"  errormsg="您输入的验证码有误！" nullmsg="请输入验证码！">
 					</div>
 					<div class="weui-cell__ft">
 						<button type="button" class="weui-vcode-btn" id="codehref">获取验证码</button>
-						<input type="hidden" name='flag' value='checkCodeAndPhone'>
-						<input type="hidden" name='type' value='resetPwd'>
+						<input type="hidden" name='boundFlag' id="boundFlag"value="bound">
 					</div>
 				</div>
 			</div>
 
 			<div class="also-btn-wrap">
-				<a href="javascript:;" id="btn_sub" class="weui-btn weui-btn_primary">绑定</a>
+				<button type="button" id="btn_sub" class="weui-btn weui-btn_primary">绑定</button>
 			</div>
 		</form>
 	</div>

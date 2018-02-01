@@ -3,26 +3,52 @@ import global from '../js/global.js';
 $(function(){
 	// 非微信浏览器添加topBar
 	global.topBar(function () {
-		console.log("这里是返回");
+		window.history.go(-1);
+	});
+	var resultBox =$('.also-as-re').empty();
+	$.each(baseData,function(index,obj){
+		var qDm =obj.qDm;
+		var lxMc =obj.lxMc;
+		var title =obj.title;
+		var czff =obj.czff;
+		var jnd =obj.jnd;
+		var qScore =obj.qScore;
+		var btnClass="";
+		var btnTxt=""
+		if(qScore=='3'){
+			btnClass="as-btn2";
+			btnTxt="满足"
+		}else if(qScore=='1') {
+			btnClass="as-btn1";
+			btnTxt="部分满足"
+		}else {
+			btnClass="as-btn3";
+			btnTxt="不满足"
+		}
+		var i =index+1
+		var panel =$('<div class="weui-panel"><div class="weui-panel__hd">第'+i+'题（'+qDm+'）</div> </div>');
+		var panelBd =$('<div class="weui-media-box weui-media-box_text"></div>');
+		var tmP =$('<p class="weui-media-box__desc testTileAlert">'+title+'</p>');
+		tmP.prop("czff",czff);
+		var ul =$('<ul class="weui-media-box__info"><li class="weui-media-box__info__meta">'+lxMc+'</li><li class="weui-media-box__info__meta weui-media-box__info__meta_extra">'+jnd+'</li><li class="also-as-btn-wrap"><a class="also-as-btn '+btnClass+'" href="javascript:;">'+btnTxt+'</a></li></ul>');
+		panelBd.append(tmP);
+		panelBd.append(ul);
+		panel.append(panelBd);
+		resultBox.append(panel);
+	})
+	$(".testTileAlert").off();
+	$(".testTileAlert").on('click',function(){
+		var content = $(this).prop("czff").replace(/<br>/g,"");
+		weui.dialog({
+    title: '操作方法',
+    content: content,
+    className: 'custom-classname',
+    buttons: [ {
+        label: '关闭',
+        type: 'primary',
+        onClick: function () {  }
+    }]
+});
 	});
 
-	// 日期控件生成
-	if("undefined" != typeof mark){
-		laydate.render({
-			elem: '#rb-date',
-			position: 'static',
-			change: function(value, date){ //监听日期被切换
-				// console.log(1111, value, date)
-				alert('你选中日期为:' + value);
-			},
-			mark: mark,
-			theme: 'rb',
-			done: function(value, date, endDate){
-				// console.log(value); //得到日期生成的值，如：2017-08-18
-				// console.log(date); //得到日期时间对象：{year: 2017, month: 8, date: 18, hours: 0, minutes: 0, seconds: 0}
-				// console.log(endDate); //得结束的日期时间对象，开启范围选择（range: true）才会返回。对象成员同上。
-			},
-			showBottom: false
-		});
-	}
 });

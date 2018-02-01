@@ -5,216 +5,90 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
 	<title>评估首页</title>
 	<link rel="stylesheet" href="./static/plug/laydate/theme/default/laydate.css">
+	<script type="text/javascript">
+	var basePath ="<%=basePath%>";
+	var stuId =  "${stuId}";
+var baseData, promoteData=[],ranking=[],promoteText;
+var xzbz="${xzbz}",lxDmRe="${lxDmRe}",lxMcRe="${lxMcRe}";
+var paperList=[]
+var myData="${pd.baseData.size()}"
+    if(myData!='0'&&myData!='undefined'){
+			baseData={
+	"num": 1,
+	"age": "36-42",
+	"name": "陈闻序",
+	"xText": [
+		"学业能力", "认知能力", "生存技能", "生命技能", "社会规则", "社交技能"
+	],
+	"radar": {
+		"times": 1,
+		"value": [
+			283, 273, 179, 0, 260, 173
+		],
+		"stages": [
+			3, 3, 2, 0, 3, 2
+		]
+	},
+	"bar": {
+		"result": "0",
+		"text": "",
+		"value": [
+			0, 0, 0, 0, 0, 0
+		],
+		"date": ""
+	},
+	"ranking": {
+		"result": 0,
+		"text": "学业能力排在前38.39%的位置；认知能力排在前44.75%的位置；生存技能排在后40%的位置；社会规则排在前44.20%的位置；社交技能排在后40%的位置",
+		"value": [
+			"38.39", "44.75", "84.24", "0", "44.20", "67.31"
+		]
+	}
+}
+
+			if(typeof(baseData)=='object'&&baseData.bar!=null){
+				promoteData=baseData.bar.value
+				promoteText=baseData.bar.text
+			}
+			if(typeof(baseData)=='object'&&baseData.ranking!=null){
+				ranking=baseData.ranking.value
+			}
+    }
+debugger
+		// 能力雷达
+		var json ="${pd.json}"; json={"prevPaper":[{"avgScore":0,"cjsj":{"date":1,"day":3,"hours":11,"minutes":9,"month":10,"seconds":36,"time":1509505776000,"timezoneOffset":-480,"year":117},"lxDm":"01","lxMc":"","paperId":"a8513edb86ae43df8f8913cd3b07a0ef","paperSeq":4,"qssj":{"date":16,"day":4,"hours":11,"minutes":29,"month":10,"seconds":23,"time":1510802963000,"timezoneOffset":-480,"year":117},"studentId":"852ff9fde2ca4501bec0d0cb837bfc5b","tScore":100,"teacherId":"","testCount":0,"tjPercent":0,"tjTmCount":0,"tlevel":6,"tmCount":0,"ztsj":{"date":16,"day":4,"hours":11,"minutes":30,"month":10,"seconds":13,"time":1510803013000,"timezoneOffset":-480,"year":117},"zzsj":{"date":16,"day":4,"hours":11,"minutes":30,"month":10,"seconds":13,"time":1510803013000,"timezoneOffset":-480,"year":117}},{"avgScore":0,"cjsj":{"date":1,"day":3,"hours":11,"minutes":9,"month":10,"seconds":36,"time":1509505776000,"timezoneOffset":-480,"year":117},"lxDm":"02","lxMc":"","paperId":"9f89c479ae514e1bbc1c6dd7521d822c","paperSeq":4,"qssj":{"date":17,"day":3,"hours":19,"minutes":41,"month":0,"seconds":16,"time":1516189276000,"timezoneOffset":-480,"year":118},"studentId":"852ff9fde2ca4501bec0d0cb837bfc5b","tScore":48,"teacherId":"","testCount":0,"tjPercent":0,"tjTmCount":0,"tlevel":5,"tmCount":0,"ztsj":{"date":17,"day":3,"hours":19,"minutes":41,"month":0,"seconds":56,"time":1516189316000,"timezoneOffset":-480,"year":118},"zzsj":{"date":17,"day":3,"hours":19,"minutes":41,"month":0,"seconds":56,"time":1516189316000,"timezoneOffset":-480,"year":118}},{"avgScore":0,"cjsj":{"date":1,"day":3,"hours":11,"minutes":9,"month":10,"seconds":36,"time":1509505776000,"timezoneOffset":-480,"year":117},"lxDm":"03","lxMc":"","paperId":"d540b9b4dce84e57aa2b1103ff5df892","paperSeq":4,"qssj":{"date":17,"day":3,"hours":19,"minutes":48,"month":0,"seconds":58,"time":1516189738000,"timezoneOffset":-480,"year":118},"studentId":"852ff9fde2ca4501bec0d0cb837bfc5b","tScore":57,"teacherId":"","testCount":0,"tjPercent":0,"tjTmCount":0,"tlevel":4,"tmCount":0,"ztsj":{"date":17,"day":3,"hours":19,"minutes":49,"month":0,"seconds":29,"time":1516189769000,"timezoneOffset":-480,"year":118},"zzsj":{"date":17,"day":3,"hours":19,"minutes":49,"month":0,"seconds":29,"time":1516189769000,"timezoneOffset":-480,"year":118}},{"avgScore":0,"cjsj":{"date":1,"day":3,"hours":11,"minutes":9,"month":10,"seconds":36,"time":1509505776000,"timezoneOffset":-480,"year":117},"lxDm":"04","lxMc":"","paperId":"07935bdb24cf4f8fafbbaeaec92b0365","paperSeq":4,"qssj":{"date":17,"day":3,"hours":19,"minutes":50,"month":0,"seconds":37,"time":1516189837000,"timezoneOffset":-480,"year":118},"studentId":"852ff9fde2ca4501bec0d0cb837bfc5b","tScore":53,"teacherId":"","testCount":0,"tjPercent":0,"tjTmCount":0,"tlevel":3,"tmCount":0,"ztsj":{"date":17,"day":3,"hours":19,"minutes":51,"month":0,"seconds":13,"time":1516189873000,"timezoneOffset":-480,"year":118},"zzsj":{"date":17,"day":3,"hours":19,"minutes":51,"month":0,"seconds":13,"time":1516189873000,"timezoneOffset":-480,"year":118}}],"seriesList":[{"name":"第5次评估","value":["6-559","a","a","a","a","a"]},{"name":"第4次评估","value":["6-600","5-448","4-357","3-253","a","a"]},{"name":"第3次评估","value":["6-531","5-465","4-342","3-278","3-236","3-243"]},{"name":"第2次评估","value":["5-478","4-364","4-344","3-244","2-183","3-247"]},{"name":"第1次评估","value":["4-362","4-356","4-340","3-271","2-139","3-233"]}],"lastPaper":[{"avgScore":0,"cjsj":{"date":7,"day":0,"hours":13,"minutes":12,"month":0,"seconds":36,"time":1515301956000,"timezoneOffset":-480,"year":118},"lxDm":"01","lxMc":"","paperId":"dbb1393f33fd4f32a705eb8fe58959b8","paperSeq":5,"qssj":null,"studentId":"852ff9fde2ca4501bec0d0cb837bfc5b","tScore":59,"teacherId":"","testCount":0,"tjPercent":0,"tjTmCount":0,"tlevel":6,"tmCount":0,"ztsj":{"date":7,"day":0,"hours":13,"minutes":13,"month":0,"seconds":21,"time":1515302001000,"timezoneOffset":-480,"year":118},"zzsj":{"date":7,"day":0,"hours":13,"minutes":13,"month":0,"seconds":21,"time":1515302001000,"timezoneOffset":-480,"year":118}}],"fyspList":[{"lxScore":59,"level":"6阶","realTotol":559,"fysp":"67个月","lxMc":"学业能力","lxDm":"01","paperSeq":5,"zzrq":{"date":7,"day":0,"hours":13,"minutes":13,"month":0,"seconds":21,"time":1515302001000,"timezoneOffset":-480,"year":118}},{"lxScore":100,"level":"6阶","realTotol":600,"fysp":"72个月","lxMc":"学业能力","lxDm":"01","paperSeq":4,"zzrq":{"date":16,"day":4,"hours":11,"minutes":30,"month":10,"seconds":13,"time":1510803013000,"timezoneOffset":-480,"year":117}},{"lxScore":48,"level":"5阶","realTotol":448,"fysp":"53个月","lxMc":"认知能力","lxDm":"02","paperSeq":4,"zzrq":{"date":17,"day":3,"hours":19,"minutes":41,"month":0,"seconds":56,"time":1516189316000,"timezoneOffset":-480,"year":118}},{"lxScore":57,"level":"4阶","realTotol":357,"fysp":"42个月","lxMc":"生存技能","lxDm":"03","paperSeq":4,"zzrq":{"date":17,"day":3,"hours":19,"minutes":49,"month":0,"seconds":29,"time":1516189769000,"timezoneOffset":-480,"year":118}},{"lxScore":53,"level":"3阶","realTotol":253,"fysp":"30个月","lxMc":"生命技能","lxDm":"04","paperSeq":4,"zzrq":{"date":17,"day":3,"hours":19,"minutes":51,"month":0,"seconds":13,"time":1516189873000,"timezoneOffset":-480,"year":118}},{"lxScore":31,"level":"6阶","realTotol":531,"fysp":"63个月","lxMc":"学业能力","lxDm":"01","paperSeq":3,"zzrq":{"date":26,"day":3,"hours":21,"minutes":0,"month":6,"seconds":13,"time":1501074013000,"timezoneOffset":-480,"year":117}},{"lxScore":65,"level":"5阶","realTotol":465,"fysp":"55个月","lxMc":"认知能力","lxDm":"02","paperSeq":3,"zzrq":{"date":26,"day":3,"hours":21,"minutes":41,"month":6,"seconds":20,"time":1501076480000,"timezoneOffset":-480,"year":117}},{"lxScore":42,"level":"4阶","realTotol":342,"fysp":"41个月","lxMc":"生存技能","lxDm":"03","paperSeq":3,"zzrq":{"date":27,"day":4,"hours":9,"minutes":52,"month":6,"seconds":48,"time":1501120368000,"timezoneOffset":-480,"year":117}},{"lxScore":78,"level":"3阶","realTotol":278,"fysp":"33个月","lxMc":"生命技能","lxDm":"04","paperSeq":3,"zzrq":{"date":27,"day":4,"hours":10,"minutes":1,"month":6,"seconds":40,"time":1501120900000,"timezoneOffset":-480,"year":117}},{"lxScore":36,"level":"3阶","realTotol":236,"fysp":"28个月","lxMc":"社会规则","lxDm":"05","paperSeq":3,"zzrq":{"date":26,"day":3,"hours":22,"minutes":15,"month":6,"seconds":8,"time":1501078508000,"timezoneOffset":-480,"year":117}},{"lxScore":43,"level":"3阶","realTotol":243,"fysp":"29个月","lxMc":"社交技能","lxDm":"06","paperSeq":3,"zzrq":{"date":27,"day":4,"hours":9,"minutes":36,"month":6,"seconds":33,"time":1501119393000,"timezoneOffset":-480,"year":117}},{"lxScore":78,"level":"5阶","realTotol":478,"fysp":"57个月","lxMc":"学业能力","lxDm":"01","paperSeq":2,"zzrq":{"date":10,"day":1,"hours":19,"minutes":56,"month":3,"seconds":5,"time":1491825365000,"timezoneOffset":-480,"year":117}},{"lxScore":64,"level":"4阶","realTotol":364,"fysp":"43个月","lxMc":"认知能力","lxDm":"02","paperSeq":2,"zzrq":{"date":10,"day":1,"hours":19,"minutes":47,"month":3,"seconds":26,"time":1491824846000,"timezoneOffset":-480,"year":117}},{"lxScore":44,"level":"4阶","realTotol":344,"fysp":"41个月","lxMc":"生存技能","lxDm":"03","paperSeq":2,"zzrq":{"date":10,"day":1,"hours":19,"minutes":49,"month":3,"seconds":19,"time":1491824959000,"timezoneOffset":-480,"year":117}},{"lxScore":44,"level":"3阶","realTotol":244,"fysp":"29个月","lxMc":"生命技能","lxDm":"04","paperSeq":2,"zzrq":{"date":10,"day":1,"hours":19,"minutes":52,"month":3,"seconds":21,"time":1491825141000,"timezoneOffset":-480,"year":117}},{"lxScore":83,"level":"2阶","realTotol":183,"fysp":"21个月","lxMc":"社会规则","lxDm":"05","paperSeq":2,"zzrq":{"date":10,"day":1,"hours":19,"minutes":55,"month":3,"seconds":27,"time":1491825327000,"timezoneOffset":-480,"year":117}},{"lxScore":47,"level":"3阶","realTotol":247,"fysp":"29个月","lxMc":"社交技能","lxDm":"06","paperSeq":2,"zzrq":{"date":10,"day":1,"hours":19,"minutes":51,"month":3,"seconds":33,"time":1491825093000,"timezoneOffset":-480,"year":117}},{"lxScore":62,"level":"4阶","realTotol":362,"fysp":"43个月","lxMc":"学业能力","lxDm":"01","paperSeq":1,"zzrq":{"date":1,"day":0,"hours":19,"minutes":18,"month":0,"seconds":14,"time":1483269494000,"timezoneOffset":-480,"year":117}},{"lxScore":56,"level":"4阶","realTotol":356,"fysp":"42个月","lxMc":"认知能力","lxDm":"02","paperSeq":1,"zzrq":{"date":1,"day":0,"hours":19,"minutes":21,"month":0,"seconds":48,"time":1483269708000,"timezoneOffset":-480,"year":117}},{"lxScore":40,"level":"4阶","realTotol":340,"fysp":"40个月","lxMc":"生存技能","lxDm":"03","paperSeq":1,"zzrq":{"date":1,"day":0,"hours":19,"minutes":23,"month":0,"seconds":11,"time":1483269791000,"timezoneOffset":-480,"year":117}},{"lxScore":71,"level":"3阶","realTotol":271,"fysp":"32个月","lxMc":"生命技能","lxDm":"04","paperSeq":1,"zzrq":{"date":1,"day":0,"hours":19,"minutes":27,"month":0,"seconds":12,"time":1483270032000,"timezoneOffset":-480,"year":117}},{"lxScore":39,"level":"2阶","realTotol":139,"fysp":"16个月","lxMc":"社会规则","lxDm":"05","paperSeq":1,"zzrq":{"date":1,"day":0,"hours":19,"minutes":20,"month":0,"seconds":20,"time":1483269620000,"timezoneOffset":-480,"year":117}},{"lxScore":33,"level":"3阶","realTotol":233,"fysp":"27个月","lxMc":"社交技能","lxDm":"06","paperSeq":1,"zzrq":{"date":1,"day":0,"hours":19,"minutes":15,"month":0,"seconds":21,"time":1483269321000,"timezoneOffset":-480,"year":117}}],"legendList":["第5次评估","第4次评估","第3次评估","第2次评估","第1次评估"],"indicatorList":[{"max":600,"name":"学业能力"},{"max":600,"name":"认知能力"},{"max":600,"name":"生存技能"},{"max":600,"name":"生命技能"},{"max":600,"name":"社会规则"},{"max":600,"name":"社交技能"}]}</script>
+
+	</script>
 </head>
 <body ontouchstart>
 
-	<div class="also-tab">
+	<div class="also-tab" id="mainBox-test">
 		<div class="also-tab__panel" id="also-wrap">
-
 			<!-- 这里是内容 -->
 			<div class="weui-panel">
 				<h3 class="also-title">评估列表</h3>
-				<div class="weui-panel__bd">
-					<div class="weui-cell">
-						<div class="weui-cell__hd" style="position: relative;margin-right: 10px;">
-							<img src="../img/home_list_pic_1.png" style="width: 50px;display: block">
-						</div>
-						<div class="weui-cell__bd">
-							<p>学业能力</p>
-							<p class="also-as-il">
-								<span><i><img src="../img/home_list_icon_phase.png"></i><em>6阶</em></span>
-								<span><i><img src="../img/home_list_icon_score.png"></i><em>35分</em></span>
-								<span><i><img src="../img/home_list_icon_time.png"></i><em>1次</em></span>
-							</p>
-						</div>
-						<div class="weui-cell__ft">
-							<a href="###" class="also-as-home-btn">家长预防谈</a>
-						</div>
-					</div>
-					<div class="weui-cell">
-						<div class="weui-cell__hd" style="position: relative;margin-right: 10px;">
-							<img src="../img/home_list_pic_2.png" style="width: 50px;display: block">
-						</div>
-						<div class="weui-cell__bd">
-							<p>认知能力</p>
-							<p class="also-as-il">
-								<span><i><img src="../img/home_list_icon_phase.png"></i><em>6阶</em></span>
-								<span><i><img src="../img/home_list_icon_score.png"></i><em>35分</em></span>
-								<span><i><img src="../img/home_list_icon_time.png"></i><em>1次</em></span>
-							</p>
-						</div>
-						<div class="weui-cell__ft">
-							<a href="###" class="also-as-home-btn btn-green">开始评估</a>
-						</div>
-					</div>
-					<div class="weui-cell">
-						<div class="weui-cell__hd" style="position: relative;margin-right: 10px;">
-							<img src="../img/home_list_pic_3.png" style="width: 50px;display: block">
-						</div>
-						<div class="weui-cell__bd">
-							<p>生存技能</p>
-							<p class="also-as-il">
-								<span><i><img src="../img/home_list_icon_phase.png"></i><em>6阶</em></span>
-								<span><i><img src="../img/home_list_icon_score.png"></i><em>35分</em></span>
-								<span><i><img src="../img/home_list_icon_time.png"></i><em>1次</em></span>
-							</p>
-						</div>
-						<div class="weui-cell__ft">
-							<a href="###" class="also-as-home-btn btn-yellow">继续评估</a>
-						</div>
-					</div>
-					<div class="weui-cell">
-						<div class="weui-cell__hd" style="position: relative;margin-right: 10px;">
-							<img src="../img/home_list_pic_4.png" style="width: 50px;display: block">
-						</div>
-						<div class="weui-cell__bd">
-							<p>生命技能</p>
-							<p class="also-as-il">
-								<span><i><img src="../img/home_list_icon_phase.png"></i><em>6阶</em></span>
-								<span><i><img src="../img/home_list_icon_score.png"></i><em>35分</em></span>
-								<span><i><img src="../img/home_list_icon_time.png"></i><em>1次</em></span>
-							</p>
-						</div>
-						<div class="weui-cell__ft">
-							<a href="###" class="also-as-home-btn">家长预防谈</a>
-						</div>
-					</div>
-					<div class="weui-cell">
-						<div class="weui-cell__hd" style="position: relative;margin-right: 10px;">
-							<img src="../img/home_list_pic_5.png" style="width: 50px;display: block">
-						</div>
-						<div class="weui-cell__bd">
-							<p>社会规则</p>
-							<p class="also-as-il">
-								<span><i><img src="../img/home_list_icon_phase.png"></i><em>6阶</em></span>
-								<span><i><img src="../img/home_list_icon_score.png"></i><em>35分</em></span>
-								<span><i><img src="../img/home_list_icon_time.png"></i><em>1次</em></span>
-							</p>
-						</div>
-						<div class="weui-cell__ft">
-							<a href="###" class="also-as-home-btn btn-green">开始评估</a>
-						</div>
-					</div>
-					<div class="weui-cell">
-						<div class="weui-cell__hd" style="position: relative;margin-right: 10px;">
-							<img src="../img/home_list_pic_6.png" style="width: 50px;display: block">
-						</div>
-						<div class="weui-cell__bd">
-							<p>社会技能</p>
-							<p class="also-as-il">
-								<span><i><img src="../img/home_list_icon_phase.png"></i><em>6阶</em></span>
-								<span><i><img src="../img/home_list_icon_score.png"></i><em>35分</em></span>
-								<span><i><img src="../img/home_list_icon_time.png"></i><em>1次</em></span>
-							</p>
-						</div>
-						<div class="weui-cell__ft">
-							<a href="###" class="also-as-home-btn btn-green">开始评估</a>
-						</div>
-					</div>
+				<div class="weui-panel__bd" id="pglb">
 				</div>
 			</div>
 			<div class="weui-panel">
 				<h3 class="also-title">能力提升</h3>
-				<div class="weui-panel__bd">
-					<div class="weui-grids">
-						<div class="weui-grid" >
-							<div class="also-promote gray">
-								<div class="also-promote-score" style="height: 50%;"></div>
-								<span>50%</span>
-							</div>
-							<p class="weui-grid__label">学业能力</p>
-						</div>
-						<div class="weui-grid" >
-							<div class="also-promote gray">
-								<div class="also-promote-score" style="height: 50%;"></div>
-								<span>50%</span>
-							</div>
-							<p class="weui-grid__label">认知能力</p>
-						</div>
-						<div class="weui-grid" >
-							<div class="also-promote gray">
-								<div class="also-promote-score" style="height: 50%;"></div>
-								<span>50%</span>
-							</div>
-							<p class="weui-grid__label">生存技能</p>
-						</div>
-						<div class="weui-grid" >
-							<div class="also-promote gray">
-								<div class="also-promote-score" style="height: 50%;"></div>
-								<span>50%</span>
-							</div>
-							<p class="weui-grid__label">生命技能</p>
-						</div>
-						<div class="weui-grid" >
-							<div class="also-promote gray">
-								<div class="also-promote-score" style="height: 50%;"></div>
-								<span>50%</span>
-							</div>
-							<p class="weui-grid__label">社会规则</p>
-						</div>
-						<div class="weui-grid" >
-							<div class="also-promote gray">
-								<div class="also-promote-score" style="height: 50%;"></div>
-								<span>50%</span>
-							</div>
-							<p class="weui-grid__label">社交技能</p>
-						</div>
+				<div class="weui-panel__bd" >
+					<div class="weui-grids" id="nlts">
 					</div>
 				</div>
 			</div>
-			<div class="weui-panel">
-				<h3 class="also-title">能力雷达图</h3>
-				<div class="weui-panel__bd">
+			<div class="weui-panel" >
+				<h3 class="also-title">能力情况</h3>
+				<div class="weui-panel__bd" >
 					<!-- 能力雷达图 -->
+					<div id="also-promote-box" style="height:260px;"></div>
 					<!-- /能力雷达图 -->
 				</div>
 			</div>
 			<div class="weui-panel">
-				<h3 class="also-title">能力排名<span class="also-plac">综合排名：<i>12</i>名</span></h3>
-				<div class="weui-panel__bd">
-					<div class="weui-grids">
-						<div class="weui-grid" >
-							<div class="circle-wrap negative">
-								<span><i>50</i>%</span>
-								<svg class="circle" width="70" height="70"><path d="m35,2.5c17.955803,0 32.5,14.544199 32.5,32.5c0,17.955803 -14.544197,32.5 -32.5,32.5c-17.955803,0 -32.5,-14.544197 -32.5,-32.5c0,-17.955801 14.544197,-32.5 32.5,-32.5z" style="stroke-dashoffset: 102.122;"></path></svg>
-							</div>
-							<p class="weui-grid__label">学业能力</p>
-						</div>
-						<div class="weui-grid" >
-							<div class="circle-wrap negative">
-								<span><i>50</i>%</span>
-								<svg class="circle" width="70" height="70"><path d="m35,2.5c17.955803,0 32.5,14.544199 32.5,32.5c0,17.955803 -14.544197,32.5 -32.5,32.5c-17.955803,0 -32.5,-14.544197 -32.5,-32.5c0,-17.955801 14.544197,-32.5 32.5,-32.5z" style="stroke-dashoffset: 102.122;"></path></svg>
-							</div>
-							<p class="weui-grid__label">认知能力</p>
-						</div>
-						<div class="weui-grid" >
-							<div class="circle-wrap negative">
-								<span><i>50</i>%</span>
-								<svg class="circle" width="70" height="70"><path d="m35,2.5c17.955803,0 32.5,14.544199 32.5,32.5c0,17.955803 -14.544197,32.5 -32.5,32.5c-17.955803,0 -32.5,-14.544197 -32.5,-32.5c0,-17.955801 14.544197,-32.5 32.5,-32.5z" style="stroke-dashoffset: 102.122;"></path></svg>
-							</div>
-							<p class="weui-grid__label">生存技能</p>
-						</div>
-						<div class="weui-grid" >
-							<div class="circle-wrap negative">
-								<span><i>50</i>%</span>
-								<svg class="circle" width="70" height="70"><path d="m35,2.5c17.955803,0 32.5,14.544199 32.5,32.5c0,17.955803 -14.544197,32.5 -32.5,32.5c-17.955803,0 -32.5,-14.544197 -32.5,-32.5c0,-17.955801 14.544197,-32.5 32.5,-32.5z" style="stroke-dashoffset: 102.122;"></path></svg>
-							</div>
-							<p class="weui-grid__label">生命技能</p>
-						</div>
-						<div class="weui-grid" >
-							<div class="circle-wrap negative">
-								<span><i>50</i>%</span>
-								<svg class="circle" width="70" height="70"><path d="m35,2.5c17.955803,0 32.5,14.544199 32.5,32.5c0,17.955803 -14.544197,32.5 -32.5,32.5c-17.955803,0 -32.5,-14.544197 -32.5,-32.5c0,-17.955801 14.544197,-32.5 32.5,-32.5z" style="stroke-dashoffset: 102.122;"></path></svg>
-							</div>
-							<p class="weui-grid__label">社会规则</p>
-						</div>
-						<div class="weui-grid" >
-							<div class="circle-wrap negative">
-								<span><i>50</i>%</span>
-								<svg class="circle" width="70" height="70"><path d="m35,2.5c17.955803,0 32.5,14.544199 32.5,32.5c0,17.955803 -14.544197,32.5 -32.5,32.5c-17.955803,0 -32.5,-14.544197 -32.5,-32.5c0,-17.955801 14.544197,-32.5 32.5,-32.5z" style="stroke-dashoffset: 102.122;"></path></svg>
-							</div>
-							<p class="weui-grid__label">社交技能</p>
-						</div>
+				<h3 class="also-title">能力排名<span class="also-plac">综合排名：<i id="rankingResultTxt">-</i></span></h3>
+				<div class="weui-panel__bd" >
+					<div class="weui-grids" id='nlpm'>
 					</div>
 				</div>
 			</div>
@@ -222,28 +96,29 @@
 
 		</div>
 		<div class="also-tabbar">
-			<a href="assessHome.html" class="also-tabbar__item also-bar__item_on">
+			<a href="<%=path%>/testprofile" class="also-tabbar__item also-bar__item_on">
 				<img src="../img/tabbar_icon_assess_normal.png" alt="" class="also-tabbar__icon also-tabbar__icon1">
 				<img src="../img/tabbar_icon_assess_select.png" alt="" class="also-tabbar__icon also-tabbar__icon2">
 				<p class="also-tabbar__label">评估</p>
 			</a>
-			<a href="plan.html" class="also-tabbar__item">
+			<a href="<%=path%>/showPlaneMain" class="also-tabbar__item">
 				<img src="../img/tabbar_icon_train_normal.png" alt="" class="also-tabbar__icon also-tabbar__icon1">
 				<img src="../img/tabbar_icon_train_select.png" alt="" class="also-tabbar__icon also-tabbar__icon2">
 				<p class="also-tabbar__label">训练</p>
 			</a>
-			<a href="goldManual.html" class="also-tabbar__item">
+			<a href="<%=path%>/showManual" class="also-tabbar__item">
 				<img src="../img/tabbar_icon_book_normal.png" alt="" class="also-tabbar__icon also-tabbar__icon1">
 				<img src="../img/tabbar_icon_book_select.png" alt="" class="also-tabbar__icon also-tabbar__icon2">
 				<p class="also-tabbar__label">金手册</p>
 			</a>
-			<a href="me.html" class="also-tabbar__item">
+			<a href="<%=path%>/user_mobile_mainindex" class="also-tabbar__item">
 				<img src="../img/tabbar_icon_my_normal.png" alt="" class="also-tabbar__icon also-tabbar__icon1">
 				<img src="../img/tabbar_icon_my_select.png" alt="" class="also-tabbar__icon also-tabbar__icon2">
 				<p class="also-tabbar__label">我</p>
 			</a>
 		</div>
 	</div>
+<script type="text/javascript" src="./static/plug/video/video.min.js"></script>
 <script type="text/javascript" src="./static/plug/weui.min.js"></script>
 </body>
 </html>

@@ -1,15 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
 	<title>设置</title>
+	<script type="text/javascript">var path ="<%=path%>";var basePath="<%=basePath%>";var pd="${pd}";var stu="${stu}";var head="${head}";var manual="${manual}";var selectedCjDm="${selectedCjDm}";var setFlag="${setFlag}";var saveFlag ="${saveFlag}";
+ var path ="";var basePath="http://localhost:80/";var stu={"address":"","area":"","avgScore":0,"birthday":"2012-12-01","category":"","city":"朝阳区","disease":"","fName":"","fTel":"","feeling":"","insId":"","mName":"","mTel":"","name":"yili","pQq":"","pWx":"","province":"北京市","reinforcement":"","remarks":"","sex":"1","stuId":"","teacherId":"","testCount":0,"yxbz":""};var pd={"NAME":"yili","USER_ID":"c6b87a6623334c7f8dc05ef26bfcca7f","RIGHTS":"","IP":"","roleName":"学生","STATUS":"0","ROLE_ID":"355fed1271b14843b3c630048dbfb30e","PHONE":"18613823093","LAST_LOGIN":"2018-01-26 16:05:55","USERNAME":"18613823093","EMAIL":"","PASSWORD":"f3895880c6b81e791723c6a92a290a8bd3530a37","SKIN":"default"};var head={"mobileFlag":"mobile","MASTER_ID":"c6b87a6623334c7f8dc05ef26bfcca7f","headPATH":"uploadFiles/uploadImgs/20180126/a3974fff5a494fbf9bb3991bc12e5e01.jpeg"};var manual=[{"zcjMc":"家庭场景","zcjDm":"01","cjList":[{"cjMc":"穿脱衣裤","cjDm":"0101","imageNum":1},{"cjMc":"穿脱鞋袜","cjDm":"0102","imageNum":2},{"cjMc":"清洁洗漱","cjDm":"0103","imageNum":3},{"cjMc":"收纳衣被","cjDm":"0104","imageNum":4},{"cjMc":"整理物品","cjDm":"0105","imageNum":5},{"cjMc":"独立如厕","cjDm":"0106","imageNum":6},{"cjMc":"进食用餐","cjDm":"0107","imageNum":7},{"cjMc":"备餐助厨","cjDm":"0108","imageNum":8},{"cjMc":"餐前餐后","cjDm":"0109","imageNum":9},{"cjMc":"点心时间","cjDm":"0110","imageNum":10}]},{"zcjMc":"交通出行","zcjDm":"02","cjList":[{"cjMc":"步行出行","cjDm":"0201","imageNum":1},{"cjMc":"使用汽车","cjDm":"0202","imageNum":2},{"cjMc":"使用地铁","cjDm":"0203","imageNum":3},{"cjMc":"寻求协助","cjDm":"0204","imageNum":4},{"cjMc":"正确使用电梯","cjDm":"0205","imageNum":5}]},{"zcjMc":"公共场所","zcjDm":"03","cjList":[{"cjMc":"外出做客","cjDm":"0301","imageNum":1},{"cjMc":"去公园动物园","cjDm":"0302","imageNum":2},{"cjMc":"外出就餐","cjDm":"0303","imageNum":3},{"cjMc":"超市购物","cjDm":"0304","imageNum":4},{"cjMc":"就医","cjDm":"0305","imageNum":5},{"cjMc":"幼儿园基础","cjDm":"0306","imageNum":6},{"cjMc":"使用电话","cjDm":"0307","imageNum":7}]},{"zcjMc":"游戏与技能","zcjDm":"04","cjList":[{"cjMc":"游戏能力","cjDm":"0401","imageNum":1},{"cjMc":"写画能力","cjDm":"0402","imageNum":2},{"cjMc":"听讲故事","cjDm":"0403","imageNum":3}]}];var selectedCjDm="0101,0102,0107,0303,0306,0307,0401,0403";var setFlag="";var saveFlag ="";
+	</script>
 </head>
 <body ontouchstart>
 		<div class="weui-toptips weui-toptips_warn js_tooltips" style="display: none;">最多选择8种</div>
-		<div class="weui-tab">
+		<div class="weui-tab" id="userTab">
 			<div class="weui-navbar">
-				<div class="weui-navbar__item weui-bar__item_on">
+				<div class="weui-navbar__item">
 					基础信息
 				</div>
 				<div class="weui-navbar__item">
@@ -20,11 +23,11 @@
 				</div>
 			</div>
 			<div class="weui-tab__panel">
-				<div>
-					<form>
+				<div class="weui-tab__content">
+
 						<div class="weui-cells weui-cells_form" id="uploader">
 							<div class="also-portrait">
-								<img src="../img/logo3.png">
+								<img src="../img/logo3.png" id="userIcon">
 							</div>
 							<div class="weui-cell">
 								<div class="weui-cell__bd">
@@ -37,47 +40,57 @@
 											<ul class="weui-uploader__files" id="uploaderFiles">
 											</ul>
 											<div class="weui-uploader__input-box">
-												<input id="uploaderInput" class="weui-uploader__input" type="file" accept="image/*" capture="camera" multiple="" />
+												<input id="uploaderInput" class="weui-uploader__input" type="file" accept="image/*"  multiple="" />
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
+						<form id="basicInfo">
 						<div class="weui-cells__title">姓名</div>
 						<div class="weui-cells">
 							<div class="weui-cell">
 								<div class="weui-cell__bd">
-									<input class="weui-input" type="text" placeholder="请输入姓名">
+									<input class="weui-input" type="text" id="username" name="name" maxlength="30" required pattern="REG_NAME" placeholder="请输入姓名！请不要输入符号和空格！" emptyTips="姓名不应该为空" notMatchTips="您输入的姓名有误！">
 								</div>
 							</div>
 						</div>
 						<div class="weui-cells__title">性别</div>
 						<div class="weui-cells weui-cells_radio">
-							<label class="weui-cell weui-check__label" for="x11">
+							<label class="weui-cell weui-check__label" for="sex11">
 								<div class="weui-cell__bd">
 									<p>男</p>
 								</div>
 								<div class="weui-cell__ft">
-									<input type="radio" class="weui-check" name="radio1" id="x11">
+									<input type="radio" class="weui-check" name="sex" required id="sex11"  placeholder="请选择"tips="请选择性别！"value="1">
 									<span class="weui-icon-checked"></span>
 								</div>
 							</label>
-							<label class="weui-cell weui-check__label" for="x12">
+							<label class="weui-cell weui-check__label" for="sex10">
 								<div class="weui-cell__bd">
 									<p>女</p>
 								</div>
 								<div class="weui-cell__ft">
-									<input type="radio" name="radio1" class="weui-check" id="x12" checked="checked">
+									<input type="radio" name="sex" class="weui-check" id="sex10" value="0">
 									<span class="weui-icon-checked"></span>
 								</div>
 							</label>
+						</div>
+						<div class="weui-cells__title">联系方式</div>
+						<div class="weui-cells">
+							<div class="weui-cell">
+								<div class="weui-cell__bd">
+									<input class="weui-input" id="phone" name="phone"  type="text"  readonly value="">
+								</div>
+							</div>
 						</div>
 						<div class="weui-cells__title">生日</div>
 						<div class="weui-cells">
 							<div class="weui-cell">
 								<div class="weui-cell__bd">
-									<input class="weui-input" id="Birthday" type="text" placeholder="请选择">
+									<input class="weui-input" id="age" required type="text" placeholder="请选择"tips="请选择生日！">
+									<input class="weui-input" id="birthday"type="hidden"  name="birthday"  type="text" >
 								</div>
 							</div>
 						</div>
@@ -85,44 +98,53 @@
 						<div class="weui-cells">
 							<div class="weui-cell">
 								<div class="weui-cell__bd">
-									<input class="weui-input" id="area" type="text" placeholder="请选择">
+									<input class="weui-input" name="address"id="address" required type="text" placeholder="请选择"tips="请选所在地区！">
+									<input class="weui-input" id="province" name="province"  type="hidden" >
+									<input class="weui-input" id="city" name="city" type="hidden" >
+									<input class="weui-input" id="area" name="area"  type="hidden" >
 								</div>
 							</div>
 						</div>
 						<div class="also-btn-wrap">
-							<a href="javascript:;" id="btn_sub" class="weui-btn weui-btn_primary">保存</a>
+							<input type="hidden" id="roleFlag" name='roleFlag' value="${pd.roleName }">
+							<button type="button" id="basicInfoBtn" class="weui-btn weui-btn_primary">保存</button>
 						</div>
 					</form>
 				</div>
-				<div style="display:none">
-					<form>
+				<div class="weui-tab__content">
+					<form id='securityInfo'>
 						<div class="weui-cells__title">修改密码</div>
 						<div class="weui-cells">
 							<div class="weui-cell">
 								<div class="weui-cell__hd"><label class="weui-label">原密码</label></div>
 								<div class="weui-cell__bd">
-									<input class="weui-input" type="password" placeholder="请输入原密码">
+									<input class="weui-input" type="password"id="oldpassword" name="oldpassword" placeholder="请输入原密码" emptyTips="请输入原密码!" notMatchTips="输入的原密码不正确!">
 								</div>
 							</div>
 							<div class="weui-cell">
 								<div class="weui-cell__hd"><label class="weui-label">新密码</label></div>
 								<div class="weui-cell__bd">
-									<input class="weui-input" type="password" placeholder="请输入新密码">
+									<input class="weui-input" type="password" pattern="REG_PASSWORD" maxlength="18" placeholder="请输入新密码" id="PASSWORD" name="PASSWORD" emptyTips="新密码不能为空!"
+										notMatchTips="密码长度6-18位的任意字符!">
 								</div>
 							</div>
 							<div class="weui-cell">
 								<div class="weui-cell__hd"><label class="weui-label">确认密码</label></div>
 								<div class="weui-cell__bd">
-									<input class="weui-input" type="password" placeholder="请再次输入新密码">
+									<input class="weui-input" type="password" maxlength="18" placeholder="请再次输入新密码" id="agpassword" name="agpassword" emptyTips="确认密码不能为空!" notMatchTips="新密码和确认密码不一致!">
 								</div>
 							</div>
 						</div>
+						<div class="weui-cells__title">
+							密码必须至少6个字符，而且同时包含字母和数字。
+						</div>
 						<div class="also-btn-wrap">
-							<a href="javascript:;" id="btn_sub" class="weui-btn weui-btn_primary">保存</a>
+							<input type="hidden" id="roleFlag" name='roleFlag' value="${pd.roleName }">
+							<button type="button" id="securityInfoBtn" class="weui-btn weui-btn_primary">保存</button>
 						</div>
 					</form>
 				</div>
-				<div style="display:none">
+				<div class="weui-tab__content">
 					<div class="gold-set">
 						<div class="weui-panel">
 							<h3 class="also-title">家庭场景</h3>
@@ -247,7 +269,7 @@
 							</div>
 						</div>
 						<div class="also-btn-wrap">
-							<a href="javascript:;" class="weui-btn weui-btn_primary">保存</a>
+							<button type="button" class="weui-btn weui-btn_primary">保存</button>
 						</div>
 					</div>
 
@@ -256,6 +278,6 @@
 		</div>
 
 
-<script type="text/javascript" src="./static/plug/weui.min.js"></script>
+
 </body>
 </html>

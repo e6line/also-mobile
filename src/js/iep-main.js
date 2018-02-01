@@ -6,7 +6,8 @@ import global from '../js/global.js';
 $(function(){
 
 	//事件委托
-	$(document).on('click', '.plan-btn', function () {
+	$(document).off();
+	$(document).on('touchend', '.plan-btn', function () {
 		var loading = weui.loading('loading', {
 			className: 'custom-classname'
 		});

@@ -1,69 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
 	<title>金手册</title>
+	<script type="text/javascript">
+var basePath="<%=basePath%>";
+var manual =[{"zcjMc":"家庭场景","zcjDm":"01","cjList":[{"cjMc":"穿脱衣裤","cjDm":"0101"},{"cjMc":"穿脱鞋袜","cjDm":"0102"},{"cjMc":"清洁洗漱","cjDm":"0103"},{"cjMc":"收纳衣被","cjDm":"0104"},{"cjMc":"整理物品","cjDm":"0105"},{"cjMc":"独立如厕","cjDm":"0106"},{"cjMc":"进食用餐","cjDm":"0107"},{"cjMc":"备餐助厨","cjDm":"0108"},{"cjMc":"餐前餐后","cjDm":"0109"},{"cjMc":"点心时间","cjDm":"0110"}]},{"zcjMc":"交通出行","zcjDm":"02","cjList":[{"cjMc":"步行出行","cjDm":"0201"},{"cjMc":"使用汽车","cjDm":"0202"},{"cjMc":"使用地铁","cjDm":"0203"},{"cjMc":"寻求协助","cjDm":"0204"},{"cjMc":"正确使用电梯","cjDm":"0205"}]},{"zcjMc":"公共场所","zcjDm":"03","cjList":[{"cjMc":"外出做客","cjDm":"0301"},{"cjMc":"去公园动物园","cjDm":"0302"},{"cjMc":"外出就餐","cjDm":"0303"},{"cjMc":"超市购物","cjDm":"0304"},{"cjMc":"就医","cjDm":"0305"},{"cjMc":"幼儿园基础","cjDm":"0306"},{"cjMc":"使用电话","cjDm":"0307"}]},{"zcjMc":"游戏与技能","zcjDm":"04","cjList":[{"cjMc":"游戏能力","cjDm":"0401"},{"cjMc":"写画能力","cjDm":"0402"},{"cjMc":"听讲故事","cjDm":"0403"}]}];
+	</script>
 </head>
 <body ontouchstart>
-
-	<div class="weui-panel">
-		<div class="weui-grids also-grids">
-			<a href="javascript:;" class="weui-grid">
-				<div class="weui-grid__icon">
-					<i class="gold-icon c-0101"></i>
-				</div>
-				<p class="weui-grid__label">穿脱衣服</p>
-			</a>
-			<a href="javascript:;" class="weui-grid">
-				<div class="weui-grid__icon">
-					<i class="gold-icon c-0101"></i>
-				</div>
-				<p class="weui-grid__label">穿脱衣服</p>
-			</a>
-			<a href="javascript:;" class="weui-grid">
-				<div class="weui-grid__icon">
-					<i class="gold-icon c-0101"></i>
-				</div>
-				<p class="weui-grid__label">穿脱衣服</p>
-			</a>
-			<a href="javascript:;" class="weui-grid">
-				<div class="weui-grid__icon">
-					<i class="gold-icon c-0101"></i>
-				</div>
-				<p class="weui-grid__label">穿脱衣服</p>
-			</a>
-			<a href="javascript:;" class="weui-grid">
-				<div class="weui-grid__icon">
-					<i class="gold-icon c-0101"></i>
-				</div>
-				<p class="weui-grid__label">穿脱衣服</p>
-			</a>
-			<a href="javascript:;" class="weui-grid">
-				<div class="weui-grid__icon">
-					<i class="gold-icon c-0101"></i>
-				</div>
-				<p class="weui-grid__label">穿脱衣服</p>
-			</a>
-			<a href="javascript:;" class="weui-grid">
-				<div class="weui-grid__icon">
-					<i class="gold-icon c-0101"></i>
-				</div>
-				<p class="weui-grid__label">穿脱衣服</p>
-			</a>
-			<a href="javascript:;" class="weui-grid">
-				<div class="weui-grid__icon">
-					<i class="gold-icon c-0101"></i>
-				</div>
-				<p class="weui-grid__label">穿脱衣服</p>
-			</a>
-		</div>
-		<div class="also-btn-wrap">
-			<a href="javascript:;" class="weui-btn weui-btn_primary">设置</a>
-		</div>
+<div class="also-tab">
+	<div class="also-tab__panel" id="also-manual"></div>
+	<div class="also-tabbar">
+		<a href="<%=path%>/testprofile" class="also-tabbar__item">
+			<img src="../img/tabbar_icon_assess_normal.png" alt="" class="also-tabbar__icon also-tabbar__icon1">
+			<img src="../img/tabbar_icon_assess_select.png" alt="" class="also-tabbar__icon also-tabbar__icon2">
+			<p class="also-tabbar__label">评估</p>
+		</a>
+		<a href="<%=path%>/showPlaneMain" class="also-tabbar__item">
+			<img src="../img/tabbar_icon_train_normal.png" alt="" class="also-tabbar__icon also-tabbar__icon1">
+			<img src="../img/tabbar_icon_train_select.png" alt="" class="also-tabbar__icon also-tabbar__icon2">
+			<p class="also-tabbar__label">训练</p>
+		</a>
+		<a href="<%=path%>/showManual" class="also-tabbar__item also-bar__item_on">
+			<img src="../img/tabbar_icon_book_normal.png" alt="" class="also-tabbar__icon also-tabbar__icon1">
+			<img src="../img/tabbar_icon_book_select.png" alt="" class="also-tabbar__icon also-tabbar__icon2">
+			<p class="also-tabbar__label">金手册</p>
+		</a>
+		<a href="<%=path%>/user_mobile_mainindex" class="also-tabbar__item">
+			<img src="../img/tabbar_icon_my_normal.png" alt="" class="also-tabbar__icon also-tabbar__icon1">
+			<img src="../img/tabbar_icon_my_select.png" alt="" class="also-tabbar__icon also-tabbar__icon2">
+			<p class="also-tabbar__label">我</p>
+		</a>
 	</div>
-
-
+</div>
 <script type="text/javascript" src="./static/plug/weui.min.js"></script>
 </body>
 </html>

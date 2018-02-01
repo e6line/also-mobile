@@ -6,51 +6,39 @@ $(function(){
 	function changeCode() {
 		$("#codeImg").attr("src", "code.do?t=" + new Date().getTime());
 	}
-	function tooltips(msg){
-		var $tooltips = $('.js_tooltips');
-		$tooltips.html(msg)
-		if ($tooltips.css('display') != 'none') return;
-		$tooltips.css('display', 'block');
-		setTimeout(function () {
-			$tooltips.css('display', 'none');
-		}, 2000);
-	}
-
 	// 非微信浏览器添加topBar
 	global.topBar(function () {
 		window.history.back(0);
 	});
-	// 选项卡
-	global.tab(function (i) {
-		console.log(i);
-	});
 
-	changeCode();
+	//changeCode();
 	$("#changeCode").on("click", function(){
 		changeCode();
 		$("#CODE").val("").get(0).focus();
 	});
-
-	$("#basicInfo").Validform({
-		btnSubmit:"#btn_sub",
-		tiptype:function(msg, o, cssctl){
-			if(o.type==3){
-				weui.topTips(msg, 3000);
-			}
-		},
-		ignoreHidden: true,
-		showAllError : false,
-		postonce : false,
-		ajaxPost : true,
-		datatype : {},
-		beforeCheck : function(curform) {
-		},
-		beforeSubmit:function(curform){
-		},
-		callback : function(data) {
-				if(data.status == 'y') {
-					window.location.href = basePath+"/mobile_index";
+	// 表单提交
+		document.querySelector('#btn_sub').addEventListener('click', function () {
+			weui.form.validate('#basicInfo', function (error) {
+				if (!error) {
+					var info =$('#basicInfo').serializeJson();
+					var obj={
+						url:basePath+"login_login",
+						info:info,
+						callBack:function(data){
+							if(data.status=="y"){
+								window.location.href = basePath+"/mobile_index";
+							}else{
+								weui.topTips(data.info, 3000);
+							}
+						}
+					}
+					global.alsoAjax(obj);
+					/* setTimeout(function () {
+						loading.hide();
+						weui.toast('提交成功', 3000);
+					}, 1500); */
 				}
-			}
+			});
 		});
+
 });

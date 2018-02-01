@@ -24,7 +24,7 @@ module.exports = {
 				var a =$('<div href="javascript:;" class="weui-grid plan-btn"></div>');
 				var frag = '<img src="'+nlDm +'" alt="">';
 				var imgDiv =$('<div class="weui-grid__icon">'+ frag +'</div>');
-				var p =$('<p class="weui-grid__label">'+nlMc+'</p>');
+				var p =$('<p class="weui-grid__label">'+title+'</p>');
 				a.append(imgDiv);
 				a.append(p);
 				if(saveFlag=='Y'){

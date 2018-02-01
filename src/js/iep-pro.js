@@ -16,12 +16,13 @@ module.exports = {
 				var lxdm = obj.lxDm;
 				var nlDm = './static/img/i-' + obj.nlDm + '.png';
 				var nlMc = obj.nlMc;
+				var jndMc = obj.jndMc;
 				var title = obj.title;
 				var saveFlag = obj.saveFlag;
 				var a =$('<div href="javascript:;" class="weui-grid plan-btn"></div>');
 				var frag = '<img src="'+nlDm +'" alt="">';
 				var imgDiv =$('<div class="weui-grid__icon">'+ frag +'</div>');
-				var p =$('<p class="weui-grid__label">'+nlMc+'</p>');
+				var p =$('<p class="weui-grid__label">'+jndMc+'</p>');
 				if(saveFlag=='Y'){
 					a.addClass("also-saved");
 				}
@@ -35,6 +36,45 @@ module.exports = {
 			panelBd.append(nlDiv);
 			alsoIepProPanel.append(panelBd);
 		}
+		if(isUpgrade == "Y"){
+			weui.confirm('训练计划已满一周，是否继续训练？', {
+    title: '',
+    buttons: [{
+        label: '否',
+        type: 'default',
+        onClick: function(){
+					var info={
+						userId:stuId,
+						isUpgrade:"Y"
+					}
+					var obj={
+						url:basePath+"upgradePlanByUserId.do",
+						info:info,
+						callBack:function(data){
+							location.reload();
+						}
+					}
+					global.alsoAjax(obj);
+				}
+    }, {
+        label: '是',
+        type: 'primary',
+        onClick: function(){
+					var info={
+						userId:stuId,
+						isUpgrade:"N"
+					}
+					var obj={
+						url:basePath+"upgradePlanByUserId.do",
+						info:info,
+						callBack:function(data){
+						}
+					}
+					global.alsoAjax(obj);
+				 }
+    }]
+});
+	}
 	},
 	setArticleHeight: function() {
 		// 点击查看更多
