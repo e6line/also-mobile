@@ -1064,3 +1064,14 @@
 	color:#37b6bf;
 	font-weight: 600;
 }
+.weui-form-preview__label{
+	color:#333;
+}
+.weui-form-preview__value{
+	color:#666;
+}
+.also-preview__num{
+	font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
+	font-size: 1.2em!important;
+  color: black;
+}

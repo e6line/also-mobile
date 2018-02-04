@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
-	<title>金手册--技能页${jndMc}</title>
+	<title>${jndMc}</title>
 	<script type="text/javascript">
 		var basePath="<%=basePath%>";
 		var path="<%=path%>";
@@ -16,18 +16,58 @@
 
 	<div class="weui-panel">
 		<div class="weui-cells">
-			<h3 class="also-title">说明</h3>
-			<div class="weui-panel__bd">
-			<article class="weui-article">
-				<section>
-					<section id="manualSm">
-						<p >
-							说明文字学生资助政策体系建设在很大程度上实现了资助理念与资助方式的国际接轨，主要体现在学前教育、义务教育和高等教育阶段的学生资助：我国的学生资助政策体系建设在很大程度上实现了资助理念与资助方式的国际接轨......
-						</p>
-					</section>
-				</section>
-			</article>
-		</div>
+			<div class="weui-tab" id="skillTab">
+				<div class="weui-navbar">
+					<div class="weui-navbar__item ">
+						说明
+					</div>
+					<div class="weui-navbar__item">
+						记录
+					</div>
+				</div>
+				<div class="weui-tab__panel">
+					<div class="weui-tab__content">
+						<article class="weui-article">
+							<section>
+								<section id="manualSm">
+									<p >
+										说明文字学生资助政策体系建设在很大程度上实现了资助理念与资助方式的国际接轨，主要体现在学前教育、义务教育和高等教育阶段的学生资助：我国的学生资助政策体系建设在很大程度上实现了资助理念与资助方式的国际接轨......
+									</p>
+								</section>
+							</section>
+						</article>
+						<div class="weui-cells">
+							<h3 class="also-title">图片</h3>
+							<div class="weui-panel__bd">
+								<article class="weui-article">
+									<ul class="weui-uploader__files" id="manualFiles">
+										<li class="weui-uploader__file also-pic-item"><img src="<%=path%>/assets/img/question/0.jpg"></li>
+									</ul>
+								</article>
+								</div>
+							</div>
+					</div>
+					<div  class="weui-tab__content">
+						<input type='hidden' id='jndDm' name="jndDm" value='${jndDm}'>
+						<input type="hidden" name="page" value="1" id="skillInfoPage">
+						<div class="weui-form-preview" id="noneSkillData">
+								<div class="weui-form-preview__hd">
+										<div class="weui-form-preview__item">
+												<label class="weui-form-preview__label">暂无记录</label>
+
+										</div>
+								</div>
+						</div>
+						<div id="skillInfoPageBox">
+						</div>
+						<div class="weui-footer" id="getMoreSkillsInfo" style="display:none;">
+		            <p class="weui-footer__links">
+		                <a href="javascript:void(0);" class="weui-footer__link" >查看更多</a>
+		            </p>
+		        </div>
+					</div>
+				</div>
+			</div>
 		</div>
 		<!-- <h3 class="also-title">说明</h3>
 		<article class="weui-article">
@@ -41,18 +81,5 @@
 				</section>
 		</article> -->
 	</div>
-	<div class="weui-panel">
-		<div class="weui-cells">
-			<h3 class="also-title">图片</h3>
-			<div class="weui-panel__bd">
-				<article class="weui-article">
-					<ul class="weui-uploader__files" id="manualFiles">
-						<li class="weui-uploader__file also-pic-item"><img src="<%=path%>/assets/img/question/0.jpg"></li>
-					</ul>
-				</article>
-				</div>
-			</div>
-	</div>
-
 </body>
 </html>

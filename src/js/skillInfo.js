@@ -1,6 +1,7 @@
 import global from '../js/global.js';
 // 引入weuiJs
 import weui from '../js/weui.min.js';
+import skillsRecord from '../js/skillsRecord.js';
 var wcqk;var time;
 $(function(){
 	var bzMaxlen=$("#bz").attr("maxlength");
@@ -70,6 +71,14 @@ $(function(){
 	// 非微信浏览器添加topBar
 	global.topBar(function () {
 		window.history.go(-1);
+	});
+	weui.tab('#skillTab',{
+			defaultIndex: 0,
+			onChange: function(index){
+				if(index==1&&$("#skillInfoPageBox").children().length==0){
+					skillInfo()
+				}
+			}
 	});
 	$("#wcqkPic").off();
 	$("#wcqkPic").on("click",function(){
@@ -174,4 +183,18 @@ $("#save").on("click",function(){
 		}
 	})
 });
+$("#getMoreSkillsInfo a").off();
+$("#getMoreSkillsInfo a").on("click",function(){
+	$("#getMoreSkillsInfo").hide();
+	skillInfo();
+})
 });
+function skillInfo(){
+	var page =$("#skillInfoPage").val();
+	var jndDm =$("#jndDm").val();
+	var info ={
+		page:page,
+		jndDm:jndDm
+	}
+	skillsRecord.record(info);
+}
