@@ -37,10 +37,26 @@ module.exports = {
 			alsoIepProPanel.append(panelBd);
 		}
 		if(isUpgrade == "Y"){
-			weui.confirm('训练计划已满一周，是否继续训练？', {
+			weui.confirm('继续巩固“基础训练”，还是马上进阶到“项目训练”？', {
     title: '',
-    buttons: [{
-        label: '否',
+    buttons: [ {
+        label: '巩固',
+        type: 'primary',
+        onClick: function(){
+					var info={
+						userId:stuId,
+						isUpgrade:"N"
+					}
+					var obj={
+						url:basePath+"upgradePlanByUserId.do",
+						info:info,
+						callBack:function(data){
+						}
+					}
+					global.alsoAjax(obj);
+				 }
+    }，{
+        label: '进阶',
         type: 'default',
         onClick: function(){
 					var info={
@@ -56,22 +72,6 @@ module.exports = {
 					}
 					global.alsoAjax(obj);
 				}
-    }, {
-        label: '是',
-        type: 'primary',
-        onClick: function(){
-					var info={
-						userId:stuId,
-						isUpgrade:"N"
-					}
-					var obj={
-						url:basePath+"upgradePlanByUserId.do",
-						info:info,
-						callBack:function(data){
-						}
-					}
-					global.alsoAjax(obj);
-				 }
     }]
 });
 	}
