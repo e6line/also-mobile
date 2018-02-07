@@ -161,7 +161,7 @@ $(function(){
 	// 					text: '去登录',
 	// 					style: 'primary',
 	// 					callBack: function() {
-	// 						window.location.href = basePath+"login_toIndex";
+	// 						window.location.href = basePath+"login_toLogin";
 	// 					}
 	// 				}]
 	// 			});
@@ -204,7 +204,7 @@ $(function(){
 										text: '去登录',
 										style: 'primary',
 										callBack: function() {
-											window.location.href = basePath+"login_toIndex";
+											window.location.href = basePath+"login_toLogin";
 										}
 									}]
 								});

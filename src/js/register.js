@@ -85,7 +85,7 @@ $(function(){
 															text: '去登陆',
 															style: 'primary',
 															callBack: function() {
-																window.location.href = basePath+"/login_toIndex";
+																window.location.href = basePath+"/login_toLogin";
 															}
 														}]
 													});
