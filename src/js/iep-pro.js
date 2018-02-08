@@ -55,7 +55,7 @@ module.exports = {
 					}
 					global.alsoAjax(obj);
 				 }
-    }，{
+    },{
         label: '进阶',
         type: 'default',
         onClick: function(){
